@@ -1,0 +1,10 @@
+
+http://pnlybubbles.github.com/archive.html
+http://pnlybubbles.github.com/atom.xml
+http://pnlybubbles.github.com/categories.html
+http://pnlybubbles.github.com/index.html
+http://pnlybubbles.github.com/pages.html
+http://pnlybubbles.github.com/sitemap.txt
+http://pnlybubbles.github.com/tags.html
+
+http://pnlybubbles.github.com/test/2012/01/14/test
