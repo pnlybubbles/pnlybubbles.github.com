@@ -4,13 +4,49 @@
  <title>あわあわのブログ</title>
  <link href="http://pnlybubbles.github.com/atom.xml" rel="self"/>
  <link href="http://pnlybubbles.github.com"/>
- <updated>2013-01-14T03:37:48+09:00</updated>
+ <updated>2013-01-16T02:35:10+09:00</updated>
  <id>http://pnlybubbles.github.com</id>
  <author>
    <name>pnlybubbles</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>ブログを移転しました</title>
+   <link href="http://pnlybubbles.github.com/blog/2012/01/16/new-blog"/>
+   <updated>2012-01-16T10:30:00+09:00</updated>
+   <id>http://pnlybubbles.github.com/blog/2012/01/16/new-blog</id>
+   <content type="html">&lt;p&gt;いままで使っていたamebloからGitHubにブログを移転してきました。&lt;/p&gt;
+
+&lt;p&gt;管理上はamebloのほうが楽でしたが、余計なサービスが多くまた自由度が低かったため、ブログのスタイルを気にしはじめてから使いにくくなってしまいました。&lt;/p&gt;
+
+&lt;p&gt;あまり面倒なことはしたくなかったのですが、実際amebloを使っていたときは邪魔な広告などをcssやjQueryで強制的に排除したりしていたため規約に触れるところがありました・・・&lt;/p&gt;
+
+&lt;p&gt;縛られた環境でかつしょっちゅう仕様変更がある中、抜け道を探してスタイルをいじっていので、よっぽど管理がめんどくさいものになってしまったのです。&lt;/p&gt;
+
+&lt;p&gt;そのため、今回ブログの移転を決意しました。&lt;/p&gt;
+
+&lt;h2 id='githubjekyll'&gt;GitHubとJekyll&lt;/h2&gt;
+
+&lt;p&gt;このページは&lt;code&gt;Jekyll&lt;/code&gt;という静的サイトの作成をアシストしてくれるRubyのgemを利用して作成され、静的なページのみで構成されています。&lt;/p&gt;
+
+&lt;p&gt;いま、ブログを構成するというと動的なサイトを作る環境が必要だと考えるのは正しくありません。&lt;/p&gt;
+
+&lt;p&gt;ブログを作るにあたって&lt;code&gt;DISQUS&lt;/code&gt;のようなサービスを利用すればコメント投稿欄も作れますし、動的なサイトは必要としないのです。&lt;/p&gt;
+
+&lt;p&gt;そして、&lt;code&gt;GitHub pages&lt;/code&gt;にpushすれば簡単に公開することができます。&lt;/p&gt;
+
+&lt;p&gt;また、&lt;code&gt;Jekyll-Bootstrap&lt;/code&gt;を利用すれば簡単にデザインを変更することができるひな形を作ることもできます。&lt;/p&gt;
+
+&lt;h2 id='id36'&gt;今度とも宜しくお願いします&lt;/h2&gt;
+
+&lt;p&gt;記事の移行は行わない予定です。&lt;/p&gt;
+
+&lt;p&gt;また、以前のブログはそのまま残しておくつもりです。&lt;/p&gt;
+
+&lt;p&gt;新ブログでもどうぞよろしくお願いします。&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>テスト投稿タイトル</title>

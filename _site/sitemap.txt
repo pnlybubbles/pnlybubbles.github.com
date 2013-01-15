@@ -7,4 +7,5 @@ http://pnlybubbles.github.com/pages.html
 http://pnlybubbles.github.com/sitemap.txt
 http://pnlybubbles.github.com/tags.html
 
+http://pnlybubbles.github.com/blog/2012/01/16/new-blog
 http://pnlybubbles.github.com/test/2012/01/14/test
