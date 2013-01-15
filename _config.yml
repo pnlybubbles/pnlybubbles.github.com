@@ -16,7 +16,7 @@ author :
   email : 
   github : pnlybubbles
   twitter : pn1y
-  feedburner : 
+  feedburner : pnlybubbles
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
@@ -81,7 +81,7 @@ JB :
   comments :
     provider : disqus
     disqus :
-      short_name : jekyllbootstrap
+      short_name : pnlybubbles
     livefyre :
       site_id : 123
     intensedebate :
@@ -99,7 +99,7 @@ JB :
   analytics :
     provider : google 
     google : 
-        tracking_id : 'UA-123-12'
+        tracking_id : 'UA-37673062-1'
     getclicky :
       site_id : 
     mixpanel :
