@@ -109,6 +109,10 @@ h1,h2,h3,h4,h5,h6 {
 	border-radius: 4px;
 }
 
+.content .span4 .tag_box a {
+	background-color: #fff;
+}
+
 .container > footer {
   margin-top: 20px;
 }
@@ -158,7 +162,7 @@ h1,h2,h3,h4,h5,h6 {
 .tag_box a {
 	padding: 3px 6px;
 	margin: 2px;
-	background-color: #fff;
+	background-color: #eee;
 	color:#005F6B;
 	border-radius: 3px;
 	text-decoration:none;
