@@ -1,9 +1,15 @@
 /* Override some defaults */
-html, body {
+html {
+	height: 100%;
+}
+
+body {
    	background-image: url(img/background2.png);
   	-webkit-box-shadow: inset 15px 0 15px rgba(0, 0, 0, 0.2), inset -15px 0 15px rgba(0, 0, 0, 0.2);
   	-moz-box-shadow: inset 15px 0 15px rgba(0, 0, 0, 0.2), inset -15px 0 15px rgba(0, 0, 0, 0.2);
   	box-shadow: inset 15px 0 15px rgba(0, 0, 0, 0.2), inset -15px 0 15px rgba(0, 0, 0, 0.2);
+  	min-height: 100%;
+  	margin-bottom: 0px;
 }
 
 .header {
@@ -78,6 +84,10 @@ html, body {
 
 footer p {
 	color: #595959;
+}
+
+footer p a {
+	color: rgb(121, 121, 121) !important;
 }
 
 .content p {
