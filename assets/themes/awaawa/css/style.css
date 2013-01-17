@@ -10,6 +10,7 @@ body {
   	box-shadow: inset 15px 0 15px rgba(0, 0, 0, 0.2), inset -15px 0 15px rgba(0, 0, 0, 0.2);
   	min-height: 100%;
   	margin-bottom: 0px;
+  	min-width: 980px;
 }
 
 .header {
