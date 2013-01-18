@@ -4,7 +4,7 @@
  <title>あわあわのブログ</title>
  <link href="http://pnlybubbles.github.com/atom.xml" rel="self"/>
  <link href="http://pnlybubbles.github.com"/>
- <updated>2013-01-18T01:34:16+09:00</updated>
+ <updated>2013-01-19T04:48:02+09:00</updated>
  <id>http://pnlybubbles.github.com</id>
  <author>
    <name>pnlybubbles</name>
@@ -13,21 +13,161 @@
 
  
  <entry>
+   <title>きせーさーちβ版</title>
+   <link href="http://pnlybubbles.github.com/ruby/2012-01-19/kiseisearch"/>
+   <updated>2012-01-19T07:30:00+09:00</updated>
+   <id>http://pnlybubbles.github.com/ruby/2012-01-19/kiseisearch</id>
+   <content type="html">&lt;p&gt;Twitterの規制解除時間教えてくれるbotです。&lt;/p&gt;
+
+&lt;p&gt;あくまでもβ版。不具合があったりうまく動作しない場合もあります。了解の上でどうぞ。&lt;/p&gt;
+
+&lt;h3&gt;&lt;a href=&quot;http://twitter.com/kisei_search&quot; title=&quot;きせーさーちβ版&quot;&gt;@kisei_search&lt;/a&gt;&lt;/h3&gt;
+
+&lt;h2&gt;機能&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;規制解除時間を計算&lt;/li&gt;
+&lt;li&gt;セクション内120ポストで規制通知&lt;/li&gt;
+&lt;li&gt;解除されてから30分以内に解除されたアカウント以外で呟いた時に解除通知&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://twitter.com/kisei_search&quot; title=&quot;きせーさーちβ版&quot;&gt;@kisei_search&lt;/a&gt; が規制にかかっている時、 &lt;a href=&quot;http://twitter.com/kisei_search2&quot; title=&quot;きせーさーちβ版の規制垢&quot;&gt;@kisei_search2&lt;/a&gt; を利用&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;コマンド&lt;/h2&gt;
+
+&lt;h3&gt;基本的なコマンド&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;left&quot;&gt;コマンド&lt;/th&gt;
+&lt;th align=&quot;left&quot;&gt;概要&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;登録&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;フォローを返して登録を行います。※1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;フォロー解除&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;フォローを解除して登録されたデータをすべて削除します。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;いつ&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;取得済みデータから規制解除時刻を計算します。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;(screen_name)いつ&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;Twitterからデータを取得して規制解除時刻を計算します。登録されているユーザーの場合は取得済みデータから計算します。※2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;第n規制垢いつ&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;設定された規制垢の取得済みデータからその規制解除時刻を計算します。※3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;リセット&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;Twitterからデータを取得して規制解除時刻を計算します。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;h3&gt;規制用アカウントの設定コマンド&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;left&quot;&gt;コマンド&lt;/th&gt;
+&lt;th align=&quot;left&quot;&gt;概要&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;(screen_name)を第n規制垢に設定&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;(screen_name)を規制垢として設定して紐付けします。(screen_name)は登録してある必要があります。※2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;第n規制垢を解除&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;第n規制垢に設定されているアカウントとの紐付けを解除します。※3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;規制垢の紐付けを解除&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;あなたのアカウントが誰かの規制用アカウントとして設定されている場合に紐付けを強制的に解除します。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;規制垢を初期化&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;設定されている規制垢との紐付けをすべて解除します。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;p&gt;※1 「登録」とだけであり、「登録。」などでは反応しません。ただし空白は問題ありません。(ex「登録　」)&lt;/p&gt;
+
+&lt;p&gt;※2 (screen_name)はユーザー名のことです。@〜〜の部分です。コマンドの()は要りません。&lt;/p&gt;
+
+&lt;p&gt;※3 nは自然数。「第2規制垢」でなくても「W規制垢」のように書いても認識します。また「第n規制垢いつ」を利用するときには「本垢」も使用できます。&lt;/p&gt;
+
+&lt;h2&gt;チュートリアル&lt;/h2&gt;
+
+&lt;h3&gt;登録から規制アカウントの設定&lt;/h3&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-in-reply-to=&quot;259674252419141632&quot; lang=&quot;ja&quot;&gt;&lt;p&gt;@&lt;a href=&quot;https://twitter.com/pn1y&quot;&gt;pn1y&lt;/a&gt; 登録完了したのっ♪ 使い方がリンクに書いてあるから必ず見てね！ &lt;a href=&quot;http://t.co/ncqX9Nmc&quot; title=&quot;http://ameblo.jp/only-bubbles/entry-11373645951.html&quot;&gt;ameblo.jp/only-bubbles/e…&lt;/a&gt; (10/21 00:15:45)&lt;/p&gt;&amp;mdash; きせーさーちα版さん (@kisei_search2) &lt;a href=&quot;https://twitter.com/kisei_search2/status/259674276020486144&quot; data-datetime=&quot;2012-10-20T15:15:46+00:00&quot;&gt;10月 20, 2012&lt;/a&gt;&lt;/blockquote&gt;
+
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-in-reply-to=&quot;259674332517761024&quot; lang=&quot;ja&quot;&gt;&lt;p&gt;@&lt;a href=&quot;https://twitter.com/pnly2&quot;&gt;pnly2&lt;/a&gt; 登録完了したのっ♪ 使い方がリンクに書いてあるから必ず見てね！ &lt;a href=&quot;http://t.co/ncqX9Nmc&quot; title=&quot;http://ameblo.jp/only-bubbles/entry-11373645951.html&quot;&gt;ameblo.jp/only-bubbles/e…&lt;/a&gt; (10/21 00:16:03)&lt;/p&gt;&amp;mdash; きせーさーちα版さん (@kisei_search2) &lt;a href=&quot;https://twitter.com/kisei_search2/status/259674351509573632&quot; data-datetime=&quot;2012-10-20T15:16:04+00:00&quot;&gt;10月 20, 2012&lt;/a&gt;&lt;/blockquote&gt;
+
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-in-reply-to=&quot;259674376977387521&quot; lang=&quot;ja&quot;&gt;&lt;p&gt;@&lt;a href=&quot;https://twitter.com/pnly3&quot;&gt;pnly3&lt;/a&gt; 登録完了したのっ♪ 使い方がリンクに書いてあるから必ず見てね！ &lt;a href=&quot;http://t.co/ncqX9Nmc&quot; title=&quot;http://ameblo.jp/only-bubbles/entry-11373645951.html&quot;&gt;ameblo.jp/only-bubbles/e…&lt;/a&gt; (10/21 00:16:15)&lt;/p&gt;&amp;mdash; きせーさーちα版さん (@kisei_search2) &lt;a href=&quot;https://twitter.com/kisei_search2/status/259674399400136704&quot; data-datetime=&quot;2012-10-20T15:16:15+00:00&quot;&gt;10月 20, 2012&lt;/a&gt;&lt;/blockquote&gt;
+
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-in-reply-to=&quot;259674986111963136&quot; lang=&quot;ja&quot;&gt;&lt;p&gt;@&lt;a href=&quot;https://twitter.com/pn1y&quot;&gt;pn1y&lt;/a&gt; 第1規制垢に@&lt;a href=&quot;https://twitter.com/pnly2&quot;&gt;pnly2&lt;/a&gt;を設定したの♪ (10/21 00:18:36)&lt;/p&gt;&amp;mdash; きせーさーちα版さん (@kisei_search2) &lt;a href=&quot;https://twitter.com/kisei_search2/status/259674990323064832&quot; data-datetime=&quot;2012-10-20T15:18:36+00:00&quot;&gt;10月 20, 2012&lt;/a&gt;&lt;/blockquote&gt;
+
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-in-reply-to=&quot;259675114789040129&quot; lang=&quot;ja&quot;&gt;&lt;p&gt;@&lt;a href=&quot;https://twitter.com/pn1y&quot;&gt;pn1y&lt;/a&gt; 第2規制垢に@&lt;a href=&quot;https://twitter.com/pnly3&quot;&gt;pnly3&lt;/a&gt;を設定したの♪ (10/21 00:19:06)&lt;/p&gt;&amp;mdash; きせーさーちα版さん (@kisei_search2) &lt;a href=&quot;https://twitter.com/kisei_search2/status/259675120065454081&quot; data-datetime=&quot;2012-10-20T15:19:07+00:00&quot;&gt;10月 20, 2012&lt;/a&gt;&lt;/blockquote&gt;
+
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-in-reply-to=&quot;259675186268352512&quot; lang=&quot;ja&quot;&gt;&lt;p&gt;@&lt;a href=&quot;https://twitter.com/pn1y&quot;&gt;pn1y&lt;/a&gt; pn1yのセクションあたりのポスト数は 34 なの！規制解除時刻は 10/21 01:31:33 だよっ！あと 1時間 12分 9秒 なのです！ (10/21 00:19:23)&lt;/p&gt;&amp;mdash; きせーさーちα版さん (@kisei_search2) &lt;a href=&quot;https://twitter.com/kisei_search2/status/259675189955145730&quot; data-datetime=&quot;2012-10-20T15:19:24+00:00&quot;&gt;10月 20, 2012&lt;/a&gt;&lt;/blockquote&gt;
+
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-in-reply-to=&quot;259675281055440897&quot; lang=&quot;ja&quot;&gt;&lt;p&gt;@&lt;a href=&quot;https://twitter.com/pn1y&quot;&gt;pn1y&lt;/a&gt; pnly2のセクションあたりのポスト数は 93 なの！規制解除時刻は 10/21 01:36:27 だよっ！あと 1時間 16分 41秒 なのです！ (10/21 00:19:46)&lt;/p&gt;&amp;mdash; きせーさーちα版さん (@kisei_search2) &lt;a href=&quot;https://twitter.com/kisei_search2/status/259675286663204864&quot; data-datetime=&quot;2012-10-20T15:19:47+00:00&quot;&gt;10月 20, 2012&lt;/a&gt;&lt;/blockquote&gt;
+
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-in-reply-to=&quot;259675357291098114&quot; lang=&quot;ja&quot;&gt;&lt;p&gt;@&lt;a href=&quot;https://twitter.com/pn1y&quot;&gt;pn1y&lt;/a&gt; pnly3のセクションあたりのポスト数は 32 なの！規制解除時刻は 10/21 03:14:58 だよっ！あと 2時間 54分 53秒 なのです！ (10/21 00:20:04)&lt;/p&gt;&amp;mdash; きせーさーちα版さん (@kisei_search2) &lt;a href=&quot;https://twitter.com/kisei_search2/status/259675361485398016&quot; data-datetime=&quot;2012-10-20T15:20:05+00:00&quot;&gt;10月 20, 2012&lt;/a&gt;&lt;/blockquote&gt;
+
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-in-reply-to=&quot;259687380255125505&quot; lang=&quot;ja&quot;&gt;&lt;p&gt;@&lt;a href=&quot;https://twitter.com/pnly3&quot;&gt;pnly3&lt;/a&gt; pn1yのセクションあたりのポスト数は 42 なの！規制解除時刻は 10/21 01:31:33 だよっ！あと 23分 42秒 なのです！ (10/21 01:07:51)&lt;/p&gt;&amp;mdash; きせーさーちα版さん (@kisei_search2) &lt;a href=&quot;https://twitter.com/kisei_search2/status/259687385724514305&quot; data-datetime=&quot;2012-10-20T16:07:52+00:00&quot;&gt;10月 20, 2012&lt;/a&gt;&lt;/blockquote&gt;
+
+
+&lt;h3&gt;規制通知&lt;/h3&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-in-reply-to=&quot;259676470635532289&quot; lang=&quot;ja&quot;&gt;&lt;p&gt;@&lt;a href=&quot;https://twitter.com/pnly3&quot;&gt;pnly3&lt;/a&gt; もうすぐ規制だよっ！規制解除時刻は 10/21 03:14:58 なの！あと 2時間 50分 28秒 なのです！ (10/21 00:24:29)&lt;/p&gt;&amp;mdash; きせーさーちα版さん (@kisei_search2) &lt;a href=&quot;https://twitter.com/kisei_search2/status/259676474267811841&quot; data-datetime=&quot;2012-10-20T15:24:30+00:00&quot;&gt;10月 20, 2012&lt;/a&gt;&lt;/blockquote&gt;
+
+
+&lt;h3&gt;解除通知&lt;/h3&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-in-reply-to=&quot;259695653842731010&quot; lang=&quot;ja&quot;&gt;&lt;p&gt;@&lt;a href=&quot;https://twitter.com/pn1y&quot;&gt;pn1y&lt;/a&gt; 第1規制垢がたぶん規制解除されたよ♪ (10/21 01:40:43)&lt;/p&gt;&amp;mdash; きせーさーちα版さん (@kisei_search2) &lt;a href=&quot;https://twitter.com/kisei_search2/status/259695659354046464&quot; data-datetime=&quot;2012-10-20T16:40:44+00:00&quot;&gt;10月 20, 2012&lt;/a&gt;&lt;/blockquote&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
    <title>ブログを移転しました</title>
-   <link href="http://pnlybubbles.github.com/blog/2012/01/16/new-blog"/>
+   <link href="http://pnlybubbles.github.com/blog/2012-01-16/new-blog"/>
    <updated>2012-01-16T10:30:00+09:00</updated>
-   <id>http://pnlybubbles.github.com/blog/2012/01/16/new-blog</id>
+   <id>http://pnlybubbles.github.com/blog/2012-01-16/new-blog</id>
    <content type="html">&lt;p&gt;いままで使っていたamebloからGitHubにブログを移転してきました。&lt;/p&gt;
 
 &lt;p&gt;管理上はamebloのほうが楽でしたが、余計なサービスが多くまた自由度が低かったため、ブログのスタイルを気にしはじめてから使いにくくなってしまいました。&lt;/p&gt;
 
 &lt;p&gt;あまり面倒なことはしたくなかったのですが、実際amebloを使っていたときは邪魔な広告などをcssやjQueryで強制的に排除したりしていたため規約に触れるところがありました・・・&lt;/p&gt;
 
-&lt;p&gt;縛られた環境でかつしょっちゅう仕様変更がある中、抜け道を探してスタイルをいじっていので、よっぽど管理がめんどくさいものになってしまったのです。&lt;/p&gt;
+&lt;p&gt;縛られた環境でかつしょっちゅう仕様変更がある中、抜け道を探してスタイルをいじっていたので、よっぽど管理がめんどくさいものになってしまったのです。&lt;/p&gt;
 
 &lt;p&gt;そのため、今回ブログの移転を決意しました。&lt;/p&gt;
 
-&lt;h2 id='githubjekyll'&gt;GitHubとJekyll&lt;/h2&gt;
+&lt;h2&gt;GitHubとJekyll&lt;/h2&gt;
 
 &lt;p&gt;このページは&lt;code&gt;Jekyll&lt;/code&gt;という静的サイトの作成をアシストしてくれるRubyのgemを利用して作成され、静的なページのみで構成されています。&lt;/p&gt;
 
@@ -39,23 +179,25 @@
 
 &lt;p&gt;また、&lt;code&gt;Jekyll-Bootstrap&lt;/code&gt;を利用すれば簡単にデザインを変更することができるひな形を作ることもできます。&lt;/p&gt;
 
-&lt;h2 id='id149'&gt;今度とも宜しくお願いします&lt;/h2&gt;
+&lt;h2&gt;今度とも宜しくお願いします&lt;/h2&gt;
 
 &lt;p&gt;記事の移行は行わない予定です。&lt;/p&gt;
 
 &lt;p&gt;また、以前のブログはそのまま残しておくつもりです。&lt;/p&gt;
 
-&lt;p&gt;新ブログでもどうぞよろしくお願いします。&lt;/p&gt;</content>
+&lt;p&gt;新ブログでもどうぞよろしくお願いします。&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
    <title>テスト投稿タイトル</title>
-   <link href="http://pnlybubbles.github.com/test/2012/01/14/test"/>
+   <link href="http://pnlybubbles.github.com/test/2012-01-14/test"/>
    <updated>2012-01-14T07:00:00+09:00</updated>
-   <id>http://pnlybubbles.github.com/test/2012/01/14/test</id>
+   <id>http://pnlybubbles.github.com/test/2012-01-14/test</id>
    <content type="html">&lt;p&gt;テスト投稿本文&lt;/p&gt;
 
-&lt;p&gt;＼ｱｯｶﾘ〜ﾝ／&lt;/p&gt;</content>
+&lt;p&gt;＼ｱｯｶﾘ〜ﾝ／&lt;/p&gt;
+</content>
  </entry>
  
  

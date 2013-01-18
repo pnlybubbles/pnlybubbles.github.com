@@ -11,6 +11,7 @@ pygments: true
 #
 title : あわあわのブログ
 tagline: Ruby
+permalink: /:categories/:year-:month-:day/:title
 author :
   name : pnlybubbles
   email : 
@@ -27,6 +28,14 @@ author :
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
 production_url : http://pnlybubbles.github.com
+
+#markdown: kramdown
+#markdown: maruku
+markdown: rdiscount
+pygments: true
+#markdown: redcarpet2
+#redcarpet:
+  #extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data"]
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
@@ -124,3 +133,4 @@ JB :
   #   ./_includes/custom/[HELPER]
   # where [HELPER] is the name of the helper you are overriding.
   
+
