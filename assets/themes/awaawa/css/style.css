@@ -172,18 +172,18 @@ footer p a {
 
 /* customize bootstrap */
 
-.content .span8 p {
+.content p {
 	font-size: 15px;
 	line-height: 2em;
 	margin-bottom: 12px;
 }
 
-.content .span8 li {
+.content li {
 	font-size: 15px;
 	line-height: 2em;
 }
 
-.content .span8 table td {
+.content table td {
 	font-size: 14px;
 	line-height: 1.6em;
 }
@@ -192,26 +192,26 @@ h1,h2,h3,h4,h5,h6 {
 	margin-bottom: 5px;
 }
 
-.content .span8 h2 {
+.content h2 {
 	border-bottom: solid 1px #BBB;
 	margin-bottom: 15px;
 }
 
-.content .span8 h2:before {
+.content h2:nth-child(n+2):before {
 	content: "";
 	display: block;
 	width: 100%;
 	margin-top: 25px;
 }
 
-.content .span8 h3:before {
+.content h3:nth-child(n+2):before {
 	content: "";
 	display: block;
 	width: 100%;
 	margin-top: 15px;
 }
 
-.content .span8 code {
+.content code {
 	padding: 2px 3px;
 	margin: 0 3px;
 }

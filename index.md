@@ -7,8 +7,7 @@ tagline:
 
 ## ようこそ
 
-ブログをGitHubの方に移行しました。
-
+ブログをGitHubの方に移行しました。  
 これからもよろしくお願いします。
 
 ## 最近の記事
@@ -21,8 +20,6 @@ tagline:
 
 ## コンタクト
 
-Twitter: [@pn1y](http://twitter.com/pn1y)
-
-Skype: only-bubbles
-
+Twitter: [@pn1y](http://twitter.com/pn1y)  
+Skype: only-bubbles  
 Github: [pnlybubbles](https://github.com/pnlybubbles)
