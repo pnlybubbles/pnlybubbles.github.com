@@ -4,7 +4,7 @@
  <title>あわあわのブログ</title>
  <link href="http://pnlybubbles.github.com/atom.xml" rel="self"/>
  <link href="http://pnlybubbles.github.com"/>
- <updated>2013-01-21T00:57:45+09:00</updated>
+ <updated>2013-01-27T01:46:53+09:00</updated>
  <id>http://pnlybubbles.github.com</id>
  <author>
    <name>pnlybubbles</name>
@@ -22,6 +22,15 @@
 &lt;p&gt;あくまでもβ版。不具合があったりうまく動作しない場合もあります。了解の上でどうぞ。&lt;/p&gt;
 
 &lt;h3&gt;&lt;a href=&quot;http://twitter.com/kisei_search&quot; title=&quot;きせーさーちβ版&quot;&gt;@kisei_search&lt;/a&gt;&lt;/h3&gt;
+
+&lt;h2&gt;既知の問題&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;定期botを高い頻度で使っていると&lt;code&gt;最近3200ポストに3時間以上の離脱が見つからなかったの！&lt;/code&gt;と返されリセットできません。対処法としては定期botを解除し、3時間以上のポストの無い離脱を作るようにしてください。&lt;/li&gt;
+&lt;li&gt;サーバーのスペック不足やバクにより、結構な頻度でプログラムが落ちることがあります。&lt;/li&gt;
+&lt;li&gt;リセットの集中によりかなりの頻度でAPI規制にかかっている場合があります。&lt;/li&gt;
+&lt;/ul&gt;
+
 
 &lt;h2&gt;機能&lt;/h2&gt;
 
