@@ -4,7 +4,7 @@
  <title>あわあわのブログ</title>
  <link href="http://pnlybubbles.github.com/atom.xml" rel="self"/>
  <link href="http://pnlybubbles.github.com"/>
- <updated>2013-01-27T01:46:53+09:00</updated>
+ <updated>2013-02-01T20:21:26+09:00</updated>
  <id>http://pnlybubbles.github.com</id>
  <author>
    <name>pnlybubbles</name>
@@ -29,6 +29,7 @@
 &lt;li&gt;定期botを高い頻度で使っていると&lt;code&gt;最近3200ポストに3時間以上の離脱が見つからなかったの！&lt;/code&gt;と返されリセットできません。対処法としては定期botを解除し、3時間以上のポストの無い離脱を作るようにしてください。&lt;/li&gt;
 &lt;li&gt;サーバーのスペック不足やバクにより、結構な頻度でプログラムが落ちることがあります。&lt;/li&gt;
 &lt;li&gt;リセットの集中によりかなりの頻度でAPI規制にかかっている場合があります。&lt;/li&gt;
+&lt;li&gt;鍵アカウントの登録はできません。一旦解除してから登録をお願いします。&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -78,6 +79,10 @@
 &lt;td align=&quot;left&quot;&gt;リセット&lt;/td&gt;
 &lt;td align=&quot;left&quot;&gt;Twitterからデータを取得して規制解除時刻を計算します。&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;第n規制垢リセット&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;Twitterからデータを取得して設定された規制垢の規制解除時刻を計算します。&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -108,6 +113,10 @@
 &lt;td align=&quot;left&quot;&gt;規制垢を初期化&lt;/td&gt;
 &lt;td align=&quot;left&quot;&gt;設定されている規制垢との紐付けをすべて解除します。&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;規制垢の状況(β)&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;設定されている規制垢の割り当てを調べます。&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -117,6 +126,37 @@
 &lt;p&gt;※2 &lt;code&gt;screen_name&lt;/code&gt;はユーザー名のことです。@〜〜の部分です。&lt;/p&gt;
 
 &lt;p&gt;※3 nは自然数。「第2規制垢」でなくても「W規制垢」のように書いても認識します。また「第n規制垢いつ」を利用するときには「本垢」も使用できます。&lt;/p&gt;
+
+&lt;h3&gt;登録状況関連のコマンド&lt;/h3&gt;
+
+&lt;p&gt;きせーさーちは&lt;code&gt;@kisei_search&lt;/code&gt; &lt;code&gt;@kisei_search2&lt;/code&gt; &lt;code&gt;@kisei_search3&lt;/code&gt;があります。これらはきせーさーちのアカウント凍結を防止するため※4、相互フォローの状態でのみ使用可能です。 &lt;br/&gt;
+きせーさーちのアカウントはフォローしても、フォローバックされていない場合は使用不可ですので、下記のコマンドの&lt;code&gt;フォロー&lt;/code&gt;を行うことで使用可能にすることができます。&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;left&quot;&gt;コマンド&lt;/th&gt;
+&lt;th align=&quot;left&quot;&gt;概要&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;登録状況(β)&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;あなたがきせーさーちのアカウントを使用可能か、使用不可かを調べます。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;登録状況詳細(β)&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;あなたのアカウント、規制用アカウントの登録状況を調べます。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;left&quot;&gt;フォロー(β)&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;フォローしているきせーさーちのアカウントを使用可能にします。（フォローバックを行います）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;p&gt;※4 &lt;code&gt;@kisei_search3&lt;/code&gt;は一度凍結されてしまったので次に凍結されてしまうとさよならです。凍結回避にご協力お願いします。&lt;/p&gt;
 
 &lt;h2&gt;チュートリアル&lt;/h2&gt;
 
