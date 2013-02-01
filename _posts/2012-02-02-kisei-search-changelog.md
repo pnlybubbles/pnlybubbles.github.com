@@ -1,7 +1,7 @@
 ---
 layout: post
-title: きせーさーちβ版
-date: 2012-01-18 22:30:00
+title: きせーさーちβ版-ChangeLog
+date: 2012-02-02 00:30:00
 category : ruby
 tags : [twitter, 規制, きせーさーち, ruby, changelog]
 ---
