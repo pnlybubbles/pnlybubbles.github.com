@@ -24,7 +24,8 @@ Twitterの規制解除時間教えてくれるbotです。
 * 規制解除時間を計算
 * セクション内120ポストで規制通知
 * 解除されてから30分以内に解除されたアカウント以外で呟いた時に解除通知
-* [@kisei_search](http://twitter.com/kisei_search "きせーさーちβ版") が規制にかかっている時、 [@kisei_search2](http://twitter.com/kisei_search2 "きせーさーちβ版の規制垢") を利用
+* [@kisei_search](http://twitter.com/kisei_search "きせーさーちβ版") が規制にかかっている時、 [@kisei_search2](http://twitter.com/kisei_search2 "きせーさーちβ版の規制垢") または [@kisei_search3](http://twitter.com/kisei_search3 "きせーさーちβ版のW規制垢") を利用
+* DMによる応答（きせーさーちからの返答はリプライとして返ってきます）
 
 ##コマンド
 
