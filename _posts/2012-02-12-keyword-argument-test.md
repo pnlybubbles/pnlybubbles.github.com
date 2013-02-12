@@ -1,6 +1,6 @@
 ---
 layout: post
-title: キーワード引数
+title: Ruby2.0のキーワード引数を試してみた
 date: 2012-02-12 14:30:00
 category : ruby
 tags : [ruby, ruby2.0, キーワード引数]
