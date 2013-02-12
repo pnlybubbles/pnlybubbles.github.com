@@ -11,7 +11,7 @@ Ruby2.0rcの気になった新機能、キーワード引数を試してみた�
 	$ ruby -v
 	ruby 2.0.0dev (2013-02-08 trunk 39161) [x86_64-darwin11.4.0]
 
-{ %highlight ruby }
+{% highlight ruby %}
 def test(key: "akarin", value: "kawaii")
 	p [key, value]
 end
@@ -26,7 +26,7 @@ test(key: "haruka")
 # => ["haruka", "kawaii"]
 test(value: "kosikosi")
 # => ["akarin", "kosikosi"]
-{ %endhighlight }
+{% endhighlight %}
 
 引数にキーを指定することができる。
 
