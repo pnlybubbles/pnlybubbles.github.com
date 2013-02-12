@@ -14,20 +14,20 @@ html+javascript+css+rubyでGUIアプリケーションを開発可能にする�
 
 いちおうRubyのバージョン。
 
-{% highlight %}
+<pre>
 $ ruby -v
 ruby 1.9.3p327 (2012-11-10 revision 37606) [x86_64-darwin11.4.0]
-{% endhighlight %}
+</pre>
 
 `Homebrew`で管理してるので最新版ではないです。
 
 さて、`bowline`インストールしてみる。
 
-{% highlight %}
+<pre>
 $ sudo gem install bowline
 ERROR:  While executing gem ... (Gem::DependencyError)
     Unable to resolve dependencies: activemodel requires i18n (~> 0.5.0)
-{% endhighlight %}
+</pre>
 
 これだとエラーがでる。
 
@@ -35,18 +35,18 @@ ERROR:  While executing gem ... (Gem::DependencyError)
 
 gemインストール時にバージョンを指定してあげる。
 
-```
+<pre>
 $ gem install i18n --version 0.5.0
 Fetching: i18n-0.5.0.gem (100%)
 Successfully installed i18n-0.5.0
 1 gem installed
 Installing ri documentation for i18n-0.5.0...
 Installing RDoc documentation for i18n-0.5.0...
-```
+</pre>
 
 もう一度`bowline`のインストールを試してみる。
 
-```
+<pre>
 $ sudo gem install bowline
 Fetching: highline-1.6.15.gem (100%)
 Fetching: diff-lcs-1.2.1.gem (100%)
@@ -77,7 +77,7 @@ Fetching: bowline-0.9.4.gem (100%)
 Successfully installed bowline-0.9.4
 ...
 Installing RDoc documentation for bowline-0.9.4...
-```
+</pre>
 
 なんかいろいろ出たけど、どうにかインストールはできたみたい。
 
@@ -91,7 +91,7 @@ Linuxの場合は`libwebkit-dev`をインストールしてくださねーって
 
 `bowline-gen`というコマンドで`helloworld`を作る。パスは適当に通しておく。
 
-```
+<pre>
 $ bowline-gen app helloworld
 Generating with app generator:
      [ADDED]  vendor
@@ -135,11 +135,11 @@ Generating with app generator:
      [ADDED]  config/database.yml
      [ADDED]  config/boot.rb
      [ADDED]  README
-```
+</pre>
 
 `helloworld`ディレクトリに入って`bowline-bundle`を実行する。
 
-```
+<pre>
 $ bowline-bundle
 /usr/local/Cellar/ruby/1.9.3-p327/lib/ruby/gems/1.9.1/gems/bowline-bundler-0.0.4/lib/bowline/bundler/dependency.rb:59:in `<class:Dependency>': undefined method `version_requirements' for class `Bundler::Dependency' (NameError)
 	from /usr/local/Cellar/ruby/1.9.3-p327/lib/ruby/gems/1.9.1/gems/bowline-bundler-0.0.4/lib/bowline/bundler/dependency.rb:4:in `<module:Bundler>'
@@ -150,7 +150,7 @@ $ bowline-bundle
 	from /usr/local/Cellar/ruby/1.9.3-p327/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
 	from /usr/local/Cellar/ruby/1.9.3-p327/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
 	from /usr/local/lib/ruby/gems/1.9.1/gems/bowline-bundler-0.0.4/bin/bowline-bundle:4:in `<main>'
-```
+</pre>
 
 コケる…。
 
