@@ -14,20 +14,20 @@ html+javascript+css+rubyでGUIアプリケーションを開発可能にする�
 
 いちおうRubyのバージョン。
 
-```
+{% highlight %}
 $ ruby -v
 ruby 1.9.3p327 (2012-11-10 revision 37606) [x86_64-darwin11.4.0]
-```
+{% endhighlight %}
 
 `Homebrew`で管理してるので最新版ではないです。
 
 さて、`bowline`インストールしてみる。
 
-```
+{% highlight %}
 $ sudo gem install bowline
 ERROR:  While executing gem ... (Gem::DependencyError)
     Unable to resolve dependencies: activemodel requires i18n (~> 0.5.0)
-```
+{% endhighlight %}
 
 これだとエラーがでる。
 
