@@ -3,7 +3,7 @@ layout: post
 title: きせーさーちβ版 
 date: 2012-01-18 22:30:00
 category : ruby
-tags : [twitter, 規制, きせーさーち, ruby]
+tags : [twitter, きせーさーち, ruby]
 ---
 
 Twitterの規制解除時間教えてくれるbotです。

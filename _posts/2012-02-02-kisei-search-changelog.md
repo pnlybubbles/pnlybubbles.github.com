@@ -3,7 +3,7 @@ layout: post
 title: きせーさーちβ版-ChangeLog
 date: 2012-02-02 00:30:00
 category : ruby
-tags : [twitter, 規制, きせーさーち, ruby, changelog]
+tags : [twitter, きせーさーち, ruby, changelog]
 ---
 
 kisei_search  
