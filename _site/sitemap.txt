@@ -7,6 +7,12 @@ http://pnlybubbles.github.com/pages.html
 http://pnlybubbles.github.com/sitemap.txt
 http://pnlybubbles.github.com/tags.html
 
+http://pnlybubbles.github.com/javascript/2012-02-16/google-code-prettify-try-using
+http://pnlybubbles.github.com/javascript/2012-02-16/javascript-jquery-each
+http://pnlybubbles.github.com/ruby/2012-02-14/ruby-2.0.0-rc2-install-memo
+http://pnlybubbles.github.com/ruby/2012-02-14/ruby-1.9.1-p378-install-memo
+http://pnlybubbles.github.com/ruby/2012-02-12/keyword-argument-test
+http://pnlybubbles.github.com/ruby/2012-02-12/bowline-try-using
+http://pnlybubbles.github.com/ruby/2012-02-02/kisei-search-changelog
 http://pnlybubbles.github.com/ruby/2012-01-19/kisei-search
 http://pnlybubbles.github.com/blog/2012-01-16/new-blog
-http://pnlybubbles.github.com/test/2012-01-14/test

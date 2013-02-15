@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>テスト投稿タイトル</title>
+    <title>JavaSriptでeachしてみた</title>
     
     <meta name="author" content="pnlybubbles">
 
@@ -14,11 +14,14 @@
 
     <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script type="text/javascript" src="/assets/themes/awaawa/js/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/js/google-code-prettify/prettify.js"></script>
     <script type="text/javascript" src="/assets/themes/awaawa/js/default.js"></script>
 
     <!-- Le styles -->
     <link href="/assets/themes/awaawa/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/assets/themes/awaawa/css/syntax.css" rel="stylesheet">
+    <link href="/assets/themes/awaawa/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link href="/assets/themes/awaawa/css/syntax.css" rel="stylesheet">    
     <link href="/assets/themes/awaawa/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
 
     <!-- Le fav and touch icons -->
@@ -104,24 +107,66 @@
       <div class="content">
         
 <div class="page-header">
-  <h1>テスト投稿タイトル</h1>
+  <h1>JavaSriptでeachしてみた</h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p>テスト投稿本文</p>
+    <p>最近ずっと<code>Ruby</code>を書いていて、久しぶりに<code>JavaScript</code>を書くとまず<code>;</code>を忘れる。</p>
 
-<p>＼ｱｯｶﾘ〜ﾝ／</p>
+<p>今回はこんなことをしてて焦った。</p>
+
+<pre><code>[code.high.num]
+var arr = new Array();
+
+arr = ["ruby", "perl", "javascript", "jquery"];
+
+arr.each(function(value){
+    console.log(value)
+});
+
+// Uncaught TypeError: Object ruby,perl,javascript,jquery has no method 'each'
+</code></pre>
+
+<p><code>for</code>で書けるけど、Rubyになれると<code>for</code>を使うのに気が進まない…。いつの間にか…。</p>
+
+<p>調べてみると<code>jQuery</code>をrequireじゃなくて…<code>src</code>すると<code>each</code>が使えるみたい。</p>
+
+<pre><code>[code.high.num]
+var arr = new Array();
+
+arr = ["ruby", "perl", "javascript", "jquery"];
+
+$.each(arr, function(index, value){
+    console.log(index + ":" + value)
+});
+
+// 0:ruby
+// 1:perl
+// 2:javascript
+// 3:jquery 
+</code></pre>
+
+<p>あとjQueryに<code>strip</code>的なのがあったからメモ。</p>
+
+<pre><code>[code.high.num]
+var str = " \nRuby \n\t"
+str.trim(); // =&gt; "Ruby"
+</code></pre>
+
+<p>JavaScriptはRubyとまた違ったオブジェクト指向でやりやすかったり、やりにくかったり。プロトタイプとかがまたややこしいと思ったり。オブジェクト作るのがめんどくさかったり。</p>
+
+<p>たりたり。</p>
 
     <hr>
     <div class="pagination">
       <ul>
       
-        <li class="prev disabled"><a>&larr; Previous</a></li>
+        <li class="prev"><a href="/ruby/2012-02-14/ruby-2.0.0-rc2-install-memo" title="ruby-2.0.0-rc2をrbenvでインストールしたメモ">&larr; Previous</a></li>
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next"><a href="/blog/2012-01-16/new-blog" title="ブログを移転しました">Next &rarr;</a></li>
+        <li class="next"><a href="/javascript/2012-02-16/google-code-prettify-try-using" title="google-code-prettifyを適用してみた">Next &rarr;</a></li>
       
       </ul>
     </div>
@@ -152,7 +197,7 @@
   <div class="span4">
     <div class="tag_box-wrap">
         <h4>Published</h4>
-        <div class="date"><span>14 January 2012</span></div>
+        <div class="date"><span>16 February 2012</span></div>
 
       
         <h4>Tags</h4>
@@ -163,11 +208,13 @@
 
   
      
-    	<li><a href="/tags.html#ruby-ref">ruby <span>3</span></a></li>
+    	<li><a href="/tags.html#javascript-ref">javascript <span>2</span></a></li>
      
-    	<li><a href="/tags.html#test-ref">test <span>1</span></a></li>
+    	<li><a href="/tags.html#jquery-ref">jquery <span>2</span></a></li>
      
-    	<li><a href="/tags.html#＼ｱｯｶﾘ〜ﾝ／-ref">＼ｱｯｶﾘ〜ﾝ／ <span>1</span></a></li>
+    	<li><a href="/tags.html#ruby-ref">ruby <span>8</span></a></li>
+     
+    	<li><a href="/tags.html#each-ref">each <span>1</span></a></li>
     
   
 

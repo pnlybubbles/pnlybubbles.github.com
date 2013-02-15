@@ -4,13 +4,687 @@
  <title>あわあわのブログ</title>
  <link href="http://pnlybubbles.github.com/atom.xml" rel="self"/>
  <link href="http://pnlybubbles.github.com"/>
- <updated>2013-02-01T20:26:05+09:00</updated>
+ <updated>2013-02-16T02:56:20+09:00</updated>
  <id>http://pnlybubbles.github.com</id>
  <author>
    <name>pnlybubbles</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>google-code-prettifyを適用してみた</title>
+   <link href="http://pnlybubbles.github.com/javascript/2012-02-16/google-code-prettify-try-using"/>
+   <updated>2012-02-16T11:30:00+09:00</updated>
+   <id>http://pnlybubbles.github.com/javascript/2012-02-16/google-code-prettify-try-using</id>
+   <content type="html">&lt;p&gt;ブログのコードの埋め込みをきれいにしようと思い、&lt;code&gt;google-code-prettify&lt;/code&gt;をいれてみました。&lt;/p&gt;
+
+&lt;p&gt;美しい…。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[code.high.num]
+class Person
+    include ActiveModel::Conversion
+    include ActiveModel::Validations
+
+    validations_presence_of :name
+
+    attr_accessor :name
+
+    def initialize(attributes = {})
+        @name = attributes[:name]
+    end
+
+    def persist
+        @persisted = true
+    end
+
+    def persisted?
+        @persisted
+    end
+end
+
+person1 = Person.new(:name =&amp;gt; &quot;matz&quot;)
+p person1.valid?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;テーマは&lt;code&gt;Tomorrow&lt;/code&gt;です。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Pygments&lt;/code&gt;のSyntax Highlightingも&lt;code&gt;Jekyll&lt;/code&gt;の方で使えるようになっています。&lt;code&gt;Pygments&lt;/code&gt;の場合はこんな感じ。&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Person&lt;/span&gt;
+    &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;ActiveModel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:Conversion&lt;/span&gt;
+    &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;ActiveModel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:Validations&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;validations_presence_of&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;
+
+    &lt;span class=&quot;kp&quot;&gt;attr_accessor&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attributes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{})&lt;/span&gt;
+        &lt;span class=&quot;vi&quot;&gt;@name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;persist&lt;/span&gt;
+        &lt;span class=&quot;vi&quot;&gt;@persisted&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;persisted?&lt;/span&gt;
+        &lt;span class=&quot;vi&quot;&gt;@persisted&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;person1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;matz&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;valid?&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;すこし違います。テーマは同じ&lt;code&gt;Tomorrow&lt;/code&gt;です。すこし詳細になった感じ。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;google-code-prettify&lt;/code&gt;でただ単に全部のコードにシンタックスハイライトを適用するのではなく、マジックコメント(?)のようなものを使ってライン番号だけ表示させたり、ハイライトだけさせたりできるようにしました。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;JavaScript&lt;/code&gt;と&lt;code&gt;jQuery&lt;/code&gt;を使ってクラスを書き換えたり、要素を消したりして適用させているのでちょっと無理やり感あります…。&lt;/p&gt;
+
+&lt;p&gt;コードもぐちゃぐちゃ。&lt;br/&gt;
+見たい人はソースコード覗いてください。&lt;/p&gt;
+
+&lt;p&gt;でも、やっぱりTomorrowは綺麗。汚いコードも（ハイライトだけ）美しく…。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>JavaSriptでeachしてみた</title>
+   <link href="http://pnlybubbles.github.com/javascript/2012-02-16/javascript-jquery-each"/>
+   <updated>2012-02-16T06:00:00+09:00</updated>
+   <id>http://pnlybubbles.github.com/javascript/2012-02-16/javascript-jquery-each</id>
+   <content type="html">&lt;p&gt;最近ずっと&lt;code&gt;Ruby&lt;/code&gt;を書いていて、久しぶりに&lt;code&gt;JavaScript&lt;/code&gt;を書くとまず&lt;code&gt;;&lt;/code&gt;を忘れる。&lt;/p&gt;
+
+&lt;p&gt;今回はこんなことをしてて焦った。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[code.high.num]
+var arr = new Array();
+
+arr = [&quot;ruby&quot;, &quot;perl&quot;, &quot;javascript&quot;, &quot;jquery&quot;];
+
+arr.each(function(value){
+    console.log(value)
+});
+
+// Uncaught TypeError: Object ruby,perl,javascript,jquery has no method 'each'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;for&lt;/code&gt;で書けるけど、Rubyになれると&lt;code&gt;for&lt;/code&gt;を使うのに気が進まない…。いつの間にか…。&lt;/p&gt;
+
+&lt;p&gt;調べてみると&lt;code&gt;jQuery&lt;/code&gt;をrequireじゃなくて…&lt;code&gt;src&lt;/code&gt;すると&lt;code&gt;each&lt;/code&gt;が使えるみたい。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[code.high.num]
+var arr = new Array();
+
+arr = [&quot;ruby&quot;, &quot;perl&quot;, &quot;javascript&quot;, &quot;jquery&quot;];
+
+$.each(arr, function(index, value){
+    console.log(index + &quot;:&quot; + value)
+});
+
+// 0:ruby
+// 1:perl
+// 2:javascript
+// 3:jquery 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あとjQueryに&lt;code&gt;strip&lt;/code&gt;的なのがあったからメモ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[code.high.num]
+var str = &quot; \nRuby \n\t&quot;
+str.trim(); // =&amp;gt; &quot;Ruby&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;JavaScriptはRubyとまた違ったオブジェクト指向でやりやすかったり、やりにくかったり。プロトタイプとかがまたややこしいと思ったり。オブジェクト作るのがめんどくさかったり。&lt;/p&gt;
+
+&lt;p&gt;たりたり。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>ruby-2.0.0-rc2をrbenvでインストールしたメモ</title>
+   <link href="http://pnlybubbles.github.com/ruby/2012-02-14/ruby-2.0.0-rc2-install-memo"/>
+   <updated>2012-02-14T13:00:00+09:00</updated>
+   <id>http://pnlybubbles.github.com/ruby/2012-02-14/ruby-2.0.0-rc2-install-memo</id>
+   <content type="html">&lt;p&gt;とりあえず最初はコケる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ rbenv install 2.0.0-rc2
+Downloading openssl-1.0.1c.tar.gz...
+-&amp;gt; https://www.openssl.org/source/openssl-1.0.1c.tar.gz
+Installing openssl-1.0.1c...
+
+BUILD FAILED
+
+Inspect or clean up the working tree at /var/folders/v_/pd9jfc0d0l9cblq8fdlxrkqr0000gn/T/ruby-build.20130214032527.51196
+Results logged to /var/folders/v_/pd9jfc0d0l9cblq8fdlxrkqr0000gn/T/ruby-build.20130214032527.51196.log
+
+Last 10 log lines:
+x openssl-1.0.1c/VMS/TODO
+x openssl-1.0.1c/VMS/ucx_shr_decc_log.opt
+x openssl-1.0.1c/VMS/ucx_shr_decc.opt
+x openssl-1.0.1c/VMS/ucx_shr_vaxc.opt
+x openssl-1.0.1c/VMS/VMSify-conf.pl
+x openssl-1.0.1c/VMS/WISHLIST.TXT
+/var/folders/v_/pd9jfc0d0l9cblq8fdlxrkqr0000gn/T/ruby-build.20130214032527.51196/openssl-1.0.1c /var/folders/v_/pd9jfc0d0l9cblq8fdlxrkqr0000gn/T/ruby-build.20130214032527.51196 /usr/local/Cellar/openssl/1.0.1e
+Operating system: i686-apple-darwinDarwin Kernel Version 11.4.0: Mon Apr 9 19:32:15 PDT 2012; root:xnu-1699.26.8~1/RELEASE_X86_64
+Configuring for darwin64-x86_64-cc
+Usage: Configure [no-&amp;lt;cipher&amp;gt; ...] [enable-&amp;lt;cipher&amp;gt; ...] [experimental-&amp;lt;cipher&amp;gt; ...] [-Dxxx] [-lxxx] [-Lxxx] [-fxxx] [-Kxxx] [no-hw-xxx|no-hw] [[no-]threads] [[no-]shared] [[no-]zlib|zlib-dynamic] [no-asm] [no-dso] [no-krb5] [sctp] [386] [--prefix=DIR] [--openssldir=OPENSSLDIR] [--with-xxx[=vvv]] [--test-sanity] os/compiler[:flags]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;openssl&lt;/code&gt;を指定してあげると&lt;code&gt;openssl&lt;/code&gt;のコンパイルを回避できるみたい。&lt;/p&gt;
+
+&lt;p&gt;ここを参考にオプションを指定してみる。&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;&lt;a href=&quot;http://ikm.hatenablog.jp/entry/2013/02/13/040433&quot; title=&quot;ruby-2.0.0-rc2を入れた（サクッと） - There's an echo in my head&quot;&gt;ruby-2.0.0-rc2を入れた（サクッと） - There's an echo in my head&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;だけどそのままやったらまたコケた。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ RUBY_CONFIGURE_OPTS=&quot;--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix readline`&quot; rbenv install 2.0.0-rc2
+Downloading openssl-1.0.1c.tar.gz...
+-&amp;gt; https://www.openssl.org/source/openssl-1.0.1c.tar.gz
+Installing openssl-1.0.1c...
+
+BUILD FAILED
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;ruby-build&lt;/code&gt;のバージョンが違うみたい。記事の中の引用されたTwitterの中のリンクの&lt;code&gt;ruby-build&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Homebrew&lt;/code&gt;からアップグレードしてあげる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;brew upgrade --HEAD ruby-build
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;--HEAD&lt;/code&gt;オプション初めて知った…。&lt;/p&gt;
+
+&lt;p&gt;もう一回。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ RUBY_CONFIGURE_OPTS=&quot;--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix readline`&quot; rbenv install 2.0.0-rc2
+Downloading ruby-2.0.0-rc2.tar.gz...
+-&amp;gt; http://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-rc2.tar.gz
+Installing ruby-2.0.0-rc2...
+
+BUILD FAILED
+
+Inspect or clean up the working tree at /var/folders/v_/pd9jfc0d0l9cblq8fdlxrkqr0000gn/T/ruby-build.20130214035828.80600
+Results logged to /var/folders/v_/pd9jfc0d0l9cblq8fdlxrkqr0000gn/T/ruby-build.20130214035828.80600.log
+
+Last 10 log lines:
+installing default gems:      /Users/pnlybubbles/.rbenv/versions/2.0.0-rc2/lib/ruby/gems/2.0.0 (build_info, cache, doc, gems, specifications)
+                              bigdecimal 1.1.0
+                              io-console 0.4.1
+                              json 1.7.5
+                              minitest 4.3.2
+                              psych 2.0.0
+                              rake 0.9.6
+                              rdoc 4.0.0.rc.2.1
+                              test-unit 2.0.0.0
+The Ruby openssl extension was not compiled. Missing the OpenSSL lib?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あれ、インストールできたのかな。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ rbenv versions
+  ...
+  2.0.0-rc2
+  ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;入ってる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ rbenv global 2.0.0-rc2
+$ ruby -v
+ruby 2.0.0dev (2013-02-08 trunk 39161) [i386-darwin11.4.0]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;一応、インストールはできたみたい。（あれ、アーキテクチャが…）&lt;/p&gt;
+
+&lt;p&gt;いったんここまで。&lt;/p&gt;
+
+&lt;p&gt;あと、コンパイラをいろいろいじっていたのでちょっとこんがらがった…。&lt;/p&gt;
+
+&lt;p&gt;コンパイラの指定は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ export CC=/usr/bin/gcc
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Lionでruby-1.9.1-p378のインストールのメモ</title>
+   <link href="http://pnlybubbles.github.com/ruby/2012-02-14/ruby-1.9.1-p378-install-memo"/>
+   <updated>2012-02-14T06:00:00+09:00</updated>
+   <id>http://pnlybubbles.github.com/ruby/2012-02-14/ruby-1.9.1-p378-install-memo</id>
+   <content type="html">&lt;p&gt;Xcode4.3ではgccが&lt;code&gt;llvm-gcc&lt;/code&gt;というllvmとgccの間みたいなコンパイラらしい。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;llvm&lt;/code&gt;のほうがエラーがわかりやすく、速いみたいでAppleはgccからllvmに移行しつつあるとのこと。&lt;/p&gt;
+
+&lt;p&gt;Homebrewから&lt;code&gt;gcc&lt;/code&gt;をインストールして、コンパイラを指定してrubyをビルドする。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ brew install https://raw.github.com/Homebrew/homebrew-dupes/master/gcc.rb --enable-all-languages --use-llvm
+$ export CC=/usr/local/bin/gcc-4.7
+$ CONFIGURE_OPTS=&quot;--with-readline-dir=/usr/local --with-openssl-dir=/usr/local&quot;
+$ rbenv install 1.9.1-p378
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;アーキテクチャを指定してビルドする場合は&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ export CONFIGURE_OPTS=&quot;--with-arch=i386&quot;
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Ruby2.0のキーワード引数を試してみた</title>
+   <link href="http://pnlybubbles.github.com/ruby/2012-02-12/keyword-argument-test"/>
+   <updated>2012-02-12T23:30:00+09:00</updated>
+   <id>http://pnlybubbles.github.com/ruby/2012-02-12/keyword-argument-test</id>
+   <content type="html">&lt;p&gt;Ruby2.0rcの気になった新機能、キーワード引数を試してみた。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ruby -v
+ruby 2.0.0dev (2013-02-08 trunk 39161) [x86_64-darwin11.4.0]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;akarin&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;kawaii&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# =&amp;gt; [&amp;quot;akarin&amp;quot;, &amp;quot;kawaii&amp;quot;]&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;haruka&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;kosikosi&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# =&amp;gt; [&amp;quot;haruka&amp;quot;, &amp;quot;kosikosi&amp;quot;]&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;kosikosi&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;haruka&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# =&amp;gt; [&amp;quot;haruka&amp;quot;, &amp;quot;kosikosi&amp;quot;]&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;haruka&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# =&amp;gt; [&amp;quot;haruka&amp;quot;, &amp;quot;kawaii&amp;quot;]&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;kosikosi&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# =&amp;gt; [&amp;quot;akarin&amp;quot;, &amp;quot;kosikosi&amp;quot;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;引数にキーを指定することができる。&lt;/p&gt;
+
+&lt;p&gt;メソッドを呼ぶときに引数を入れないと指定したデフォルト値が使われる。&lt;/p&gt;
+
+&lt;p&gt;便利。これ使えば&lt;code&gt;argument error&lt;/code&gt;も減りそう。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>bowlineをインストールしてみた</title>
+   <link href="http://pnlybubbles.github.com/ruby/2012-02-12/bowline-try-using"/>
+   <updated>2012-02-12T23:00:00+09:00</updated>
+   <id>http://pnlybubbles.github.com/ruby/2012-02-12/bowline-try-using</id>
+   <content type="html">&lt;p&gt;html+javascript+css+rubyでGUIアプリケーションを開発可能にするプロジェクト、bowlineを使ってみた。&lt;/p&gt;
+
+&lt;p&gt;今のところUbuntuとMacOSXに対応しているようです。&lt;/p&gt;
+
+&lt;h2&gt;インストール&lt;/h2&gt;
+
+&lt;p&gt;いちおうRubyのバージョン。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ruby -v
+ruby 1.9.3p327 (2012-11-10 revision 37606) [x86_64-darwin11.4.0]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Homebrew&lt;/code&gt;で管理してるので最新版ではないです。&lt;/p&gt;
+
+&lt;p&gt;さて、&lt;code&gt;bowline&lt;/code&gt;インストールしてみる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo gem install bowline
+ERROR:  While executing gem ... (Gem::DependencyError)
+    Unable to resolve dependencies: activemodel requires i18n (~&amp;gt; 0.5.0)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これだとエラーがでる。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;i18n&lt;/code&gt;がgemでバージョン指定されているのかな。&lt;/p&gt;
+
+&lt;p&gt;gemインストール時にバージョンを指定してあげる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ gem install i18n --version 0.5.0
+Fetching: i18n-0.5.0.gem (100%)
+Successfully installed i18n-0.5.0
+1 gem installed
+Installing ri documentation for i18n-0.5.0...
+Installing RDoc documentation for i18n-0.5.0...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;もう一度&lt;code&gt;bowline&lt;/code&gt;のインストールを試してみる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo gem install bowline
+Fetching: highline-1.6.15.gem (100%)
+Fetching: diff-lcs-1.2.1.gem (100%)
+Fetching: extlib-0.9.16.gem (100%)
+...
+DEPRECATED! DEPRECATED! DEPRECATED! DEPRECATED! DEPRECATED! DEPRECATED!
+DEPRECATED! DEPRECATED! DEPRECATED! DEPRECATED! DEPRECATED! DEPRECATED!
+
+  The rubyzip2 gem is deprecated. Instead, please use:
+
+  * rubyzip       https://github.com/aussiegeek/rubyzip
+  * archive-zip   https://github.com/javanthropus/archive-zip
+
+DEPRECATED! DEPRECATED! DEPRECATED! DEPRECATED! DEPRECATED! DEPRECATED!
+DEPRECATED! DEPRECATED! DEPRECATED! DEPRECATED! DEPRECATED! DEPRECATED!
+...
+Fetching: bowline-0.9.4.gem (100%)
+...
+    **************************************************
+
+      Thank you for installing Bowline.
+
+      If you're on Linux, please install the WebKit library:
+        sudo apt-get install libwebkit-dev
+
+    **************************************************
+...
+Successfully installed bowline-0.9.4
+...
+Installing RDoc documentation for bowline-0.9.4...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;なんかいろいろ出たけど、どうにかインストールはできたみたい。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;DEPRECATED!&lt;/code&gt;うるさし...&lt;/p&gt;
+
+&lt;p&gt;Linuxの場合は&lt;code&gt;libwebkit-dev&lt;/code&gt;をインストールしてくださねーって言ってる。&lt;/p&gt;
+
+&lt;p&gt;これでインストールは完了。&lt;/p&gt;
+
+&lt;h2&gt;サンプルを作ってみる&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;bowline-gen&lt;/code&gt;というコマンドで&lt;code&gt;helloworld&lt;/code&gt;を作る。パスは適当に通しておく。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ bowline-gen app helloworld
+Generating with app generator:
+     [ADDED]  vendor
+     [ADDED]  lib
+     [ADDED]  db
+     [ADDED]  build
+     [ADDED]  log
+     [ADDED]  public
+     [ADDED]  app
+     [ADDED]  app/models
+     [ADDED]  app/binders
+     [ADDED]  app/helpers
+     [ADDED]  app/windows
+     [ADDED]  config
+     [ADDED]  config/initializers
+     [ADDED]  config/first_run
+     [ADDED]  app_first_run
+     [ADDED]  Rakefile
+     [ADDED]  Gemfile
+     [ADDED]  public/index.html
+     [ADDED]  public/javascripts/application.js
+     [ADDED]  public/stylesheets/application.css
+     [ADDED]  script/build
+     [ADDED]  script/console
+     [ADDED]  script/generate
+     [ADDED]  script/init
+     [ADDED]  script/run
+     [ADDED]  config/environment.rb
+     [ADDED]  config/environments/development.rb
+     [ADDED]  config/environments/production.rb
+     [ADDED]  .gitignore
+     [ADDED]  public/icon.png
+     [ADDED]  script
+     [ADDED]  public/javascripts/jquery.js
+     [ADDED]  public/javascripts/jquery.chain.js
+     [ADDED]  public/javascripts/superclass.js
+     [ADDED]  public/javascripts/bowline.js
+     [ADDED]  public/javascripts/bowline.chain.js
+     [ADDED]  app/windows/main_window.rb
+     [ADDED]  config/application.yml
+     [ADDED]  config/database.yml
+     [ADDED]  config/boot.rb
+     [ADDED]  README
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;helloworld&lt;/code&gt;ディレクトリに入って&lt;code&gt;bowline-bundle&lt;/code&gt;を実行する。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ bowline-bundle
+/usr/local/Cellar/ruby/1.9.3-p327/lib/ruby/gems/1.9.1/gems/bowline-bundler-0.0.4/lib/bowline/bundler/dependency.rb:59:in `&amp;lt;class:Dependency&amp;gt;': undefined method `version_requirements' for class `Bundler::Dependency' (NameError)
+    from /usr/local/Cellar/ruby/1.9.3-p327/lib/ruby/gems/1.9.1/gems/bowline-bundler-0.0.4/lib/bowline/bundler/dependency.rb:4:in `&amp;lt;module:Bundler&amp;gt;'
+    from /usr/local/Cellar/ruby/1.9.3-p327/lib/ruby/gems/1.9.1/gems/bowline-bundler-0.0.4/lib/bowline/bundler/dependency.rb:1:in `&amp;lt;top (required)&amp;gt;'
+    from /usr/local/Cellar/ruby/1.9.3-p327/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+    from /usr/local/Cellar/ruby/1.9.3-p327/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+    from /usr/local/lib/ruby/gems/1.9.1/gems/bowline-bundler-0.0.4/lib/bowline/bundler.rb:18:in `&amp;lt;top (required)&amp;gt;'
+    from /usr/local/Cellar/ruby/1.9.3-p327/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+    from /usr/local/Cellar/ruby/1.9.3-p327/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+    from /usr/local/lib/ruby/gems/1.9.1/gems/bowline-bundler-0.0.4/bin/bowline-bundle:4:in `&amp;lt;main&amp;gt;'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;コケる…。&lt;/p&gt;
+
+&lt;p&gt;Rubyを32bitモードでコンパイルしなくちゃいけなかったのかな…。&lt;/p&gt;
+
+&lt;p&gt;わからないなう…。&lt;/p&gt;
+
+&lt;p&gt;進展があったら追記します。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4&gt;追記（2012-02-13）&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;ruby 1.8.7 (2011-12-28 patchlevel 357) [universal-darwin11.0]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Rubyのバージョンを変えて行ったところ&lt;code&gt;bowline-bundle&lt;/code&gt;を実行できましたが、途中でコケました…。&lt;/p&gt;
+
+&lt;h4&gt;追記（2012-02-13）&lt;/h4&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>きせーさーちβ版-ChangeLog</title>
+   <link href="http://pnlybubbles.github.com/ruby/2012-02-02/kisei-search-changelog"/>
+   <updated>2012-02-02T09:30:00+09:00</updated>
+   <id>http://pnlybubbles.github.com/ruby/2012-02-02/kisei-search-changelog</id>
+   <content type="html">&lt;p&gt;kisei_search&lt;/p&gt;
+
+&lt;h1&gt;0.1b1 (2012-07-14)&lt;/h1&gt;
+
+&lt;p&gt;ユーザーストリームでタイムラインを監視して、リプライを検出し、応答するbot基本メソッド&lt;br/&gt;
+登録メソッド&lt;br/&gt;
+規制解除時刻の計算メソッド&lt;br/&gt;
+ログをkisei_search.logに取るメソッド&lt;br/&gt;
+これらを搭載。&lt;/p&gt;
+
+&lt;h1&gt;0.1b2 (2012-07-14)&lt;/h1&gt;
+
+&lt;p&gt;on start upを追加。&lt;br/&gt;
+起動時にアップデートが通常の再起動かを確認して、メッセージを変更する。&lt;br/&gt;
+コンソール表示を追加。&lt;/p&gt;
+
+&lt;h1&gt;0.1b3 (2012-07-15)&lt;/h1&gt;
+
+&lt;p&gt;管理者からメッセージを取得して代理でつぶやく機能を追加。&lt;br/&gt;
+フォロー解除メソッドの追加。&lt;br/&gt;
+起動時のアップデートか通常の再起動かを確認するときのバグを修正。みょん(@myuon_myon)さんThanks!&lt;/p&gt;
+
+&lt;h1&gt;0.1b4 (2012-07-15)&lt;/h1&gt;
+
+&lt;p&gt;アドミン用レスポンスメソッドを追加。&lt;br/&gt;
+セクション方式の規制解除時間の計算メソッドをアドミンコマンドとして追加。&lt;br/&gt;
+アドミンコマンド実行時は通常コマンドを実行しないように修正。&lt;br/&gt;
+エラーをログに取るコードにあったバグを修正。&lt;/p&gt;
+
+&lt;h1&gt;0.1b5 (2012-07-16)&lt;/h1&gt;
+
+&lt;p&gt;セクション方式のアルゴリズムを修正。&lt;br/&gt;
+アルゴリズムの変更点は、1セクションを3時間とし、セクションのはじめのツイートを解除点として、セクションの開始位置を設定する。それぞれのセクションの開始位置を計算して、最新の解除点に3時間加算した時刻を規制解除時刻とする。&lt;/p&gt;
+
+&lt;h1&gt;0.2b1 (2012-07-16)&lt;/h1&gt;
+
+&lt;p&gt;セクション方式のアルゴリズムをアドミンコマンドから通常コマンドへ変更。&lt;br/&gt;
+引数のユーザー名の前に@が入っているときは戻り値にも@を含ませるように修正。&lt;/p&gt;
+
+&lt;h1&gt;0.2b2 (2012-07-16)&lt;/h1&gt;
+
+&lt;p&gt;登録されてない人でもコマンドが使えてしまっていたバグを修正。&lt;br/&gt;
+follow,unfollow,parse errorなどのコンソール表示を追加。&lt;br/&gt;
+follow,unfollow,unfollow forciblyのログを記録するように追加。&lt;/p&gt;
+
+&lt;h1&gt;0.2b3 (2012-07-16)&lt;/h1&gt;
+
+&lt;p&gt;「いつ」でセクション方式の測定メソッドを呼び出すように変更。&lt;br/&gt;
+「いつz」で暫定基準方式の測定メソッドを呼び出すように変更。&lt;br/&gt;
+セクション方式のアルゴリズムで取得するツイート数の上限を200ツイートから3200に変更。&lt;br/&gt;
+アルゴリズムの変更点はtwitter apiのoptionでpageを利用して上限を引き上げられるように変更。&lt;/p&gt;
+
+&lt;h1&gt;0.2b4 (2012-07-17)&lt;/h1&gt;
+
+&lt;p&gt;解除点が最新のツイートになった時に解除時間がマイナスになるバグを修正。&lt;br/&gt;
+アルゴリズムの変更点はunlocknumが0で最新のツイートを示すとき3時間加算するループに入らないため、0の時の条件分岐を追加しバグを修正。&lt;/p&gt;
+
+&lt;h1&gt;0.2b5 (2012-07-17)&lt;/h1&gt;
+
+&lt;p&gt;セクションあたりのポスト数を規制されていない場合には通知する機能を追加。&lt;br/&gt;
+アルゴリズムの変更点は最新のツイートのオブジェクトを取得して位置を特定し、送られてきたリプの分の1を加算して127以下の場合かつ、ターゲットが本人ではない時に通知内容にセクション内のツイート数を追加するように変更。&lt;br/&gt;
+解除点が最新のツイートでかつ、最新のツイートが現在時刻より3時間以上前の場合に、規制解除時刻を求めてマイナスになるバグを修正。&lt;br/&gt;
+アルゴリズムの変更点はセクション内のツイート数が0の時、現在時刻と比較して3時間以上前なのかを調べる条件分岐を追加しバグを修正。&lt;br/&gt;
+すこしリプの日本語を変更。&lt;/p&gt;
+
+&lt;h1&gt;0.3b1 (2012-08-09)&lt;/h1&gt;
+
+&lt;p&gt;ツイート取得時にユーザーデータを更新するメソッドを追加。&lt;br/&gt;
+メソッドではユーザーのセクション内のポスト数と前回の解除点の時刻を記録する処理、セクション内のツイート数が115の時に通知する処理を実装。&lt;br/&gt;
+リプライの応答メソッドもユーザーデータから取得するように変更。&lt;br/&gt;
+新アルゴリズムの規制解除時刻割り出しメソッドもリプライ専用のデータ処理を行なっていたものを一般化し引数と戻り値を変更。&lt;br/&gt;
+idにリプライを送るメソッドを追加。&lt;br/&gt;
+その他ユーザーデータの取得メソッド追加による細かな変更。&lt;/p&gt;
+
+&lt;h1&gt;0.3b2 (2012-09-04)&lt;/h1&gt;
+
+&lt;p&gt;レスポンス取得メソッドから、フォロー、アンフォロー、リセット、規制解除時刻取得、を分離しそれぞれを個別のメソッドに変更。&lt;br/&gt;
+ユーザーの追加、削除メソッドをさらに分離し、ユーザー管理メソッドとして追加。&lt;br/&gt;
+ユーザー管理用にフォローリストを定義。&lt;br/&gt;
+ユーザー管理のデーターチェックメソッドからイニシャライズメソッドを分離。&lt;br/&gt;
+アドミンコマンドメソッドをメインスレッドから分離。&lt;br/&gt;
+スレッドごとの例外処理からエラー処理メソッドを分離。&lt;br/&gt;
+ユーザーストリーム接続時にフォローリストを更新しるよう変更。&lt;br/&gt;
+レスポンス取得メソッドの検索方法を変更し高速化。&lt;br/&gt;
+ユーザーの確認にユーザーリストを呼び出し確認することでリプライを高速化。&lt;br/&gt;
+規制解除測定アルゴリズムにおける多数のバグを修正。&lt;br/&gt;
+リプライコメントをよりわかりやすく変更。&lt;br/&gt;
+エラー時にリプライを送るように追加。&lt;/p&gt;
+
+&lt;h1&gt;0.3b3 (2012-09-17)&lt;/h1&gt;
+
+&lt;p&gt;規制解除測定アルゴリズムにおけるバグを修正。&lt;br/&gt;
+プログラムクラッシュ時にFATALログを取るように追加。&lt;br/&gt;
+ログのフォーマットを変更。&lt;/p&gt;
+
+&lt;h1&gt;0.3b4 (2012-10-07)&lt;/h1&gt;
+
+&lt;p&gt;TwitterAPI1.1に対応。&lt;/p&gt;
+
+&lt;h1&gt;0.4a1 (2012-10-26)&lt;/h1&gt;
+
+&lt;p&gt;ユーザーデータの管理をuser idをベースに変更。&lt;br/&gt;
+規制解除時刻の割り出し時にセクションが未開始の時、本人のツイートの場合はその本人自身リプライのデータを利用して再計算し直すように修正。&lt;br/&gt;
+リプライの内容を一部修正。&lt;br/&gt;
+きせーさーち自身の規制垢の追加のために複数アカウントそれぞれの互換性を持たせるために修正。&lt;br/&gt;
+規制垢設定メソッドを追加。&lt;br/&gt;
+規制垢選択解除・強制解除メソッドを追加。&lt;br/&gt;
+規制垢全解除メソッドを追加。&lt;br/&gt;
+文字列からのアカウント種類認識用インタプリタメソッドを追加。&lt;br/&gt;
+規制解除時刻取得メソッドにリプライのターゲットユーザーを解析時にアカウント種類認識用インタプリタメソッドを呼び、その結果を優先して利用するように追加。&lt;br/&gt;
+暫定基準規制解除時刻割り出しアルゴリズムの開発を凍結。&lt;br/&gt;
+エラー用の文章を追加。&lt;br/&gt;
+ユーザーデータをkisei_search_usr.jsonに保存、読み込みを行うメソッドを追加。&lt;br/&gt;
+ユーザーデータのバックアップをbackup/usrに保存するメソッド、そして5分毎に実行するシークエンサーメソッドを追加（また3時間前のデータを自動で削除）。&lt;br/&gt;
+きせーさーちの取得ツイート数、ポスト数を記録したログデータをkisei_search_log.jsonに保存、読み込みを行うメソッドを追加。&lt;br/&gt;
+ログデータを棒グラフにして出力するメソッドを追加。&lt;br/&gt;
+ログのグラフを投稿する管理者コマンドを追加。&lt;br/&gt;
+tweettoメソッドの引数にメディアのパス指定を追加（nilの場合は通常投稿）。&lt;br/&gt;
+スタートアップ時にtweettoメソッドを呼び出す時、API規制などのエラーが出た場合に終了してまうため例外処理を追加。&lt;br/&gt;
+フォロー解除メソッドでユーザーデータを解析し紐付けのあるアカウントのデータを削除し、他のアカウントの設定に影響する場合に通知を行うように修正。&lt;br/&gt;
+checkuserメソッドでユーザーの紐付けされたアカウントの規制解除時刻を確認し、そのツイートの時刻が規制解除時刻から30分以内である場合かつ、まだ解除通知を行なっていない場合に解除通知をするように追加。&lt;/p&gt;
+
+&lt;h1&gt;0.4a2 (2012-12-22)&lt;/h1&gt;
+
+&lt;p&gt;解除通知のハッシュに別に生成したハッシュを代入していたためキーが2つ以上格納されず、規制垢が複数登録されているアカウントにおいて複数の解除通知済みのデータが入っていないために連続で通知を行なってしまうバグを修正（&lt;em&gt;_sister&lt;/em&gt;問題）。&lt;br/&gt;
+API規制のエラー通知を修正。&lt;br/&gt;
+起動時にロードするjsonファイルが存在しない場合には空のjsonファイルを生成するように修正。&lt;br/&gt;
+解除通知を行う際に今の時刻とセクション解除の時刻を比較する計算に誤りがあったため修正。&lt;br/&gt;
+ロード時にログファイルから前回起動したバージョンを検出する正規表現に誤りがあったため修正。&lt;/p&gt;
+
+&lt;h1&gt;0.5a1 ()&lt;/h1&gt;
+
+&lt;p&gt;一部構造化のように書かれていたメソッドを修正するためにすべて再定義。&lt;br/&gt;
+ユーザーストリームを実行するメインスレッド、アカウント操作を主に行うAccountHandlerクラスを定義。&lt;br/&gt;
+取得したツイートからコントロール用のオブジェクトを生成するTweetクラスを定義。&lt;br/&gt;
+規制解除時刻を計算するメソッド群を持つRegulationModuleモジュールを定義。&lt;br/&gt;
+システム操作、初期化に用いるメソッドを持つAppBaseモジュールを定義。&lt;br/&gt;
+アカウントタイプを解析するインタプリタメソッドを持つAccountTypeInterpreterモジュールを定義。&lt;br/&gt;
+ユーザーデータをTweetのインスタンスから    ハッシュとして保持し操作を行うクラスメソッドを持つUserDetaクラスを定義。&lt;br/&gt;
+ログをファイルとして保存するlogメソッドをトップレベルメソッドとして定義。&lt;/p&gt;
+
+&lt;h1&gt;0.4b1 (2013-01-05)&lt;/h1&gt;
+
+&lt;p&gt;tweettoメソッドにおいて、規制された時に規制用アカウントとして @kisei_search2 に切り替える機能を追加。&lt;/p&gt;
+
+&lt;h1&gt;0.4b2 (2013-01-06)&lt;/h1&gt;
+
+&lt;p&gt;twitter gem 4.4.0を使用するように宣言を追加。&lt;br/&gt;
+getUnlockPointNewメソッドで規制垢のAPIを利用していたために鍵垢での利用ががきなくなっていたため、すべて本垢のAPIを利用するように修正。&lt;br/&gt;
+きせーさーちの詳細のURLを http://pnlybubbles.github.com/ruby/2012-01-18/kisei-search/ に変更。&lt;/p&gt;
+
+&lt;h1&gt;0.4b3 (2013-01-20)&lt;/h1&gt;
+
+&lt;p&gt;W規制垢として @kisei_search3 に対応。&lt;/p&gt;
+
+&lt;h1&gt;0.4b4 (2013-01-28)&lt;/h1&gt;
+
+&lt;p&gt;ユーザーデータとログデータの保存を10ツイート取得ごとに変更。&lt;br/&gt;
+プログラムクラッシュ時にユーザーデータとログデータの保存を行うように追加。&lt;/p&gt;
+
+&lt;h1&gt;0.4b5 (2013-01-30)&lt;/h1&gt;
+
+&lt;p&gt;friendsが5000までしか取得できず、一部のユーザーが未登録と判定されていたバグを修正。&lt;br/&gt;
+twitter gemのバージョン指定を削除。&lt;br/&gt;
+Fatal時のユーザーデータを保存を削除。&lt;/p&gt;
+
+&lt;h1&gt;0.4b6 (2013-02-01)&lt;/h1&gt;
+
+&lt;p&gt;登録済みの設定された規制垢を対象にしてリセットを行える機能を追加。&lt;/p&gt;
+
+&lt;h1&gt;0.4b7 (2013-02-02)&lt;/h1&gt;
+
+&lt;p&gt;DEBUG_定数をデバッグ時と通常実行時の切り替えを容易に変更できるように追加。&lt;br/&gt;
+アカウントのoauth_tokenを配列に格納するように変更。&lt;br/&gt;
+アカウントのコンシュマーキー、アクセストークンキーを格納した配列のインデックスを変更。&lt;br/&gt;
+起動時にそれぞれのアカウントでfriendsを取得し配列を作成するメソッドを定義。&lt;br/&gt;
+起動時に起動情報をツイートし、ログファイルに書き込むメソッドを定義。&lt;br/&gt;
+tweettoメソッドをoauth_tokenの配列化に伴い変更し、また利用可能なアカウントのみポストを行うように変更。&lt;br/&gt;
+getUnlockPointNewメソッド内のデバッグ用の変数を削除。&lt;br/&gt;
+120ポスト目ではなく121ポスト目に通知するようになっていたのを修正。&lt;br/&gt;
+get_resメソッドの引数にDM判別の変数を追加し、DM時senderキーをuserキーとして取得したハッシュに追加するように追加。&lt;br/&gt;
+get_resメソッドでリプライにメディアを指定可能にするように変更。&lt;br/&gt;
+add_userメソッドの引数に追加先アカウントの変数を追加。&lt;br/&gt;
+対象のリセットを行う再に誤差が出ていたバグを修正。&lt;br/&gt;
+アカウントの登録状況、規制垢の設定状況を画像として生成するgetaccountstatusメソッドを定義。&lt;br/&gt;
+アカウントの登録状況を調べテキストとして返すgetaccountstatusminiメソッドを定義。&lt;br/&gt;
+フォローされているアカウントを調べフォローバックを行うrefollow_checkメソッドを定義。&lt;br/&gt;
+規制垢の設定状況をしらばテキストとして返すget_reguraltion_conditionメソッドを定義。（スペルミスではない。次修正。）&lt;br/&gt;
+管理者コマンドを簡易的なものを追加、修正。&lt;br/&gt;
+エラー取得メソッドがエラーで落ちるバグを修正。&lt;br/&gt;
+強制的に対象のユーザーを登録するメソッドadduserforciblyメソッドを定義。&lt;br/&gt;
+対象のユーザーデータを取得し、画像として書きだすgetuserdetaメソッドを定義。&lt;br/&gt;
+すべてのユーザーデータを取得し、画像として書きだすメソッドgetalluserdetaメソッドを定義。&lt;br/&gt;
+ログファイルから指定した行数tail -nで取得し、画像として書きだすgetlogtailメソッドを定義。&lt;br/&gt;
+ログデータからグラフを生成するメソッドのフォントのパスを絶対パスを取得し、それを用いるように修正。&lt;br/&gt;
+テキストを画像に変換するメソッドtext_to_pngメソッドを定義。&lt;br/&gt;
+管理者のリストを配列に変更。&lt;br/&gt;
+UserStreamからeventを取得しコンソール表示するように追加。&lt;br/&gt;
+UserStreamからDMを取得しコンソール表示するように追加し、DMを取得したときget_resメソッドを呼ぶように追加。&lt;br/&gt;
+UserStreamの例外処理のエラー投稿のargument errorを修正。&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>きせーさーちβ版</title>
@@ -27,7 +701,7 @@
 
 &lt;ul&gt;
 &lt;li&gt;定期botを高い頻度で使っていると&lt;code&gt;最近3200ポストに3時間以上の離脱が見つからなかったの！&lt;/code&gt;と返されリセットできません。対処法としては定期botを解除し、3時間以上のポストの無い離脱を作るようにしてください。&lt;/li&gt;
-&lt;li&gt;サーバーのスペック不足やバクにより、結構な頻度でプログラムが落ちることがあります。&lt;/li&gt;
+&lt;li&gt;サーバーのスペック不足やバグにより、結構な頻度でプログラムが落ちることがあります。&lt;/li&gt;
 &lt;li&gt;リセットの集中によりかなりの頻度でAPI規制にかかっている場合があります。&lt;/li&gt;
 &lt;li&gt;鍵アカウントの登録はできません。一旦解除してから登録をお願いします。&lt;/li&gt;
 &lt;/ul&gt;
@@ -39,7 +713,8 @@
 &lt;li&gt;規制解除時間を計算&lt;/li&gt;
 &lt;li&gt;セクション内120ポストで規制通知&lt;/li&gt;
 &lt;li&gt;解除されてから30分以内に解除されたアカウント以外で呟いた時に解除通知&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://twitter.com/kisei_search&quot; title=&quot;きせーさーちβ版&quot;&gt;@kisei_search&lt;/a&gt; が規制にかかっている時、 &lt;a href=&quot;http://twitter.com/kisei_search2&quot; title=&quot;きせーさーちβ版の規制垢&quot;&gt;@kisei_search2&lt;/a&gt; を利用&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://twitter.com/kisei_search&quot; title=&quot;きせーさーちβ版&quot;&gt;@kisei_search&lt;/a&gt; が規制にかかっている時、 &lt;a href=&quot;http://twitter.com/kisei_search2&quot; title=&quot;きせーさーちβ版の規制垢&quot;&gt;@kisei_search2&lt;/a&gt; または &lt;a href=&quot;http://twitter.com/kisei_search3&quot; title=&quot;きせーさーちβ版のW規制垢&quot;&gt;@kisei_search3&lt;/a&gt; を利用&lt;/li&gt;
+&lt;li&gt;DMによる応答（きせーさーちからの返答はリプライとして返ってきます）&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -114,8 +789,8 @@
 &lt;td align=&quot;left&quot;&gt;設定されている規制垢との紐付けをすべて解除します。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;規制垢の状況(β)&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;設定されている規制垢の割り当てを調べます。&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;規制垢の状況&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;設定されている規制垢の割り当てを調べます。(β)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -127,10 +802,10 @@
 
 &lt;p&gt;※3 nは自然数。「第2規制垢」でなくても「W規制垢」のように書いても認識します。また「第n規制垢いつ」を利用するときには「本垢」も使用できます。&lt;/p&gt;
 
-&lt;h3&gt;登録状況関連のコマンド&lt;/h3&gt;
+&lt;h3&gt;登録状況関連のコマンド &lt;font color=&quot;FF0000&quot; size=&quot;2&quot;&gt;### 確認してください ###&lt;/font&gt;&lt;/h3&gt;
 
-&lt;p&gt;きせーさーちは&lt;code&gt;@kisei_search&lt;/code&gt; &lt;code&gt;@kisei_search2&lt;/code&gt; &lt;code&gt;@kisei_search3&lt;/code&gt;があります。これらはきせーさーちのアカウント凍結を防止するため※4、相互フォローの状態でのみ使用可能です。 &lt;br/&gt;
-きせーさーちのアカウントはフォローしても、フォローバックされていない場合は使用不可ですので、下記のコマンドの&lt;code&gt;フォロー&lt;/code&gt;を行うことで使用可能にすることができます。&lt;/p&gt;
+&lt;p&gt;きせーさーちには&lt;code&gt;@kisei_search&lt;/code&gt; &lt;code&gt;@kisei_search2&lt;/code&gt; &lt;code&gt;@kisei_search3&lt;/code&gt;があります。これらはきせーさーちのアカウント凍結を防止するため※4、相互フォローの状態でのみ使用可能です。 &lt;br/&gt;
+きせーさーちのアカウントは、フォローしてもフォローバックされていない場合は使用不可となっています。下記のコマンドの&lt;code&gt;フォロー&lt;/code&gt;を行うことで使用可能にすることができます。&lt;/p&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -141,16 +816,16 @@
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;登録状況(β)&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;あなたがきせーさーちのアカウントを使用可能か、使用不可かを調べます。&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;登録状況&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;あなたがきせーさーちのアカウントを使用可能か、使用不可かを調べます。(β)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;登録状況詳細(β)&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;あなたのアカウント、規制用アカウントの登録状況を調べます。&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;登録状況詳細&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;あなたのアカウント、規制用アカウントの登録状況を調べます。(β)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;フォロー(β)&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;フォローしているきせーさーちのアカウントを使用可能にします。（フォローバックを行います）&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;フォロー&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;フォローしているきせーさーちのアカウントを使用可能にします。（フォローバックを行います）(β)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -235,17 +910,6 @@
 &lt;p&gt;また、以前のブログはそのまま残しておくつもりです。&lt;/p&gt;
 
 &lt;p&gt;新ブログでもどうぞよろしくお願いします。&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>テスト投稿タイトル</title>
-   <link href="http://pnlybubbles.github.com/test/2012-01-14/test"/>
-   <updated>2012-01-14T07:00:00+09:00</updated>
-   <id>http://pnlybubbles.github.com/test/2012-01-14/test</id>
-   <content type="html">&lt;p&gt;テスト投稿本文&lt;/p&gt;
-
-&lt;p&gt;＼ｱｯｶﾘ〜ﾝ／&lt;/p&gt;
 </content>
  </entry>
  

@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>bowlineをインストールしてみた</title>
+    
+    <meta name="author" content="pnlybubbles">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/js/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/js/google-code-prettify/prettify.js"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/js/default.js"></script>
+
+    <!-- Le styles -->
+    <link href="/assets/themes/awaawa/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/awaawa/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link href="/assets/themes/awaawa/css/syntax.css" rel="stylesheet">    
+    <link href="/assets/themes/awaawa/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="title">
+      </div>
+
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="brand" href="/">AwaAwa's blog</a>
+            <ul class="nav">
+              
+              
+              
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>bowlineをインストールしてみた</h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p>html+javascript+css+rubyでGUIアプリケーションを開発可能にするプロジェクト、bowlineを使ってみた。</p>
+
+<p>今のところUbuntuとMacOSXに対応しているようです。</p>
+
+<h2>インストール</h2>
+
+<p>いちおうRubyのバージョン。</p>
+
+<pre><code>$ ruby -v
+ruby 1.9.3p327 (2012-11-10 revision 37606) [x86_64-darwin11.4.0]
+</code></pre>
+
+<p><code>Homebrew</code>で管理してるので最新版ではないです。</p>
+
+<p>さて、<code>bowline</code>インストールしてみる。</p>
+
+<pre><code>$ sudo gem install bowline
+ERROR:  While executing gem ... (Gem::DependencyError)
+    Unable to resolve dependencies: activemodel requires i18n (~&gt; 0.5.0)
+</code></pre>
+
+<p>これだとエラーがでる。</p>
+
+<p><code>i18n</code>がgemでバージョン指定されているのかな。</p>
+
+<p>gemインストール時にバージョンを指定してあげる。</p>
+
+<pre><code>$ gem install i18n --version 0.5.0
+Fetching: i18n-0.5.0.gem (100%)
+Successfully installed i18n-0.5.0
+1 gem installed
+Installing ri documentation for i18n-0.5.0...
+Installing RDoc documentation for i18n-0.5.0...
+</code></pre>
+
+<p>もう一度<code>bowline</code>のインストールを試してみる。</p>
+
+<pre><code>$ sudo gem install bowline
+Fetching: highline-1.6.15.gem (100%)
+Fetching: diff-lcs-1.2.1.gem (100%)
+Fetching: extlib-0.9.16.gem (100%)
+...
+DEPRECATED! DEPRECATED! DEPRECATED! DEPRECATED! DEPRECATED! DEPRECATED!
+DEPRECATED! DEPRECATED! DEPRECATED! DEPRECATED! DEPRECATED! DEPRECATED!
+
+  The rubyzip2 gem is deprecated. Instead, please use:
+
+  * rubyzip       https://github.com/aussiegeek/rubyzip
+  * archive-zip   https://github.com/javanthropus/archive-zip
+
+DEPRECATED! DEPRECATED! DEPRECATED! DEPRECATED! DEPRECATED! DEPRECATED!
+DEPRECATED! DEPRECATED! DEPRECATED! DEPRECATED! DEPRECATED! DEPRECATED!
+...
+Fetching: bowline-0.9.4.gem (100%)
+...
+    **************************************************
+
+      Thank you for installing Bowline.
+
+      If you're on Linux, please install the WebKit library:
+        sudo apt-get install libwebkit-dev
+
+    **************************************************
+...
+Successfully installed bowline-0.9.4
+...
+Installing RDoc documentation for bowline-0.9.4...
+</code></pre>
+
+<p>なんかいろいろ出たけど、どうにかインストールはできたみたい。</p>
+
+<p><code>DEPRECATED!</code>うるさし...</p>
+
+<p>Linuxの場合は<code>libwebkit-dev</code>をインストールしてくださねーって言ってる。</p>
+
+<p>これでインストールは完了。</p>
+
+<h2>サンプルを作ってみる</h2>
+
+<p><code>bowline-gen</code>というコマンドで<code>helloworld</code>を作る。パスは適当に通しておく。</p>
+
+<pre><code>$ bowline-gen app helloworld
+Generating with app generator:
+     [ADDED]  vendor
+     [ADDED]  lib
+     [ADDED]  db
+     [ADDED]  build
+     [ADDED]  log
+     [ADDED]  public
+     [ADDED]  app
+     [ADDED]  app/models
+     [ADDED]  app/binders
+     [ADDED]  app/helpers
+     [ADDED]  app/windows
+     [ADDED]  config
+     [ADDED]  config/initializers
+     [ADDED]  config/first_run
+     [ADDED]  app_first_run
+     [ADDED]  Rakefile
+     [ADDED]  Gemfile
+     [ADDED]  public/index.html
+     [ADDED]  public/javascripts/application.js
+     [ADDED]  public/stylesheets/application.css
+     [ADDED]  script/build
+     [ADDED]  script/console
+     [ADDED]  script/generate
+     [ADDED]  script/init
+     [ADDED]  script/run
+     [ADDED]  config/environment.rb
+     [ADDED]  config/environments/development.rb
+     [ADDED]  config/environments/production.rb
+     [ADDED]  .gitignore
+     [ADDED]  public/icon.png
+     [ADDED]  script
+     [ADDED]  public/javascripts/jquery.js
+     [ADDED]  public/javascripts/jquery.chain.js
+     [ADDED]  public/javascripts/superclass.js
+     [ADDED]  public/javascripts/bowline.js
+     [ADDED]  public/javascripts/bowline.chain.js
+     [ADDED]  app/windows/main_window.rb
+     [ADDED]  config/application.yml
+     [ADDED]  config/database.yml
+     [ADDED]  config/boot.rb
+     [ADDED]  README
+</code></pre>
+
+<p><code>helloworld</code>ディレクトリに入って<code>bowline-bundle</code>を実行する。</p>
+
+<pre><code>$ bowline-bundle
+/usr/local/Cellar/ruby/1.9.3-p327/lib/ruby/gems/1.9.1/gems/bowline-bundler-0.0.4/lib/bowline/bundler/dependency.rb:59:in `&lt;class:Dependency&gt;': undefined method `version_requirements' for class `Bundler::Dependency' (NameError)
+    from /usr/local/Cellar/ruby/1.9.3-p327/lib/ruby/gems/1.9.1/gems/bowline-bundler-0.0.4/lib/bowline/bundler/dependency.rb:4:in `&lt;module:Bundler&gt;'
+    from /usr/local/Cellar/ruby/1.9.3-p327/lib/ruby/gems/1.9.1/gems/bowline-bundler-0.0.4/lib/bowline/bundler/dependency.rb:1:in `&lt;top (required)&gt;'
+    from /usr/local/Cellar/ruby/1.9.3-p327/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+    from /usr/local/Cellar/ruby/1.9.3-p327/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+    from /usr/local/lib/ruby/gems/1.9.1/gems/bowline-bundler-0.0.4/lib/bowline/bundler.rb:18:in `&lt;top (required)&gt;'
+    from /usr/local/Cellar/ruby/1.9.3-p327/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+    from /usr/local/Cellar/ruby/1.9.3-p327/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+    from /usr/local/lib/ruby/gems/1.9.1/gems/bowline-bundler-0.0.4/bin/bowline-bundle:4:in `&lt;main&gt;'
+</code></pre>
+
+<p>コケる…。</p>
+
+<p>Rubyを32bitモードでコンパイルしなくちゃいけなかったのかな…。</p>
+
+<p>わからないなう…。</p>
+
+<p>進展があったら追記します。</p>
+
+<hr />
+
+<h4>追記（2012-02-13）</h4>
+
+<pre><code>ruby 1.8.7 (2011-12-28 patchlevel 357) [universal-darwin11.0]
+</code></pre>
+
+<p>Rubyのバージョンを変えて行ったところ<code>bowline-bundle</code>を実行できましたが、途中でコケました…。</p>
+
+<h4>追記（2012-02-13）</h4>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/ruby/2012-02-02/kisei-search-changelog" title="きせーさーちβ版-ChangeLog">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/ruby/2012-02-12/keyword-argument-test" title="Ruby2.0のキーワード引数を試してみた">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'pnlybubbles'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span4">
+    <div class="tag_box-wrap">
+        <h4>Published</h4>
+        <div class="date"><span>12 February 2012</span></div>
+
+      
+        <h4>Tags</h4>
+        <ul class="tag_box">
+        
+        
+
+
+  
+     
+    	<li><a href="/tags.html#ruby-ref">ruby <span>8</span></a></li>
+     
+    	<li><a href="/tags.html#bowline-ref">bowline <span>1</span></a></li>
+    
+  
+
+
+
+        </ul>
+      
+    </div>
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; pnlybubbles 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

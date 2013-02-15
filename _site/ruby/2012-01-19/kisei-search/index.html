@@ -14,11 +14,14 @@
 
     <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script type="text/javascript" src="/assets/themes/awaawa/js/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/js/google-code-prettify/prettify.js"></script>
     <script type="text/javascript" src="/assets/themes/awaawa/js/default.js"></script>
 
     <!-- Le styles -->
     <link href="/assets/themes/awaawa/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/assets/themes/awaawa/css/syntax.css" rel="stylesheet">
+    <link href="/assets/themes/awaawa/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link href="/assets/themes/awaawa/css/syntax.css" rel="stylesheet">    
     <link href="/assets/themes/awaawa/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
 
     <!-- Le fav and touch icons -->
@@ -119,7 +122,7 @@
 
 <ul>
 <li>定期botを高い頻度で使っていると<code>最近3200ポストに3時間以上の離脱が見つからなかったの！</code>と返されリセットできません。対処法としては定期botを解除し、3時間以上のポストの無い離脱を作るようにしてください。</li>
-<li>サーバーのスペック不足やバクにより、結構な頻度でプログラムが落ちることがあります。</li>
+<li>サーバーのスペック不足やバグにより、結構な頻度でプログラムが落ちることがあります。</li>
 <li>リセットの集中によりかなりの頻度でAPI規制にかかっている場合があります。</li>
 <li>鍵アカウントの登録はできません。一旦解除してから登録をお願いします。</li>
 </ul>
@@ -131,7 +134,8 @@
 <li>規制解除時間を計算</li>
 <li>セクション内120ポストで規制通知</li>
 <li>解除されてから30分以内に解除されたアカウント以外で呟いた時に解除通知</li>
-<li><a href="http://twitter.com/kisei_search" title="きせーさーちβ版">@kisei_search</a> が規制にかかっている時、 <a href="http://twitter.com/kisei_search2" title="きせーさーちβ版の規制垢">@kisei_search2</a> を利用</li>
+<li><a href="http://twitter.com/kisei_search" title="きせーさーちβ版">@kisei_search</a> が規制にかかっている時、 <a href="http://twitter.com/kisei_search2" title="きせーさーちβ版の規制垢">@kisei_search2</a> または <a href="http://twitter.com/kisei_search3" title="きせーさーちβ版のW規制垢">@kisei_search3</a> を利用</li>
+<li>DMによる応答（きせーさーちからの返答はリプライとして返ってきます）</li>
 </ul>
 
 
@@ -206,8 +210,8 @@
 <td align="left">設定されている規制垢との紐付けをすべて解除します。</td>
 </tr>
 <tr>
-<td align="left">規制垢の状況(β)</td>
-<td align="left">設定されている規制垢の割り当てを調べます。</td>
+<td align="left">規制垢の状況</td>
+<td align="left">設定されている規制垢の割り当てを調べます。(β)</td>
 </tr>
 </tbody>
 </table>
@@ -219,10 +223,10 @@
 
 <p>※3 nは自然数。「第2規制垢」でなくても「W規制垢」のように書いても認識します。また「第n規制垢いつ」を利用するときには「本垢」も使用できます。</p>
 
-<h3>登録状況関連のコマンド</h3>
+<h3>登録状況関連のコマンド <font color="FF0000" size="2">### 確認してください ###</font></h3>
 
-<p>きせーさーちは<code>@kisei_search</code> <code>@kisei_search2</code> <code>@kisei_search3</code>があります。これらはきせーさーちのアカウント凍結を防止するため※4、相互フォローの状態でのみ使用可能です。 <br/>
-きせーさーちのアカウントはフォローしても、フォローバックされていない場合は使用不可ですので、下記のコマンドの<code>フォロー</code>を行うことで使用可能にすることができます。</p>
+<p>きせーさーちには<code>@kisei_search</code> <code>@kisei_search2</code> <code>@kisei_search3</code>があります。これらはきせーさーちのアカウント凍結を防止するため※4、相互フォローの状態でのみ使用可能です。 <br/>
+きせーさーちのアカウントは、フォローしてもフォローバックされていない場合は使用不可となっています。下記のコマンドの<code>フォロー</code>を行うことで使用可能にすることができます。</p>
 
 <table>
 <thead>
@@ -233,16 +237,16 @@
 </thead>
 <tbody>
 <tr>
-<td align="left">登録状況(β)</td>
-<td align="left">あなたがきせーさーちのアカウントを使用可能か、使用不可かを調べます。</td>
+<td align="left">登録状況</td>
+<td align="left">あなたがきせーさーちのアカウントを使用可能か、使用不可かを調べます。(β)</td>
 </tr>
 <tr>
-<td align="left">登録状況詳細(β)</td>
-<td align="left">あなたのアカウント、規制用アカウントの登録状況を調べます。</td>
+<td align="left">登録状況詳細</td>
+<td align="left">あなたのアカウント、規制用アカウントの登録状況を調べます。(β)</td>
 </tr>
 <tr>
-<td align="left">フォロー(β)</td>
-<td align="left">フォローしているきせーさーちのアカウントを使用可能にします。（フォローバックを行います）</td>
+<td align="left">フォロー</td>
+<td align="left">フォローしているきせーさーちのアカウントを使用可能にします。（フォローバックを行います）(β)</td>
 </tr>
 </tbody>
 </table>
@@ -299,7 +303,7 @@
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next disabled"><a>Next &rarr;</a>
+        <li class="next"><a href="/ruby/2012-02-02/kisei-search-changelog" title="きせーさーちβ版-ChangeLog">Next &rarr;</a></li>
       
       </ul>
     </div>
@@ -341,13 +345,11 @@
 
   
      
-    	<li><a href="/tags.html#twitter-ref">twitter <span>1</span></a></li>
+    	<li><a href="/tags.html#twitter-ref">twitter <span>2</span></a></li>
      
-    	<li><a href="/tags.html#規制-ref">規制 <span>1</span></a></li>
+    	<li><a href="/tags.html#きせーさーち-ref">きせーさーち <span>2</span></a></li>
      
-    	<li><a href="/tags.html#きせーさーち-ref">きせーさーち <span>1</span></a></li>
-     
-    	<li><a href="/tags.html#ruby-ref">ruby <span>3</span></a></li>
+    	<li><a href="/tags.html#ruby-ref">ruby <span>8</span></a></li>
     
   
 
