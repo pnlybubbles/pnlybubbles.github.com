@@ -10,4 +10,8 @@ tags : [ruby, macruby, websocket, em-websocket, faye, eventmachine]
 
 （実は2回目…。）
 
+##構想
+
 <img src="/img/2013-03-09-Luminous-chart1.png" />
+
+iPhoneでもこんなに綺麗な図が描ける。
