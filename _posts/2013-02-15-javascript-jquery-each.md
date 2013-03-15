@@ -1,7 +1,7 @@
 ---
 layout: post
 title: JavaSriptでeachしてみた
-date: 2012-02-15 21:00:00
+date: 2013-02-15 21:00:00
 category : javascript
 tags : [javascript, jquery, ruby, each]
 ---

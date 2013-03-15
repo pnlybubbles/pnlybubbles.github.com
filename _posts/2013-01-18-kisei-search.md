@@ -1,7 +1,7 @@
 ---
 layout: post
 title: きせーさーちβ版 
-date: 2012-01-18 22:30:00
+date: 2013-01-18 22:30:00
 category : ruby
 tags : [twitter, きせーさーち, ruby]
 ---

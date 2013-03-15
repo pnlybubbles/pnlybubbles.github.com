@@ -1,7 +1,7 @@
 ---
 layout: post
 title: bowlineをインストールしてみた
-date: 2012-02-12 14:00:00
+date: 2013-02-12 14:00:00
 category : ruby
 tags : [ruby, bowline]
 ---

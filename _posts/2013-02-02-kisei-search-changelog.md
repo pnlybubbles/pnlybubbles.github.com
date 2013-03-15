@@ -1,7 +1,7 @@
 ---
 layout: post
 title: きせーさーちβ版-ChangeLog
-date: 2012-02-02 00:30:00
+date: 2013-02-02 00:30:00
 category : ruby
 tags : [twitter, きせーさーち, ruby, changelog]
 ---

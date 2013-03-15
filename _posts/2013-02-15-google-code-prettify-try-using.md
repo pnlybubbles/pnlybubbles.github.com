@@ -1,7 +1,7 @@
 ---
 layout: post
 title: google-code-prettifyを適用してみた
-date: 2012-02-16 02:30:00
+date: 2013-02-16 02:30:00
 category : javascript
 tags : [google-code-prettify, javascript, jquery, bootstrap, pygments]
 ---

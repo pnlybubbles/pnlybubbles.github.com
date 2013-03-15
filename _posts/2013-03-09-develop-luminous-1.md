@@ -1,7 +1,7 @@
 ---
 layout: post
 title: MacRubyでTwitterクライアント
-date: 2012-03-09 08:30:00
+date: 2013-03-09 08:30:00
 category : ruby
 tags : [ruby, macruby, websocket, em-websocket, faye, eventmachine]
 ---
