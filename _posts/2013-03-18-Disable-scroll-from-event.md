@@ -38,13 +38,25 @@ jQueryでonkeydownイベントを動的に追加しています。
 > [event.preventDefault() jQuery API Documentation](http://api.jquery.com/event.preventDefault/ "event.preventDefault() jQuery API Documentation")
 > 
 > Description: If this method is called, the default action of the event will not be triggered.
->
+> 
 >このメソッドが呼ばれた時、デフォルトのアクションは実行されません。
 
-上のapi.jQuery.comでの例では、リンクをクリックしたらページ移動が起こるところ、それをキャンセルさせて、動的に追加したメソッドを実行しているという感じです。
+上の`api.jQuery.com`での例では、リンクをクリックしたらページ移動が起こるところ、それをキャンセルさせて、動的に追加したメソッドを実行しているという感じです。
 
-スクロールの動作もブラウザのデフォルトのアクションとしてjsから抑制できるみたいですね。
+スクロールの動作もブラウザのデフォルトのアクションとしてjavascriptから抑制できるみたいですね。
 
-これで意図しないスクロールはなくなりました。めでたし。
+他にも調べてみると、こんなものが。
 
-それと、なぜか`$(window).keypress`でkeycodeが取れなかった。なんでだろう。
+> [event.stopPropagation() jQuery API Documentation](http://api.jquery.com/event.stopPropagation/ "event.stopPropagation() jQuery API Documentation")
+> 
+> Description: Prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event.
+
+*イベント伝播* という概念があって、DOMの階層の順番にイベントが発生してアクションが起こるフローのことをいいます。
+
+このメソッドはそのフローを途中で止めてそれ以上実行されないようにするメソッドのようです。
+
+調べるときりがないですね・・・。
+
+とりあえず、これで意図しないスクロールはなくなりました。めでたし。
+
+それと、なぜか`$(window).keypress`でkeycodeが取れませんでした。なんでだろう。
