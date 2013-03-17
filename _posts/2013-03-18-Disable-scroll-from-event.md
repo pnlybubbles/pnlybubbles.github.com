@@ -1,6 +1,6 @@
 ---
 layout: post
-title: JavaScriptでイベントによるスクロールを無効化する。
+title: JavaScriptでイベントによるスクロールを無効化する
 date: 2013-03-18 03:30:00
 category : javascript
 tags : [javascript, jquery, keydown]
