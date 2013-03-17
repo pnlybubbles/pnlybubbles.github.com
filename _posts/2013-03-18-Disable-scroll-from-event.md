@@ -29,7 +29,7 @@ tags : [javascript, jquery, preventDefault]
 	});
 
 
-jQueryでonkeydownイベントを動的に追加しています。
+jQueryで`onkeydown`イベントを動的に追加しています。
 
 キーワードとなってるのがこの`preventDefault`。
 
