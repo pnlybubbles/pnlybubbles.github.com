@@ -51,7 +51,7 @@ JavaScriptはRubyとまた違ったオブジェクト指向でやりやすかっ
 
 ---
 ####追記（2013/03/19）
-`forEach`メソッドで同じ事ができました。（というか断然こっちのほうが良い・・・）
+それ、`forEach`メソッドでできるよ。（というか断然こっちのほうが良い・・・）
 
 	[code.num.high]
 	var arr = ["ruby", "perl", "javascript", "jquery"];
