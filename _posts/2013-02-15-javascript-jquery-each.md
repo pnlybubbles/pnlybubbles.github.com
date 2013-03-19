@@ -71,7 +71,7 @@ JavaScriptはRubyとまた違ったオブジェクト指向でやりやすかっ
 
 コンストラクタ内で使うときはthisの指すものが変わると厄介なので`obj`にthisを指定してあげれば全く問題ないですね。
 
-ちなみにjQueryのeachでは、thisでインスタンスからeachで参照された*オブジェクト*を返します。（インスタンスって言っていいのかな...）
+ちなみにjQueryのeachでは、thisでインスタンスからeachで参照されたものを*オブジェクト*として返します。（インスタンスって言っていいのかな...）
 
 > [jQuery.each() jQuery API Documentation](http://api.jquery.com/jQuery.each/ "jQuery.each() jQuery API Documentation")
 > 
