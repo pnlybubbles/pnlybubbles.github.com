@@ -4,7 +4,7 @@
  <title>あわあわのブログ</title>
  <link href="http://pnlybubbles.github.com/atom.xml" rel="self"/>
  <link href="http://pnlybubbles.github.com"/>
- <updated>2013-03-19T10:47:09+09:00</updated>
+ <updated>2013-03-19T11:16:46+09:00</updated>
  <id>http://pnlybubbles.github.com</id>
  <author>
    <name>pnlybubbles</name>
@@ -304,15 +304,17 @@ str.trim(); // =&amp;gt; &quot;Ruby&quot;
 &lt;pre&gt;&lt;code&gt;[code.num.high]
 var arr = [&quot;ruby&quot;, &quot;perl&quot;, &quot;javascript&quot;, &quot;jquery&quot;];
 
-arr.forEach(function(index, value) {
+arr.forEach(function(value, index) {
     console.log(index + &quot;:&quot; + value);
 });
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;というかこっちのほうがRubyに近いですね。&lt;/p&gt;
 
+&lt;p&gt;jQueryと違ってvalueとindexが逆になっているので注意です。&lt;/p&gt;
+
 &lt;pre&gt;&lt;code&gt;[code.num.high]
-arr.forEach(function(index, value) {
+arr.forEach(function(value, index) {
     this.method(index, value);
 }, obj)
 &lt;/code&gt;&lt;/pre&gt;
