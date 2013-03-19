@@ -67,11 +67,11 @@ JavaScriptはRubyとまた違ったオブジェクト指向でやりやすかっ
 		this.method(index, value);
 	}, obj)
 
-こんな感じでforEach文のなかで参照できるオブジェクトを指定することが可能。未指定の場合は`undefined`です。
+こんな感じで`forEach`文のなかで参照できるオブジェクトを指定することが可能。未指定の場合は`undefined`です。
 
-コンストラクタ内で使うときはthisの指すものが変わると厄介なので`obj`にthisを指定してあげれば全く問題ないですね。
+コンストラクタ内で使うときは`this`の指すものが変わると厄介なので`obj`に`this`を指定してあげれば全く問題ないですね。
 
-ちなみにjQueryのeachでは、thisでインスタンスからeachで参照されたものを*オブジェクト*として返します。（インスタンスって言っていいのかな...）
+ちなみにjQueryの`each`での`this`では、インスタンスから`each`で参照されたものを*オブジェクト*として返します。（インスタンスって言っていいのかな...）
 
 > [jQuery.each() jQuery API Documentation](http://api.jquery.com/jQuery.each/ "jQuery.each() jQuery API Documentation")
 > 
