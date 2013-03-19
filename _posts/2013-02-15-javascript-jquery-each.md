@@ -56,14 +56,16 @@ JavaScriptはRubyとまた違ったオブジェクト指向でやりやすかっ
 	[code.num.high]
 	var arr = ["ruby", "perl", "javascript", "jquery"];
 	
-	arr.forEach(function(index, value) {
+	arr.forEach(function(value, index) {
 		console.log(index + ":" + value);
 	});
 
 というかこっちのほうがRubyに近いですね。
 
+jQueryと違ってvalueとindexが逆になっているので注意です。
+
 	[code.num.high]
-	arr.forEach(function(index, value) {
+	arr.forEach(function(value, index) {
 		this.method(index, value);
 	}, obj)
 

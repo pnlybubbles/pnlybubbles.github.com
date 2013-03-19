@@ -4,7 +4,7 @@
  <title>あわあわのブログ</title>
  <link href="http://pnlybubbles.github.com/atom.xml" rel="self"/>
  <link href="http://pnlybubbles.github.com"/>
- <updated>2013-02-16T02:56:20+09:00</updated>
+ <updated>2013-03-19T10:47:09+09:00</updated>
  <id>http://pnlybubbles.github.com</id>
  <author>
    <name>pnlybubbles</name>
@@ -13,10 +13,164 @@
 
  
  <entry>
+   <title>JavaScriptでイベントによるスクロールを無効化する</title>
+   <link href="http://pnlybubbles.github.com/javascript/2013-03-18/Disable-scroll-from-event"/>
+   <updated>2013-03-18T12:30:00+09:00</updated>
+   <id>http://pnlybubbles.github.com/javascript/2013-03-18/Disable-scroll-from-event</id>
+   <content type="html">&lt;p&gt;今回は備忘録です。&lt;/p&gt;
+
+&lt;p&gt;例のTwitterのクライアント開発の途中です。&lt;/p&gt;
+
+&lt;p&gt;タイムラインを実装中、キーボードで項目を操作できるようにしたのですが、キーボードの上下入力によってスクロールされてしまい都合よく動作してくれませんでした。&lt;/p&gt;
+
+&lt;p&gt;そこで探してみると、こんな記事を発見。&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;&lt;a href=&quot;http://phpspot.org/blog/archives/2006/08/javascript_23.html&quot; title=&quot;JavaScriptでマウスホイールイベントを扱い、スクロールも停止する方法 phpspot開発日誌&quot;&gt;JavaScriptでマウスホイールイベントを扱い、スクロールも停止する方法 phpspot開発日誌&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;この記事ではマウスホイールによるスクロールを無効化しています。&lt;/p&gt;
+
+&lt;p&gt;そこでこれをキーボードのイベントに。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[code.high.num]
+$(window).keydown(function(event) {
+    if (event.preventDefault) {
+        event.preventDefault();
+    }
+    event.returnValue = false;
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;jQueryで&lt;code&gt;onkeydown&lt;/code&gt;イベントを動的に追加しています。&lt;/p&gt;
+
+&lt;p&gt;キーワードとなってるのがこの&lt;code&gt;preventDefault&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;（&lt;code&gt;returnValue&lt;/code&gt;はIE用です。今回IEは関係ないので取っちゃいます。）&lt;/p&gt;
+
+&lt;p&gt;調べてるとこんなこんなメソッドがあったとは・・・。&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;&lt;a href=&quot;http://api.jquery.com/event.preventDefault/&quot; title=&quot;event.preventDefault() jQuery API Documentation&quot;&gt;event.preventDefault() jQuery API Documentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Description: If this method is called, the default action of the event will not be triggered.&lt;/p&gt;
+
+&lt;p&gt;このメソッドが呼ばれた時、デフォルトのアクションは実行されません。&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;上の&lt;code&gt;api.jQuery.com&lt;/code&gt;での例では、リンクをクリックしたらページ移動が起こるところ、それをキャンセルさせて、動的に追加したメソッドを実行しているという感じです。&lt;/p&gt;
+
+&lt;p&gt;スクロールの動作もブラウザのデフォルトのアクションとしてjavascriptから抑制できるみたいですね。&lt;/p&gt;
+
+&lt;p&gt;他にも調べてみると、こんなものが。&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;&lt;a href=&quot;http://api.jquery.com/event.stopPropagation/&quot; title=&quot;event.stopPropagation() jQuery API Documentation&quot;&gt;event.stopPropagation() jQuery API Documentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Description: Prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;イベント伝播&lt;/em&gt; という概念があって、DOMの階層の順番にイベントが発生してアクションが起こるフローのことをいいます。&lt;/p&gt;
+
+&lt;p&gt;このメソッドはそのフローを途中で止めてそれ以上実行されないようにするメソッドのようです。&lt;/p&gt;
+
+&lt;p&gt;調べるときりがないですね・・・。&lt;/p&gt;
+
+&lt;p&gt;とりあえず、これで意図しないスクロールはなくなりました。めでたし。&lt;/p&gt;
+
+&lt;p&gt;それと、なぜか&lt;code&gt;$(window).keypress&lt;/code&gt;でkeycodeが取れませんでした。なんでだろう。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>TwiAdn - TwitterとApp.netに同時投稿するDashboardWidget</title>
+   <link href="http://pnlybubbles.github.com/javascript/2013-03-16/TwiAdn"/>
+   <updated>2013-03-16T14:30:00+09:00</updated>
+   <id>http://pnlybubbles.github.com/javascript/2013-03-16/TwiAdn</id>
+   <content type="html">&lt;p&gt;&lt;img src=&quot;/img/2013-03-16-TwiAdn1.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;App.net と Twitter に同時できるDashboardクライアントが欲しかったので作りました。&lt;/p&gt;
+
+&lt;p&gt;Twitterについては普通にAPIから&lt;code&gt;oauth_token&lt;/code&gt;をリクエストすれば良いのですが、App.netについては私はDeveloperとして登録していないのでAPIが使えません。正しくは&lt;code&gt;oauth_token&lt;/code&gt;をリクエストすることができません。&lt;/p&gt;
+
+&lt;p&gt;なので今回はMac対応のCommand line toolである&lt;code&gt;brio&lt;/code&gt;を利用して&lt;code&gt;oauth_token&lt;/code&gt;を取得する方法を使っています。&lt;/p&gt;
+
+&lt;p&gt;ですので、ポストされたつぶやきは&lt;code&gt;via brio&lt;/code&gt;となっています。&lt;/p&gt;
+
+&lt;p&gt;なお、Twitterのみでの利用も可能です。&lt;/p&gt;
+
+&lt;h2&gt;利用方法&lt;/h2&gt;
+
+&lt;p&gt;APIを叩くためにRubyを使用しています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;oauth gem&lt;/li&gt;
+&lt;li&gt;twitter gem&lt;/li&gt;
+&lt;li&gt;adn gem&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;なお&lt;code&gt;oauth gem&lt;/code&gt;は&lt;code&gt;/usr/bin/gem&lt;/code&gt;からインストールする必要があります。&lt;/p&gt;
+
+&lt;p&gt;初期のTwitterの認証を終えたあとは、Dashboardの裏面からRubyのパスの指定が必要です。Rubyは&lt;code&gt;1.9.3&lt;/code&gt;以上である必要があります。&lt;/p&gt;
+
+&lt;p&gt;MacOS 10.4.3 以上&lt;/p&gt;
+
+&lt;p&gt;TwiAdn.wdgt.zip
+&lt;a class=&quot;btn&quot; href=&quot;http://cl.ly/NcGq/download/TwiAdn.wdgt.zip&quot;&gt;Download&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4&gt;追記（2013/03/16）&lt;/h4&gt;
+
+&lt;p&gt;インストーラーを作りました。&lt;/p&gt;
+
+&lt;p&gt;Ruby1.9.3以上がインストールされていることが前提です。&lt;/p&gt;
+
+&lt;p&gt;インストーラーアプリケーションを実行するとダイアログが表示され、gemのパスの入力を求められます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ which gem
+/Users/pnlybubbles/.rbenv/shims/gem
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で調べることができますので、それをダイアログのフィールドに入力して下さい。&lt;/p&gt;
+
+&lt;p&gt;TwiAdn Requirement Installer.app.zip
+&lt;a class=&quot;btn&quot; href=&quot;http://cl.ly/NdO7/download/TwiAdn%20Requirement%20Installer.app.zip&quot;&gt;Download&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;機能&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;TwitterとApp.netに同時投稿。&lt;/li&gt;
+&lt;li&gt;Twitterだけ、またはApp.netだけという選択も簡単に変更可能。&lt;/li&gt;
+&lt;li&gt;Returnキーによる投稿が可能。&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;スクリーンショット&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/2013-03-16-TwiAdn1.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/2013-03-16-TwiAdn2.png&quot; /&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>MacRubyでTwitterクライアント</title>
+   <link href="http://pnlybubbles.github.com/ruby/2013-03-09/develop-luminous-1"/>
+   <updated>2013-03-09T17:30:00+09:00</updated>
+   <id>http://pnlybubbles.github.com/ruby/2013-03-09/develop-luminous-1</id>
+   <content type="html">&lt;p&gt;新しくMacRubyベースのTwitterクライアント開発始めました。&lt;/p&gt;
+
+&lt;p&gt;（実は2回目…。）&lt;/p&gt;
+
+&lt;h2&gt;構想&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/2013-03-09-Luminous-chart1.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;iPhoneでもこんなに綺麗な図が描ける。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>google-code-prettifyを適用してみた</title>
-   <link href="http://pnlybubbles.github.com/javascript/2012-02-16/google-code-prettify-try-using"/>
-   <updated>2012-02-16T11:30:00+09:00</updated>
-   <id>http://pnlybubbles.github.com/javascript/2012-02-16/google-code-prettify-try-using</id>
+   <link href="http://pnlybubbles.github.com/javascript/2013-02-16/google-code-prettify-try-using"/>
+   <updated>2013-02-16T11:30:00+09:00</updated>
+   <id>http://pnlybubbles.github.com/javascript/2013-02-16/google-code-prettify-try-using</id>
    <content type="html">&lt;p&gt;ブログのコードの埋め込みをきれいにしようと思い、&lt;code&gt;google-code-prettify&lt;/code&gt;をいれてみました。&lt;/p&gt;
 
 &lt;p&gt;美しい…。&lt;/p&gt;
@@ -92,9 +246,9 @@ p person1.valid?
  
  <entry>
    <title>JavaSriptでeachしてみた</title>
-   <link href="http://pnlybubbles.github.com/javascript/2012-02-16/javascript-jquery-each"/>
-   <updated>2012-02-16T06:00:00+09:00</updated>
-   <id>http://pnlybubbles.github.com/javascript/2012-02-16/javascript-jquery-each</id>
+   <link href="http://pnlybubbles.github.com/javascript/2013-02-16/javascript-jquery-each"/>
+   <updated>2013-02-16T06:00:00+09:00</updated>
+   <id>http://pnlybubbles.github.com/javascript/2013-02-16/javascript-jquery-each</id>
    <content type="html">&lt;p&gt;最近ずっと&lt;code&gt;Ruby&lt;/code&gt;を書いていて、久しぶりに&lt;code&gt;JavaScript&lt;/code&gt;を書くとまず&lt;code&gt;;&lt;/code&gt;を忘れる。&lt;/p&gt;
 
 &lt;p&gt;今回はこんなことをしてて焦った。&lt;/p&gt;
@@ -104,8 +258,8 @@ var arr = new Array();
 
 arr = [&quot;ruby&quot;, &quot;perl&quot;, &quot;javascript&quot;, &quot;jquery&quot;];
 
-arr.each(function(value){
-    console.log(value)
+arr.each(function(value) {
+    console.log(value);
 });
 
 // Uncaught TypeError: Object ruby,perl,javascript,jquery has no method 'each'
@@ -120,8 +274,8 @@ var arr = new Array();
 
 arr = [&quot;ruby&quot;, &quot;perl&quot;, &quot;javascript&quot;, &quot;jquery&quot;];
 
-$.each(arr, function(index, value){
-    console.log(index + &quot;:&quot; + value)
+$.each(arr, function(index, value) {
+    console.log(index + &quot;:&quot; + value);
 });
 
 // 0:ruby
@@ -133,21 +287,65 @@ $.each(arr, function(index, value){
 &lt;p&gt;あとjQueryに&lt;code&gt;strip&lt;/code&gt;的なのがあったからメモ。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;[code.high.num]
-var str = &quot; \nRuby \n\t&quot;
+var str = &quot; \nRuby \n\t&quot;;
 str.trim(); // =&amp;gt; &quot;Ruby&quot;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;JavaScriptはRubyとまた違ったオブジェクト指向でやりやすかったり、やりにくかったり。プロトタイプとかがまたややこしいと思ったり。オブジェクト作るのがめんどくさかったり。&lt;/p&gt;
 
 &lt;p&gt;たりたり。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4&gt;追記（2013/03/19）&lt;/h4&gt;
+
+&lt;p&gt;それ、&lt;code&gt;forEach&lt;/code&gt;メソッドでできるよ。（というか断然こっちのほうが良い・・・）&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[code.num.high]
+var arr = [&quot;ruby&quot;, &quot;perl&quot;, &quot;javascript&quot;, &quot;jquery&quot;];
+
+arr.forEach(function(index, value) {
+    console.log(index + &quot;:&quot; + value);
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;というかこっちのほうがRubyに近いですね。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[code.num.high]
+arr.forEach(function(index, value) {
+    this.method(index, value);
+}, obj)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;こんな感じで&lt;code&gt;forEach&lt;/code&gt;文のなかで参照できるオブジェクトを指定することが可能。未指定の場合は&lt;code&gt;undefined&lt;/code&gt;です。&lt;/p&gt;
+
+&lt;p&gt;コンストラクタ内で使うときは&lt;code&gt;this&lt;/code&gt;の指すものが変わると厄介なので&lt;code&gt;obj&lt;/code&gt;に&lt;code&gt;this&lt;/code&gt;を指定してあげれば全く問題ないですね。&lt;/p&gt;
+
+&lt;p&gt;ちなみにjQueryの&lt;code&gt;each&lt;/code&gt;での&lt;code&gt;this&lt;/code&gt;では、インスタンスから&lt;code&gt;each&lt;/code&gt;で参照されたものを&lt;em&gt;オブジェクト&lt;/em&gt;として返します。（インスタンスって言っていいのかな...）&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;&lt;a href=&quot;http://api.jquery.com/jQuery.each/&quot; title=&quot;jQuery.each() jQuery API Documentation&quot;&gt;jQuery.each() jQuery API Documentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The value can also be accessed through the this keyword, but Javascript will always wrap the this value as an Object even if it is a simple string or number value.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;[code.num.high]
+var arr = [&quot;ruby&quot;, &quot;perl&quot;, &quot;javascript&quot;, &quot;jquery&quot;];
+
+$.each(arr, function() {
+    console.log(this);
+});
+
+// String {1: &quot;r&quot;, 2: &quot;u&quot;, 3: &quot;b&quot;, 4: &quot;y&quot;}
+// String {1: &quot;p&quot;, 2: &quot;e&quot;, 3: &quot;r&quot;, 4: &quot;l&quot;}
+// ...
+&lt;/code&gt;&lt;/pre&gt;
 </content>
  </entry>
  
  <entry>
    <title>ruby-2.0.0-rc2をrbenvでインストールしたメモ</title>
-   <link href="http://pnlybubbles.github.com/ruby/2012-02-14/ruby-2.0.0-rc2-install-memo"/>
-   <updated>2012-02-14T13:00:00+09:00</updated>
-   <id>http://pnlybubbles.github.com/ruby/2012-02-14/ruby-2.0.0-rc2-install-memo</id>
+   <link href="http://pnlybubbles.github.com/ruby/2013-02-14/ruby-2.0.0-rc2-install-memo"/>
+   <updated>2013-02-14T13:00:00+09:00</updated>
+   <id>http://pnlybubbles.github.com/ruby/2013-02-14/ruby-2.0.0-rc2-install-memo</id>
    <content type="html">&lt;p&gt;とりあえず最初はコケる。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ rbenv install 2.0.0-rc2
@@ -254,9 +452,9 @@ ruby 2.0.0dev (2013-02-08 trunk 39161) [i386-darwin11.4.0]
  
  <entry>
    <title>Lionでruby-1.9.1-p378のインストールのメモ</title>
-   <link href="http://pnlybubbles.github.com/ruby/2012-02-14/ruby-1.9.1-p378-install-memo"/>
-   <updated>2012-02-14T06:00:00+09:00</updated>
-   <id>http://pnlybubbles.github.com/ruby/2012-02-14/ruby-1.9.1-p378-install-memo</id>
+   <link href="http://pnlybubbles.github.com/ruby/2013-02-14/ruby-1.9.1-p378-install-memo"/>
+   <updated>2013-02-14T06:00:00+09:00</updated>
+   <id>http://pnlybubbles.github.com/ruby/2013-02-14/ruby-1.9.1-p378-install-memo</id>
    <content type="html">&lt;p&gt;Xcode4.3ではgccが&lt;code&gt;llvm-gcc&lt;/code&gt;というllvmとgccの間みたいなコンパイラらしい。&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;llvm&lt;/code&gt;のほうがエラーがわかりやすく、速いみたいでAppleはgccからllvmに移行しつつあるとのこと。&lt;/p&gt;
@@ -278,9 +476,9 @@ $ rbenv install 1.9.1-p378
  
  <entry>
    <title>Ruby2.0のキーワード引数を試してみた</title>
-   <link href="http://pnlybubbles.github.com/ruby/2012-02-12/keyword-argument-test"/>
-   <updated>2012-02-12T23:30:00+09:00</updated>
-   <id>http://pnlybubbles.github.com/ruby/2012-02-12/keyword-argument-test</id>
+   <link href="http://pnlybubbles.github.com/ruby/2013-02-12/keyword-argument-test"/>
+   <updated>2013-02-12T23:30:00+09:00</updated>
+   <id>http://pnlybubbles.github.com/ruby/2013-02-12/keyword-argument-test</id>
    <content type="html">&lt;p&gt;Ruby2.0rcの気になった新機能、キーワード引数を試してみた。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ ruby -v
@@ -314,9 +512,9 @@ ruby 2.0.0dev (2013-02-08 trunk 39161) [x86_64-darwin11.4.0]
  
  <entry>
    <title>bowlineをインストールしてみた</title>
-   <link href="http://pnlybubbles.github.com/ruby/2012-02-12/bowline-try-using"/>
-   <updated>2012-02-12T23:00:00+09:00</updated>
-   <id>http://pnlybubbles.github.com/ruby/2012-02-12/bowline-try-using</id>
+   <link href="http://pnlybubbles.github.com/ruby/2013-02-12/bowline-try-using"/>
+   <updated>2013-02-12T23:00:00+09:00</updated>
+   <id>http://pnlybubbles.github.com/ruby/2013-02-12/bowline-try-using</id>
    <content type="html">&lt;p&gt;html+javascript+css+rubyでGUIアプリケーションを開発可能にするプロジェクト、bowlineを使ってみた。&lt;/p&gt;
 
 &lt;p&gt;今のところUbuntuとMacOSXに対応しているようです。&lt;/p&gt;
@@ -467,22 +665,40 @@ Generating with app generator:
 
 &lt;hr /&gt;
 
-&lt;h4&gt;追記（2012-02-13）&lt;/h4&gt;
+&lt;h4&gt;追記（2013-02-13）&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;ruby 1.8.7 (2011-12-28 patchlevel 357) [universal-darwin11.0]
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Rubyのバージョンを変えて行ったところ&lt;code&gt;bowline-bundle&lt;/code&gt;を実行できましたが、途中でコケました…。&lt;/p&gt;
 
-&lt;h4&gt;追記（2012-02-13）&lt;/h4&gt;
+&lt;hr /&gt;
+
+&lt;h4&gt;追記（2013-02-14）&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;bowline-bundle&lt;/code&gt;でコケるかは、&lt;code&gt;RubyGems&lt;/code&gt;のバージョンによる気がします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ruby -v
+ruby 1.9.1p378 (2010-01-10 revision 26273) [i386-darwin11.4.0]
+$ gem -v
+1.3.7
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;この&lt;code&gt;RubyGems&lt;/code&gt;のバージョンが&lt;code&gt;1.3.7&lt;/code&gt;だと&lt;code&gt;bowline-bundle&lt;/code&gt;を実行したときにコケませんが、これより新しいとコケました。&lt;/p&gt;
+
+&lt;p&gt;またこれで実行はできますが、待っていてもfailedします。&lt;/p&gt;
+
+&lt;p&gt;結局うまく行かない…。&lt;/p&gt;
+
+&lt;p&gt;どこが悪いのかわからず、また開発も止まってしまっているようなので、またいつかです…。&lt;/p&gt;
 </content>
  </entry>
  
  <entry>
    <title>きせーさーちβ版-ChangeLog</title>
-   <link href="http://pnlybubbles.github.com/ruby/2012-02-02/kisei-search-changelog"/>
-   <updated>2012-02-02T09:30:00+09:00</updated>
-   <id>http://pnlybubbles.github.com/ruby/2012-02-02/kisei-search-changelog</id>
+   <link href="http://pnlybubbles.github.com/ruby/2013-02-02/kisei-search-changelog"/>
+   <updated>2013-02-02T09:30:00+09:00</updated>
+   <id>http://pnlybubbles.github.com/ruby/2013-02-02/kisei-search-changelog</id>
    <content type="html">&lt;p&gt;kisei_search&lt;/p&gt;
 
 &lt;h1&gt;0.1b1 (2012-07-14)&lt;/h1&gt;
@@ -682,15 +898,35 @@ add_userメソッドの引数に追加先アカウントの変数を追加。&lt
 管理者のリストを配列に変更。&lt;br/&gt;
 UserStreamからeventを取得しコンソール表示するように追加。&lt;br/&gt;
 UserStreamからDMを取得しコンソール表示するように追加し、DMを取得したときget_resメソッドを呼ぶように追加。&lt;br/&gt;
-UserStreamの例外処理のエラー投稿のargument errorを修正。&lt;/p&gt;
+UserStreamの例外処理のエラー投稿のargument errorを修正。&lt;br/&gt;
+tweettoメソッドに引数forciblyを追加し、trueの時には強制的にポストするように追加。&lt;br/&gt;
+規制時に登録を来た時に、使用不可であっても強制的にリプライを送るように修正。&lt;br/&gt;
+規制時にポストする時、前回の規制されているかのチェックから5分以内である場合にはチェックを行わずに次のアカウントに切り替えるように追加。&lt;br/&gt;
+tweettoメソッドに140文字を超える場合はメッセージを分割するように追加。&lt;br/&gt;
+unlinksubaccountメソッドでリプライ先のデータを先に削除してしまい、@{}になってしまうバグを修正。&lt;br/&gt;
+ファイル保存のインターバルを50回に変更。&lt;br/&gt;
+tweettoメッソドにおいて初期起動時に規制垢が規制されていると認識してしまうバグを修正。&lt;br/&gt;
+backupusrにおいて5分毎にユーザーデータのバックアップを生成するとき、ディレクトリ内のファイルが144を超えていた場合は最新の144項目以外を削除するように修正。&lt;br/&gt;
+登録状況詳細を調べるgetaccountstatusにおいて、一部の分岐で変数のタイプミスのためエラーが出ていたバグを修正。&lt;br/&gt;
+rmusrメソッドにおいて、ユーザーの登録を解除してから解除完了の通知のリプライを行なっていたため、ユーザーが登録されていないと誤認識しリプライが遅れていなかったバグをforcibly引数をtureにして修正。&lt;br/&gt;
+tweettoメソッドにおいて引数wholeの値がtrueの場合にuを生成せず、ユーザーのidを取得できないために登録状況を調べる際にエラーが出てしまう可能性があったため、状況を出力しjsonデータがnilの場合のみuを生成しないように修正。&lt;br/&gt;
+管理者コマンドにevalコマンドを追加。&lt;br/&gt;
+SILENT定数を定義し、trueの場合は再起動時の通知をしないように追加。&lt;br/&gt;
+隠しギミックを追加（3つ）。&lt;br/&gt;
+管理者コマンドにCPU使用率を返すコマンドを追加。&lt;br/&gt;
+admin_cmdメソッドをスレッド化。&lt;/p&gt;
+
+&lt;h1&gt;0.4b8 (2013/03/05)&lt;/h1&gt;
+
+&lt;p&gt;TwitterAPI1.1に対応されていなかった部分を修正。&lt;/p&gt;
 </content>
  </entry>
  
  <entry>
    <title>きせーさーちβ版</title>
-   <link href="http://pnlybubbles.github.com/ruby/2012-01-19/kisei-search"/>
-   <updated>2012-01-19T07:30:00+09:00</updated>
-   <id>http://pnlybubbles.github.com/ruby/2012-01-19/kisei-search</id>
+   <link href="http://pnlybubbles.github.com/ruby/2013-01-19/kisei-search"/>
+   <updated>2013-01-19T07:30:00+09:00</updated>
+   <id>http://pnlybubbles.github.com/ruby/2013-01-19/kisei-search</id>
    <content type="html">&lt;p&gt;Twitterの規制解除時間教えてくれるbotです。&lt;/p&gt;
 
 &lt;p&gt;あくまでもβ版。不具合があったりうまく動作しない場合もあります。了解の上でどうぞ。&lt;/p&gt;
@@ -878,9 +1114,9 @@ UserStreamの例外処理のエラー投稿のargument errorを修正。&lt;/p&g
  
  <entry>
    <title>ブログを移転しました</title>
-   <link href="http://pnlybubbles.github.com/blog/2012-01-16/new-blog"/>
-   <updated>2012-01-16T10:30:00+09:00</updated>
-   <id>http://pnlybubbles.github.com/blog/2012-01-16/new-blog</id>
+   <link href="http://pnlybubbles.github.com/blog/2013-01-16/new-blog"/>
+   <updated>2013-01-16T10:30:00+09:00</updated>
+   <id>http://pnlybubbles.github.com/blog/2013-01-16/new-blog</id>
    <content type="html">&lt;p&gt;いままで使っていたamebloからGitHubにブログを移転してきました。&lt;/p&gt;
 
 &lt;p&gt;管理上はamebloのほうが楽でしたが、余計なサービスが多くまた自由度が低かったため、ブログのスタイルを気にしはじめてから使いにくくなってしまいました。&lt;/p&gt;
