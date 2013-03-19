@@ -33,6 +33,8 @@ jQueryで`onkeydown`イベントを動的に追加しています。
 
 キーワードとなってるのがこの`preventDefault`。
 
+（`returnValue`はIE用です。今回IEは関係ないので取っちゃいます。）
+
 調べてるとこんなこんなメソッドがあったとは・・・。
 
 > [event.preventDefault() jQuery API Documentation](http://api.jquery.com/event.preventDefault/ "event.preventDefault() jQuery API Documentation")
