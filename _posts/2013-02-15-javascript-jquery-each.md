@@ -64,7 +64,7 @@ JavaScriptはRubyとまた違ったオブジェクト指向でやりやすかっ
 
 	[code.num.high]
 	arr.forEach(function(index, value) {
-		this.method;
+		this.method(index, value);
 	}, obj)
 
 こんな感じでforEach文のなかで参照できるオブジェクトを指定することが可能。未指定の場合は`undefined`です。
