@@ -15,8 +15,8 @@ tags : [javascript, jquery, ruby, each]
 	
 	arr = ["ruby", "perl", "javascript", "jquery"];
 	
-	arr.each(function(value){
-		console.log(value)
+	arr.each(function(value) {
+		console.log(value);
 	});
 	
 	// Uncaught TypeError: Object ruby,perl,javascript,jquery has no method 'each'
@@ -30,8 +30,8 @@ tags : [javascript, jquery, ruby, each]
 	
 	arr = ["ruby", "perl", "javascript", "jquery"];
 	
-	$.each(arr, function(index, value){
-		console.log(index + ":" + value)
+	$.each(arr, function(index, value) {
+		console.log(index + ":" + value);
 	});
 		
 	// 0:ruby
@@ -42,9 +42,47 @@ tags : [javascript, jquery, ruby, each]
 あとjQueryに`strip`的なのがあったからメモ。
 
 	[code.high.num]
-	var str = " \nRuby \n\t"
+	var str = " \nRuby \n\t";
 	str.trim(); // => "Ruby"
 
 JavaScriptはRubyとまた違ったオブジェクト指向でやりやすかったり、やりにくかったり。プロトタイプとかがまたややこしいと思ったり。オブジェクト作るのがめんどくさかったり。
 
 たりたり。
+
+---
+####追記（2013/03/19）
+`forEach`メソッドで同じ事ができました。（というか断然こっちのほうが良い・・・）
+
+	[code.num.high]
+	var arr = ["ruby", "perl", "javascript", "jquery"];
+	
+	arr.forEach(function(index, value) {
+		console.log(index + ":" + value);
+	});
+
+というかこっちのほうがRubyに近いですね。
+
+	[code.num.high]
+	arr.forEach(function(index, value) {
+		this.method;
+	}, obj)
+
+こんな感じでforEach文のなかで参照できるオブジェクトを指定することが可能。未指定の場合は`undefined`です。
+
+コンストラクタ内で使うときはthisの指すものが変わると厄介なので`obj`にthisを指定してあげれば全く問題ないですね。
+
+ちなみにjQueryのeachでは、thisでインスタンスからeachで参照された*オブジェクト*を返します。（インスタンスって言っていいのかな...）
+
+> [jQuery.each() jQuery API Documentation](http://api.jquery.com/jQuery.each/ "jQuery.each() jQuery API Documentation")
+> 
+> The value can also be accessed through the this keyword, but Javascript will always wrap the this value as an Object even if it is a simple string or number value.
+
+	var arr = ["ruby", "perl", "javascript", "jquery"];
+	
+	$.each(arr, function() {
+		console.log(this);
+	});
+	
+	// String {1: "r", 2: "u", 3: "b", 4: "y"}
+	// String {1: "p", 2: "e", 3: "r", 4: "l"}
+	// ...
