@@ -62,7 +62,16 @@ JavaScriptはRubyとまた違ったオブジェクト指向でやりやすかっ
 
 というかこっちのほうがRubyに近いですね。
 
-jQueryと違ってvalueとindexが逆になっているので注意です。
+jQueryと違ってvalueとindexが逆になっているので注意です。また、`forEach`は`Array`のインスタンスですのでオブジェクトには使えません。オブジェクトのときはjQueryを使うか、`for each…in`文を使いましょう。
+
+	[code.num.high]
+	for each (var value in obj) {
+		value.method(value.key);
+	}
+
+Chromeは未実装なのか動きません。`for each…in`文は`javascript1.8`からです。素直にjQuery使ったほうが良さそうですね…。
+
+また、`forEach`はこんな引数も持ちます。
 
 	[code.num.high]
 	arr.forEach(function(value, index) {
