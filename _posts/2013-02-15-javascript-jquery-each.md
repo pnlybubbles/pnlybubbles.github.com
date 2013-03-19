@@ -77,6 +77,7 @@ JavaScriptはRubyとまた違ったオブジェクト指向でやりやすかっ
 > 
 > The value can also be accessed through the this keyword, but Javascript will always wrap the this value as an Object even if it is a simple string or number value.
 
+	[code.num.high]
 	var arr = ["ruby", "perl", "javascript", "jquery"];
 	
 	$.each(arr, function() {
