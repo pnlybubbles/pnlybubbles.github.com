@@ -50,3 +50,7 @@ The client "Mobile Web", "Keitai Web", "HootSuite" had a whitelist API and These
 GET Rate Limiting is here.
 
 > [REST API v1.1 Limits per window by resource   Twitter Developers](https://dev.twitter.com/docs/rate-limiting/1.1/limits "REST API v1.1 Limits per window by resource   Twitter Developers")
+
+cf.
+
+> [http://ltzz.info/alpha/twitter_kisei.html](http://ltzz.info/alpha/twitter_kisei.html "投稿規制の仕様")
