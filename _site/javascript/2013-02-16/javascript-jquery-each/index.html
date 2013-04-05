@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaSriptでeachしてみた</title>
+    
+    <meta name="author" content="pnlybubbles">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/js/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/js/google-code-prettify/prettify.js"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/js/default.js"></script>
+
+    <!-- Le styles -->
+    <link href="/assets/themes/awaawa/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/awaawa/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link href="/assets/themes/awaawa/css/syntax.css" rel="stylesheet">    
+    <link href="/assets/themes/awaawa/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="title">
+      </div>
+
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="brand" href="/">AwaAwa's blog</a>
+            <ul class="nav">
+              
+              
+              
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>JavaSriptでeachしてみた</h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p>最近ずっと<code>Ruby</code>を書いていて、久しぶりに<code>JavaScript</code>を書くとまず<code>;</code>を忘れる。</p>
+
+<p>今回はこんなことをしてて焦った。</p>
+
+<pre><code>[code.high.num]
+var arr = new Array();
+
+arr = ["ruby", "perl", "javascript", "jquery"];
+
+arr.each(function(value) {
+    console.log(value);
+});
+
+// Uncaught TypeError: Object ruby,perl,javascript,jquery has no method 'each'
+</code></pre>
+
+<p><code>for</code>で書けるけど、Rubyになれると<code>for</code>を使うのに気が進まない…。いつの間にか…。</p>
+
+<p>調べてみると<code>jQuery</code>をrequireじゃなくて…<code>src</code>すると<code>each</code>が使えるみたい。</p>
+
+<pre><code>[code.high.num]
+var arr = new Array();
+
+arr = ["ruby", "perl", "javascript", "jquery"];
+
+$.each(arr, function(index, value) {
+    console.log(index + ":" + value);
+});
+
+// 0:ruby
+// 1:perl
+// 2:javascript
+// 3:jquery 
+</code></pre>
+
+<p>あとjQueryに<code>strip</code>的なのがあったからメモ。</p>
+
+<pre><code>[code.high.num]
+var str = " \nRuby \n\t";
+str.trim(); // =&gt; "Ruby"
+</code></pre>
+
+<p>JavaScriptはRubyとまた違ったオブジェクト指向でやりやすかったり、やりにくかったり。プロトタイプとかがまたややこしいと思ったり。オブジェクト作るのがめんどくさかったり。</p>
+
+<p>たりたり。</p>
+
+<hr />
+
+<h4>追記（2013/03/19）</h4>
+
+<p>それ、<code>forEach</code>メソッドでできるよ。（というか断然こっちのほうが良い・・・）</p>
+
+<pre><code>[code.num.high]
+var arr = ["ruby", "perl", "javascript", "jquery"];
+
+arr.forEach(function(value, index) {
+    console.log(index + ":" + value);
+});
+</code></pre>
+
+<p>というかこっちのほうがRubyに近いですね。</p>
+
+<p>jQueryと違ってvalueとindexが逆になっているので注意です。</p>
+
+<pre><code>[code.num.high]
+arr.forEach(function(value, index) {
+    this.method(index, value);
+}, obj)
+</code></pre>
+
+<p>こんな感じで<code>forEach</code>文のなかで参照できるオブジェクトを指定することが可能。未指定の場合は<code>undefined</code>です。</p>
+
+<p>コンストラクタ内で使うときは<code>this</code>の指すものが変わると厄介なので<code>obj</code>に<code>this</code>を指定してあげれば全く問題ないですね。</p>
+
+<p>ちなみにjQueryの<code>each</code>での<code>this</code>では、インスタンスから<code>each</code>で参照されたものを<em>オブジェクト</em>として返します。（インスタンスって言っていいのかな...）</p>
+
+<blockquote><p><a href="http://api.jquery.com/jQuery.each/" title="jQuery.each() jQuery API Documentation">jQuery.each() jQuery API Documentation</a></p>
+
+<p>The value can also be accessed through the this keyword, but Javascript will always wrap the this value as an Object even if it is a simple string or number value.</p></blockquote>
+
+<pre><code>[code.num.high]
+var arr = ["ruby", "perl", "javascript", "jquery"];
+
+$.each(arr, function() {
+    console.log(this);
+});
+
+// String {1: "r", 2: "u", 3: "b", 4: "y"}
+// String {1: "p", 2: "e", 3: "r", 4: "l"}
+// ...
+</code></pre>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/ruby/2013-02-14/ruby-2.0.0-rc2-install-memo" title="ruby-2.0.0-rc2をrbenvでインストールしたメモ">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/javascript/2013-02-16/google-code-prettify-try-using" title="google-code-prettifyを適用してみた">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'pnlybubbles'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span4">
+    <div class="tag_box-wrap">
+        <h4>Published</h4>
+        <div class="date"><span>16 February 2013</span></div>
+
+      
+        <h4>Tags</h4>
+        <ul class="tag_box">
+        
+        
+
+
+  
+     
+    	<li><a href="/tags.html#javascript-ref">javascript <span>4</span></a></li>
+     
+    	<li><a href="/tags.html#jquery-ref">jquery <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#ruby-ref">ruby <span>10</span></a></li>
+     
+    	<li><a href="/tags.html#each-ref">each <span>1</span></a></li>
+    
+  
+
+
+
+        </ul>
+      
+    </div>
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; pnlybubbles 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ruby-2.0.0-rc2をrbenvでインストールしたメモ</title>
+    
+    <meta name="author" content="pnlybubbles">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/js/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/js/google-code-prettify/prettify.js"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/js/default.js"></script>
+
+    <!-- Le styles -->
+    <link href="/assets/themes/awaawa/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/awaawa/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link href="/assets/themes/awaawa/css/syntax.css" rel="stylesheet">    
+    <link href="/assets/themes/awaawa/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="title">
+      </div>
+
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="brand" href="/">AwaAwa's blog</a>
+            <ul class="nav">
+              
+              
+              
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>ruby-2.0.0-rc2をrbenvでインストールしたメモ</h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p>とりあえず最初はコケる。</p>
+
+<pre><code>$ rbenv install 2.0.0-rc2
+Downloading openssl-1.0.1c.tar.gz...
+-&gt; https://www.openssl.org/source/openssl-1.0.1c.tar.gz
+Installing openssl-1.0.1c...
+
+BUILD FAILED
+
+Inspect or clean up the working tree at /var/folders/v_/pd9jfc0d0l9cblq8fdlxrkqr0000gn/T/ruby-build.20130214032527.51196
+Results logged to /var/folders/v_/pd9jfc0d0l9cblq8fdlxrkqr0000gn/T/ruby-build.20130214032527.51196.log
+
+Last 10 log lines:
+x openssl-1.0.1c/VMS/TODO
+x openssl-1.0.1c/VMS/ucx_shr_decc_log.opt
+x openssl-1.0.1c/VMS/ucx_shr_decc.opt
+x openssl-1.0.1c/VMS/ucx_shr_vaxc.opt
+x openssl-1.0.1c/VMS/VMSify-conf.pl
+x openssl-1.0.1c/VMS/WISHLIST.TXT
+/var/folders/v_/pd9jfc0d0l9cblq8fdlxrkqr0000gn/T/ruby-build.20130214032527.51196/openssl-1.0.1c /var/folders/v_/pd9jfc0d0l9cblq8fdlxrkqr0000gn/T/ruby-build.20130214032527.51196 /usr/local/Cellar/openssl/1.0.1e
+Operating system: i686-apple-darwinDarwin Kernel Version 11.4.0: Mon Apr 9 19:32:15 PDT 2012; root:xnu-1699.26.8~1/RELEASE_X86_64
+Configuring for darwin64-x86_64-cc
+Usage: Configure [no-&lt;cipher&gt; ...] [enable-&lt;cipher&gt; ...] [experimental-&lt;cipher&gt; ...] [-Dxxx] [-lxxx] [-Lxxx] [-fxxx] [-Kxxx] [no-hw-xxx|no-hw] [[no-]threads] [[no-]shared] [[no-]zlib|zlib-dynamic] [no-asm] [no-dso] [no-krb5] [sctp] [386] [--prefix=DIR] [--openssldir=OPENSSLDIR] [--with-xxx[=vvv]] [--test-sanity] os/compiler[:flags]
+</code></pre>
+
+<p><code>openssl</code>を指定してあげると<code>openssl</code>のコンパイルを回避できるみたい。</p>
+
+<p>ここを参考にオプションを指定してみる。</p>
+
+<blockquote><p><a href="http://ikm.hatenablog.jp/entry/2013/02/13/040433" title="ruby-2.0.0-rc2を入れた（サクッと） - There's an echo in my head">ruby-2.0.0-rc2を入れた（サクッと） - There's an echo in my head</a></p></blockquote>
+
+<p>だけどそのままやったらまたコケた。</p>
+
+<pre><code>$ RUBY_CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix readline`" rbenv install 2.0.0-rc2
+Downloading openssl-1.0.1c.tar.gz...
+-&gt; https://www.openssl.org/source/openssl-1.0.1c.tar.gz
+Installing openssl-1.0.1c...
+
+BUILD FAILED
+...
+</code></pre>
+
+<p><code>ruby-build</code>のバージョンが違うみたい。記事の中の引用されたTwitterの中のリンクの<code>ruby-build</code>。</p>
+
+<p><code>Homebrew</code>からアップグレードしてあげる。</p>
+
+<pre><code>brew upgrade --HEAD ruby-build
+</code></pre>
+
+<p><code>--HEAD</code>オプション初めて知った…。</p>
+
+<p>もう一回。</p>
+
+<pre><code>$ RUBY_CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix readline`" rbenv install 2.0.0-rc2
+Downloading ruby-2.0.0-rc2.tar.gz...
+-&gt; http://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-rc2.tar.gz
+Installing ruby-2.0.0-rc2...
+
+BUILD FAILED
+
+Inspect or clean up the working tree at /var/folders/v_/pd9jfc0d0l9cblq8fdlxrkqr0000gn/T/ruby-build.20130214035828.80600
+Results logged to /var/folders/v_/pd9jfc0d0l9cblq8fdlxrkqr0000gn/T/ruby-build.20130214035828.80600.log
+
+Last 10 log lines:
+installing default gems:      /Users/pnlybubbles/.rbenv/versions/2.0.0-rc2/lib/ruby/gems/2.0.0 (build_info, cache, doc, gems, specifications)
+                              bigdecimal 1.1.0
+                              io-console 0.4.1
+                              json 1.7.5
+                              minitest 4.3.2
+                              psych 2.0.0
+                              rake 0.9.6
+                              rdoc 4.0.0.rc.2.1
+                              test-unit 2.0.0.0
+The Ruby openssl extension was not compiled. Missing the OpenSSL lib?
+</code></pre>
+
+<p>あれ、インストールできたのかな。</p>
+
+<pre><code>$ rbenv versions
+  ...
+  2.0.0-rc2
+  ...
+</code></pre>
+
+<p>入ってる。</p>
+
+<pre><code>$ rbenv global 2.0.0-rc2
+$ ruby -v
+ruby 2.0.0dev (2013-02-08 trunk 39161) [i386-darwin11.4.0]
+</code></pre>
+
+<p>一応、インストールはできたみたい。（あれ、アーキテクチャが…）</p>
+
+<p>いったんここまで。</p>
+
+<p>あと、コンパイラをいろいろいじっていたのでちょっとこんがらがった…。</p>
+
+<p>コンパイラの指定は</p>
+
+<pre><code>$ export CC=/usr/bin/gcc
+</code></pre>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/ruby/2013-02-14/ruby-1.9.1-p378-install-memo" title="Lionでruby-1.9.1-p378のインストールのメモ">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/javascript/2013-02-16/javascript-jquery-each" title="JavaSriptでeachしてみた">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'pnlybubbles'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span4">
+    <div class="tag_box-wrap">
+        <h4>Published</h4>
+        <div class="date"><span>14 February 2013</span></div>
+
+      
+        <h4>Tags</h4>
+        <ul class="tag_box">
+        
+        
+
+
+  
+     
+    	<li><a href="/tags.html#ruby-ref">ruby <span>10</span></a></li>
+     
+    	<li><a href="/tags.html#ruby2.0-ref">ruby2.0 <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#rbenv-ref">rbenv <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#openssl-ref">openssl <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#homebrew-ref">homebrew <span>2</span></a></li>
+    
+  
+
+
+
+        </ul>
+      
+    </div>
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; pnlybubbles 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

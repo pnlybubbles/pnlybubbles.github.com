@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScriptでイベントによるスクロールを無効化する</title>
+    
+    <meta name="author" content="pnlybubbles">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/js/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/js/google-code-prettify/prettify.js"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/js/default.js"></script>
+
+    <!-- Le styles -->
+    <link href="/assets/themes/awaawa/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/awaawa/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link href="/assets/themes/awaawa/css/syntax.css" rel="stylesheet">    
+    <link href="/assets/themes/awaawa/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="title">
+      </div>
+
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="brand" href="/">AwaAwa's blog</a>
+            <ul class="nav">
+              
+              
+              
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>JavaScriptでイベントによるスクロールを無効化する</h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p>今回は備忘録です。</p>
+
+<p>例のTwitterのクライアント開発の途中です。</p>
+
+<p>タイムラインを実装中、キーボードで項目を操作できるようにしたのですが、キーボードの上下入力によってスクロールされてしまい都合よく動作してくれませんでした。</p>
+
+<p>そこで探してみると、こんな記事を発見。</p>
+
+<blockquote><p><a href="http://phpspot.org/blog/archives/2006/08/javascript_23.html" title="JavaScriptでマウスホイールイベントを扱い、スクロールも停止する方法 phpspot開発日誌">JavaScriptでマウスホイールイベントを扱い、スクロールも停止する方法 phpspot開発日誌</a></p></blockquote>
+
+<p>この記事ではマウスホイールによるスクロールを無効化しています。</p>
+
+<p>そこでこれをキーボードのイベントに。</p>
+
+<pre><code>[code.high.num]
+$(window).keydown(function(event) {
+    if (event.preventDefault) {
+        event.preventDefault();
+    }
+    event.returnValue = false;
+});
+</code></pre>
+
+<p>jQueryで<code>onkeydown</code>イベントを動的に追加しています。</p>
+
+<p>キーワードとなってるのがこの<code>preventDefault</code>。</p>
+
+<p>（<code>returnValue</code>はIE用です。今回IEは関係ないので取っちゃいます。）</p>
+
+<p>調べてるとこんなこんなメソッドがあったとは・・・。</p>
+
+<blockquote><p><a href="http://api.jquery.com/event.preventDefault/" title="event.preventDefault() jQuery API Documentation">event.preventDefault() jQuery API Documentation</a></p>
+
+<p>Description: If this method is called, the default action of the event will not be triggered.</p>
+
+<p>このメソッドが呼ばれた時、デフォルトのアクションは実行されません。</p></blockquote>
+
+<p>上の<code>api.jQuery.com</code>での例では、リンクをクリックしたらページ移動が起こるところ、それをキャンセルさせて、動的に追加したメソッドを実行しているという感じです。</p>
+
+<p>スクロールの動作もブラウザのデフォルトのアクションとしてjavascriptから抑制できるみたいですね。</p>
+
+<p>他にも調べてみると、こんなものが。</p>
+
+<blockquote><p><a href="http://api.jquery.com/event.stopPropagation/" title="event.stopPropagation() jQuery API Documentation">event.stopPropagation() jQuery API Documentation</a></p>
+
+<p>Description: Prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event.</p></blockquote>
+
+<p><em>イベント伝播</em> という概念があって、DOMの階層の順番にイベントが発生してアクションが起こるフローのことをいいます。</p>
+
+<p>このメソッドはそのフローを途中で止めてそれ以上実行されないようにするメソッドのようです。</p>
+
+<p>調べるときりがないですね・・・。</p>
+
+<p>とりあえず、これで意図しないスクロールはなくなりました。めでたし。</p>
+
+<p>それと、なぜか<code>$(window).keypress</code>でkeycodeが取れませんでした。なんでだろう。</p>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/javascript/2013-03-16/TwiAdn" title="TwiAdn - TwitterとApp.netに同時投稿するDashboardWidget">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next disabled"><a>Next &rarr;</a>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'pnlybubbles'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span4">
+    <div class="tag_box-wrap">
+        <h4>Published</h4>
+        <div class="date"><span>18 March 2013</span></div>
+
+      
+        <h4>Tags</h4>
+        <ul class="tag_box">
+        
+        
+
+
+  
+     
+    	<li><a href="/tags.html#javascript-ref">javascript <span>4</span></a></li>
+     
+    	<li><a href="/tags.html#jquery-ref">jquery <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#preventDefault-ref">preventDefault <span>1</span></a></li>
+    
+  
+
+
+
+        </ul>
+      
+    </div>
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; pnlybubbles 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+
