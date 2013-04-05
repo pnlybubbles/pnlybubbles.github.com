@@ -21,12 +21,12 @@ This article is NOT official.
 
 The rate limiting for calls to these API depends on all conditions below.
 
-* Duplication
+###Duplication
 
 Those that duplicated with recent posts(about 20) will be regulated.  
 POST statuses/update API only.
 
-* 127req/3hours
+###127req/3hours
 
 It simply is not "per three hours".  
 We define "one Section" as for 3 hours.  
@@ -35,7 +35,7 @@ Between the "Section", we can request 127 APIs.
 
 <img src="/img/2013-04-05-twitterapi_post_rate_limit.png" />
 
-* 1000req/day
+###1000req/day
 
 "Twitter Developer Official" announces this rate limiting.
 
