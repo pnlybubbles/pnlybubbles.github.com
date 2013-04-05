@@ -1,4 +1,10 @@
-#TwitterAPI POST Rate Limit
+---
+layout: post
+title: TwitterAPI POST Rate Limit
+date: 2013-04-05 15:30:00
+category : twitter
+tags : [twitter, api, post, ratelimit]
+---
 
 This article is NOT official.
 
