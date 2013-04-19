@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Javascriptでtimesっぽいことをしてみた
+title: JavaScriptでtimesっぽいことをしてみた
 date: 2013-04-20 01:45:00
 category : javascript
 tags : [javascript, ruby, times, array, each, for]
@@ -14,7 +14,7 @@ Rubyでは`times`のような便利なイテレータが揃っています。
 	
 	# => 01234
 
-##JavasciptでもTimesがしたい
+##JavaSciptでもTimesがしたい
 
 そこで空のArrayを作ってそれをeachするという方法を思いつきました。
 
