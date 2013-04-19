@@ -61,7 +61,7 @@ jQueryの`each`を使ってみると、
 ##forは使わないの？
 
 	for(var i = 0; i < 5; i++) {
-		console(i);
+		console.log(i);
 	}
 
 たしかにこれでも動きます。`break;`も使えて便利かもしれません。
