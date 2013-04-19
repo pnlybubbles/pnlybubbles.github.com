@@ -26,7 +26,7 @@ Rubyでは`times`のような便利なイテレータが揃っています。
 
 JavaScriptでのeachはこちらの記事でまとめてあります。
 
-> [JavaSriptでeachしてみた｜あわあわのブログ](http://pnlybubbles.github.io/javascript/2013-02-15/javascript-jquery-each/)
+> [JavaSriptでeachしてみた｜あわあわのブログ](http://pnlybubbles.github.io/javascript/2013-02-15/javascript-jquery-each/ "JavaSriptでeachしてみた｜あわあわのブログ")
 
 それでは、timesのようなこを試してみます。
 
