@@ -8,6 +8,7 @@ tags : [javascript, ruby, times, array, each, for]
 
 Rubyでは`times`のような便利なイテレータが揃っています。
 
+	[code.high.num]
 	5.times { |i|
 		print i
 	}
@@ -20,6 +21,7 @@ Rubyでは`times`のような便利なイテレータが揃っています。
 
 `new Array(n)`ではn個の`undefined`の入った配列を作ることができます。
 
+	[code.high.num]
 	new Array(3);
 	
 	// => [undefined, undefined, undefined]
@@ -30,6 +32,7 @@ JavaScriptでのeachはこちらの記事でまとめてあります。
 
 それでは、timesのようなこを試してみます。
 
+	[code.high.num]
 	(new Array(5)).forEach(function(v, i) {
 		console.log(i);
 	});
@@ -44,6 +47,7 @@ JavaScriptでのeachはこちらの記事でまとめてあります。
 
 jQueryの`each`を使ってみると、
 
+	[code.high.num]
 	$.each((new Array(5)), function(i) {
 		console.log(i);
 	});
@@ -60,6 +64,7 @@ jQueryの`each`を使ってみると、
 
 ##forは使わないの？
 
+	[code.high.num]
 	for(var i = 0; i < 5; i++) {
 		console.log(i);
 	}
