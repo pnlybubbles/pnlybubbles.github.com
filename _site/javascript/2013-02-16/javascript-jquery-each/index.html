@@ -174,7 +174,21 @@ arr.forEach(function(value, index) {
 
 <p>というかこっちのほうがRubyに近いですね。</p>
 
-<p>jQueryと違ってvalueとindexが逆になっているので注意です。</p>
+<p>jQueryと違ってvalueとindexが逆になっているので注意です。また、<code>forEach</code>は<code>Array</code>のインスタンスですのでオブジェクトには使えません。オブジェクトのときはjQueryを使うか、<code>for each…in</code>文を使いましょう。</p>
+
+<pre><code>[code.num.high]
+for each (var value in obj) {
+    value.method(value.key);
+}
+</code></pre>
+
+<p>Chromeは未実装なのか動きません。<code>for each…in</code>文は<code>javascript1.8</code>からです。</p>
+
+<p>他にも<code>Object</code>のプロトタイプをいじるという手もありそうですが、それはあまり良くないでのしたくないですね…。</p>
+
+<p>オブジェクトの場合は素直にjQuery使ったほうが良さそうです。</p>
+
+<p>また、<code>forEach</code>はこんな引数も持ちます。</p>
 
 <pre><code>[code.num.high]
 arr.forEach(function(value, index) {
@@ -186,7 +200,7 @@ arr.forEach(function(value, index) {
 
 <p>コンストラクタ内で使うときは<code>this</code>の指すものが変わると厄介なので<code>obj</code>に<code>this</code>を指定してあげれば全く問題ないですね。</p>
 
-<p>ちなみにjQueryの<code>each</code>での<code>this</code>では、インスタンスから<code>each</code>で参照されたものを<em>オブジェクト</em>として返します。（インスタンスって言っていいのかな...）</p>
+<p>ちなみにjQueryの<code>each</code>での<code>this</code>では、インスタンスから<code>each</code>で参照されたものを*オブジェクト*として返します。（インスタンスって言っていいのかな...）</p>
 
 <blockquote><p><a href="http://api.jquery.com/jQuery.each/" title="jQuery.each() jQuery API Documentation">jQuery.each() jQuery API Documentation</a></p>
 
@@ -254,13 +268,13 @@ $.each(arr, function() {
 
   
      
-    	<li><a href="/tags.html#javascript-ref">javascript <span>4</span></a></li>
+    	<li><a href="/tags.html#javascript-ref">javascript <span>5</span></a></li>
      
     	<li><a href="/tags.html#jquery-ref">jquery <span>3</span></a></li>
      
-    	<li><a href="/tags.html#ruby-ref">ruby <span>10</span></a></li>
+    	<li><a href="/tags.html#ruby-ref">ruby <span>12</span></a></li>
      
-    	<li><a href="/tags.html#each-ref">each <span>1</span></a></li>
+    	<li><a href="/tags.html#each-ref">each <span>2</span></a></li>
     
   
 

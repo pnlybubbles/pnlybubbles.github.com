@@ -4,13 +4,207 @@
  <title>あわあわのブログ</title>
  <link href="http://pnlybubbles.github.com/atom.xml" rel="self"/>
  <link href="http://pnlybubbles.github.com"/>
- <updated>2013-03-19T11:16:46+09:00</updated>
+ <updated>2013-06-11T19:36:11+09:00</updated>
  <id>http://pnlybubbles.github.com</id>
  <author>
    <name>pnlybubbles</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>ruby-2.0.0-p195をrbenvでインストールしたメモ</title>
+   <link href="http://pnlybubbles.github.com/ruby/2013-06-08/ruby-p195-installation"/>
+   <updated>2013-06-08T06:10:00+09:00</updated>
+   <id>http://pnlybubbles.github.com/ruby/2013-06-08/ruby-p195-installation</id>
+   <content type="html">&lt;p&gt;Homebrewから必要なものをインストールする。&lt;/p&gt;
+
+&lt;p&gt;その前にformulaを更新する&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[code]
+$ brew update
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;openssl&lt;/code&gt;、&lt;code&gt;readline&lt;/code&gt;、&lt;code&gt;ruby-build&lt;/code&gt;をインストールする。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[code]
+$ brew install openssl
+$ brew install readline
+$ brew install ruby-build
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;リンクする。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[code]
+$ brew link readline openssl --force
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ruby2.0ではhomebrewから入れたopensslを使ってコンパイルするとsslの証明書エラーが起きる。対策のためにhomebrewから証明書を入れる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[code]
+$ brew install curl-ca-bundle
+$ brew list curl-ca-bundle
+/usr/local/Cellar/curl-ca-bundle/1.87/share/ca-bundle.crt
+$ cp /usr/local/Cellar/curl-ca-bundle/1.87/share/ca-bundle.crt /usr/local/etc/openssl/cert.pem
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;準備が整ったのでrubyをインストールする。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[code]
+$ RUBY_CONFIGURE_OPTS=&quot;--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix readline` --enable-shared&quot; rbenv install 2.0.0-p195
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;今回は&lt;code&gt;--enable-shared&lt;/code&gt;付きでインストールしているが、別に必要はない。RubyCocoaを使うときは必要。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;RUBY_CONFIGURE_OPTS&lt;/code&gt;でなくて&lt;code&gt;CONFIGURE_OPTS&lt;/code&gt;を使っているのをよく見るけど、私の環境ではうまくいきませんでした。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>JavaScriptでtimesっぽいことをしてみた</title>
+   <link href="http://pnlybubbles.github.com/javascript/2013-04-20/javascript-times"/>
+   <updated>2013-04-20T10:45:00+09:00</updated>
+   <id>http://pnlybubbles.github.com/javascript/2013-04-20/javascript-times</id>
+   <content type="html">&lt;p&gt;Rubyでは&lt;code&gt;times&lt;/code&gt;のような便利なイテレータが揃っています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[code.high.num]
+5.times { |i|
+    print i
+}
+
+# =&amp;gt; 01234
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;JavaSciptでもTimesがしたい&lt;/h2&gt;
+
+&lt;p&gt;そこで空のArrayを作ってそれをeachするという方法を思いつきました。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;new Array(n)&lt;/code&gt;ではn個の&lt;code&gt;undefined&lt;/code&gt;の入った配列を作ることができます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[code.high.num]
+new Array(3);
+
+// =&amp;gt; [undefined, undefined, undefined]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;JavaScriptでのeachはこちらの記事でまとめてあります。&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;&lt;a href=&quot;http://pnlybubbles.github.io/javascript/2013-02-15/javascript-jquery-each/&quot; title=&quot;JavaSriptでeachしてみた｜あわあわのブログ&quot;&gt;JavaSriptでeachしてみた｜あわあわのブログ&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;それでは、timesのようなこを試してみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[code.high.num]
+(new Array(5)).forEach(function(v, i) {
+    console.log(i);
+});
+
+// =&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;一回もeachせず...&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;undefined&lt;/code&gt;の配列要素は&lt;code&gt;forEach&lt;/code&gt;しないようです。&lt;/p&gt;
+
+&lt;h2&gt;jQueryを使ってみる&lt;/h2&gt;
+
+&lt;p&gt;jQueryの&lt;code&gt;each&lt;/code&gt;を使ってみると、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[code.high.num]
+$.each((new Array(5)), function(i) {
+    console.log(i);
+});
+
+// =&amp;gt; 0
+// =&amp;gt; 1
+// =&amp;gt; 2
+// =&amp;gt; 3
+// =&amp;gt; 4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これでちゃんと動きました。&lt;/p&gt;
+
+&lt;p&gt;こんなかんじで&lt;code&gt;times&lt;/code&gt;っぽいものが書けました。&lt;/p&gt;
+
+&lt;h2&gt;forは使わないの？&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;[code.high.num]
+for(var i = 0; i &amp;lt; 5; i++) {
+    console.log(i);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;たしかにこれでも動きます。&lt;code&gt;break;&lt;/code&gt;も使えて便利かもしれません。&lt;/p&gt;
+
+&lt;p&gt;しかし、JavaScriptのスレッドが発生した時、変数&lt;code&gt;i&lt;/code&gt;が書き換わり予期しない繰り返し回数になってしまうことがあります。&lt;/p&gt;
+
+&lt;p&gt;JavaScriptにおいてスレッドが発生する時は&lt;code&gt;event&lt;/code&gt;と&lt;code&gt;setTimeout&lt;/code&gt;です。&lt;/p&gt;
+
+&lt;p&gt;このような場面でイテレータ内の操作に多少の遅延などがあった場合、&lt;code&gt;for&lt;/code&gt;の処理中に&lt;code&gt;for&lt;/code&gt;が行われてしまい、変数&lt;code&gt;i&lt;/code&gt;が書き換わってしまいます。&lt;/p&gt;
+
+&lt;p&gt;予期しないバグが発生するかもしれません。&lt;/p&gt;
+
+&lt;p&gt;それと、私は&lt;code&gt;times&lt;/code&gt;っぽく書きたいのでやっぱり&lt;code&gt;for&lt;/code&gt;はなしですね。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>TwitterAPI POST Rate Limit</title>
+   <link href="http://pnlybubbles.github.com/twitter/2013-04-06/twitterapi_post_rate_limit"/>
+   <updated>2013-04-06T00:30:00+09:00</updated>
+   <id>http://pnlybubbles.github.com/twitter/2013-04-06/twitterapi_post_rate_limit</id>
+   <content type="html">&lt;p&gt;This article is NOT official.&lt;/p&gt;
+
+&lt;h2&gt;API&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;POST statuses/update&lt;/li&gt;
+&lt;li&gt;POST statuses/update_with_media&lt;/li&gt;
+&lt;li&gt;POST statuses/retweet/:id&lt;/li&gt;
+&lt;li&gt;POST statuses/destroy/:id&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;blockquote&gt;&lt;p&gt;&lt;a href=&quot;https://dev.twitter.com/docs/api/1.1&quot; title=&quot;REST API v1.1 Resources   Twitter Developers&quot;&gt;REST API v1.1 Resources   Twitter Developers&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h2&gt;Rate Limiting&lt;/h2&gt;
+
+&lt;p&gt;The rate limiting for calls to these API depends on all conditions below.&lt;/p&gt;
+
+&lt;h3&gt;Duplication&lt;/h3&gt;
+
+&lt;p&gt;Those that duplicated with recent posts(about 20) will be regulated.&lt;br/&gt;
+POST statuses/update API only.&lt;/p&gt;
+
+&lt;h3&gt;127req/3hours&lt;/h3&gt;
+
+&lt;p&gt;It simply is not &quot;per three hours&quot;.&lt;br/&gt;
+We define &quot;one Section&quot; as for 3 hours.&lt;br/&gt;
+We post something, then the &quot;Section&quot; is start. (If the section has not started.)&lt;br/&gt;
+Between the &quot;Section&quot;, we can request 127 APIs.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/2013-04-05-twitterapi_post_rate_limit.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3&gt;1000req/day&lt;/h3&gt;
+
+&lt;p&gt;&quot;Twitter Developer Official&quot; announces this rate limiting.&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;&lt;a href=&quot;https://support.twitter.com/articles/15364-twitter-limits-api-updates-and-following&quot; title=&quot;Twitter Help Center   Twitter limits (API, updates, and following)&quot;&gt;Twitter Help Center   Twitter limits (API, updates, and following)&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;However, According to the rate limti above this (127req/3hours), the calculated rate limit is 1016req/day (127 * 8).&lt;/p&gt;
+
+&lt;h2&gt;Others&lt;/h2&gt;
+
+&lt;p&gt;The client &quot;Mobile Web&quot;, &quot;Keitai Web&quot;, &quot;HootSuite&quot; had a whitelist API and These could request 20000req/hour, but it was regulated on March 2012.&lt;/p&gt;
+
+&lt;p&gt;GET Rate Limiting is here.&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;&lt;a href=&quot;https://dev.twitter.com/docs/rate-limiting/1.1/limits&quot; title=&quot;REST API v1.1 Limits per window by resource   Twitter Developers&quot;&gt;REST API v1.1 Limits per window by resource   Twitter Developers&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;cf.&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;&lt;a href=&quot;http://ltzz.info/alpha/twitter_kisei.html&quot; title=&quot;投稿規制の仕様&quot;&gt;http://ltzz.info/alpha/twitter_kisei.html&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+</content>
+ </entry>
  
  <entry>
    <title>JavaScriptでイベントによるスクロールを無効化する</title>
@@ -64,7 +258,7 @@ $(window).keydown(function(event) {
 
 &lt;p&gt;Description: Prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event.&lt;/p&gt;&lt;/blockquote&gt;
 
-&lt;p&gt;&lt;em&gt;イベント伝播&lt;/em&gt; という概念があって、DOMの階層の順番にイベントが発生してアクションが起こるフローのことをいいます。&lt;/p&gt;
+&lt;p&gt;*イベント伝播* という概念があって、DOMの階層の順番にイベントが発生してアクションが起こるフローのことをいいます。&lt;/p&gt;
 
 &lt;p&gt;このメソッドはそのフローを途中で止めてそれ以上実行されないようにするメソッドのようです。&lt;/p&gt;
 
@@ -311,7 +505,21 @@ arr.forEach(function(value, index) {
 
 &lt;p&gt;というかこっちのほうがRubyに近いですね。&lt;/p&gt;
 
-&lt;p&gt;jQueryと違ってvalueとindexが逆になっているので注意です。&lt;/p&gt;
+&lt;p&gt;jQueryと違ってvalueとindexが逆になっているので注意です。また、&lt;code&gt;forEach&lt;/code&gt;は&lt;code&gt;Array&lt;/code&gt;のインスタンスですのでオブジェクトには使えません。オブジェクトのときはjQueryを使うか、&lt;code&gt;for each…in&lt;/code&gt;文を使いましょう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[code.num.high]
+for each (var value in obj) {
+    value.method(value.key);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Chromeは未実装なのか動きません。&lt;code&gt;for each…in&lt;/code&gt;文は&lt;code&gt;javascript1.8&lt;/code&gt;からです。&lt;/p&gt;
+
+&lt;p&gt;他にも&lt;code&gt;Object&lt;/code&gt;のプロトタイプをいじるという手もありそうですが、それはあまり良くないでのしたくないですね…。&lt;/p&gt;
+
+&lt;p&gt;オブジェクトの場合は素直にjQuery使ったほうが良さそうです。&lt;/p&gt;
+
+&lt;p&gt;また、&lt;code&gt;forEach&lt;/code&gt;はこんな引数も持ちます。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;[code.num.high]
 arr.forEach(function(value, index) {
@@ -323,7 +531,7 @@ arr.forEach(function(value, index) {
 
 &lt;p&gt;コンストラクタ内で使うときは&lt;code&gt;this&lt;/code&gt;の指すものが変わると厄介なので&lt;code&gt;obj&lt;/code&gt;に&lt;code&gt;this&lt;/code&gt;を指定してあげれば全く問題ないですね。&lt;/p&gt;
 
-&lt;p&gt;ちなみにjQueryの&lt;code&gt;each&lt;/code&gt;での&lt;code&gt;this&lt;/code&gt;では、インスタンスから&lt;code&gt;each&lt;/code&gt;で参照されたものを&lt;em&gt;オブジェクト&lt;/em&gt;として返します。（インスタンスって言っていいのかな...）&lt;/p&gt;
+&lt;p&gt;ちなみにjQueryの&lt;code&gt;each&lt;/code&gt;での&lt;code&gt;this&lt;/code&gt;では、インスタンスから&lt;code&gt;each&lt;/code&gt;で参照されたものを*オブジェクト*として返します。（インスタンスって言っていいのかな...）&lt;/p&gt;
 
 &lt;blockquote&gt;&lt;p&gt;&lt;a href=&quot;http://api.jquery.com/jQuery.each/&quot; title=&quot;jQuery.each() jQuery API Documentation&quot;&gt;jQuery.each() jQuery API Documentation&lt;/a&gt;&lt;/p&gt;
 
@@ -963,38 +1171,38 @@ admin_cmdメソッドをスレッド化。&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th align=&quot;left&quot;&gt;コマンド&lt;/th&gt;
-&lt;th align=&quot;left&quot;&gt;概要&lt;/th&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt;コマンド&lt;/th&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt;概要&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;登録&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;フォローを返して登録を行います。※1&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;登録&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;フォローを返して登録を行います。※1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;フォロー解除&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;フォローを解除して登録されたデータをすべて削除します。&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;フォロー解除&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;フォローを解除して登録されたデータをすべて削除します。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;いつ&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;取得済みデータから規制解除時刻を計算します。&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;いつ&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;取得済みデータから規制解除時刻を計算します。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;code&gt;screen_name&lt;/code&gt;いつ&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;Twitterからデータを取得して規制解除時刻を計算します。登録されているユーザーの場合は取得済みデータから計算します。※2&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;&lt;code&gt;screen_name&lt;/code&gt;いつ&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;Twitterからデータを取得して規制解除時刻を計算します。登録されているユーザーの場合は取得済みデータから計算します。※2&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;第n規制垢いつ&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;設定された規制垢の取得済みデータからその規制解除時刻を計算します。※3&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;第n規制垢いつ&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;設定された規制垢の取得済みデータからその規制解除時刻を計算します。※3&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;リセット&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;Twitterからデータを取得して規制解除時刻を計算します。&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;リセット&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;Twitterからデータを取得して規制解除時刻を計算します。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;第n規制垢リセット&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;Twitterからデータを取得して設定された規制垢の規制解除時刻を計算します。&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;第n規制垢リセット&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;Twitterからデータを取得して設定された規制垢の規制解除時刻を計算します。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1005,30 +1213,30 @@ admin_cmdメソッドをスレッド化。&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th align=&quot;left&quot;&gt;コマンド&lt;/th&gt;
-&lt;th align=&quot;left&quot;&gt;概要&lt;/th&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt;コマンド&lt;/th&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt;概要&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;code&gt;screen_name&lt;/code&gt;を第n規制垢に設定&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;code&gt;screen_name&lt;/code&gt;を規制垢として設定して紐付けします。&lt;code&gt;screen_name&lt;/code&gt;は登録してある必要があります。※2&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;&lt;code&gt;screen_name&lt;/code&gt;を第n規制垢に設定&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;&lt;code&gt;screen_name&lt;/code&gt;を規制垢として設定して紐付けします。&lt;code&gt;screen_name&lt;/code&gt;は登録してある必要があります。※2&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;第n規制垢を解除&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;第n規制垢に設定されているアカウントとの紐付けを解除します。※3&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;第n規制垢を解除&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;第n規制垢に設定されているアカウントとの紐付けを解除します。※3&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;規制垢の紐付けを解除&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;あなたのアカウントが誰かの規制用アカウントとして設定されている場合に紐付けを強制的に解除します。&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;規制垢の紐付けを解除&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;あなたのアカウントが誰かの規制用アカウントとして設定されている場合に紐付けを強制的に解除します。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;規制垢を初期化&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;設定されている規制垢との紐付けをすべて解除します。&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;規制垢を初期化&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;設定されている規制垢との紐付けをすべて解除します。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;規制垢の状況&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;設定されている規制垢の割り当てを調べます。(β)&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;規制垢の状況&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;設定されている規制垢の割り当てを調べます。(β)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1048,22 +1256,22 @@ admin_cmdメソッドをスレッド化。&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th align=&quot;left&quot;&gt;コマンド&lt;/th&gt;
-&lt;th align=&quot;left&quot;&gt;概要&lt;/th&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt;コマンド&lt;/th&gt;
+&lt;th style=&quot;text-align:left;&quot;&gt;概要&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;登録状況&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;あなたがきせーさーちのアカウントを使用可能か、使用不可かを調べます。(β)&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;登録状況&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;あなたがきせーさーちのアカウントを使用可能か、使用不可かを調べます。(β)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;登録状況詳細&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;あなたのアカウント、規制用アカウントの登録状況を調べます。(β)&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;登録状況詳細&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;あなたのアカウント、規制用アカウントの登録状況を調べます。(β)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align=&quot;left&quot;&gt;フォロー&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;フォローしているきせーさーちのアカウントを使用可能にします。（フォローバックを行います）(β)&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;フォロー&lt;/td&gt;
+&lt;td style=&quot;text-align:left;&quot;&gt;フォローしているきせーさーちのアカウントを使用可能にします。（フォローバックを行います）(β)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

@@ -7,6 +7,9 @@ http://pnlybubbles.github.com/pages.html
 http://pnlybubbles.github.com/sitemap.txt
 http://pnlybubbles.github.com/tags.html
 
+http://pnlybubbles.github.com/ruby/2013-06-08/ruby-p195-installation
+http://pnlybubbles.github.com/javascript/2013-04-20/javascript-times
+http://pnlybubbles.github.com/twitter/2013-04-06/twitterapi_post_rate_limit
 http://pnlybubbles.github.com/javascript/2013-03-18/Disable-scroll-from-event
 http://pnlybubbles.github.com/javascript/2013-03-16/TwiAdn
 http://pnlybubbles.github.com/ruby/2013-03-09/develop-luminous-1
