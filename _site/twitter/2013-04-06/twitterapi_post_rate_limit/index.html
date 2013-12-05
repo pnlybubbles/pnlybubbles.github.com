@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>TwitterAPI POST Rate Limit</title>
+    
+    <meta name="author" content="pnlybubbles">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/js/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/js/google-code-prettify/prettify.js"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/js/default.js"></script>
+
+    <!-- Le styles -->
+    <link href="/assets/themes/awaawa/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/awaawa/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link href="/assets/themes/awaawa/css/syntax.css" rel="stylesheet">    
+    <link href="/assets/themes/awaawa/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="title">
+      </div>
+
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="brand" href="/">AwaAwa's blog</a>
+            <ul class="nav">
+              
+              
+              
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>TwitterAPI POST Rate Limit</h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p>This article is NOT official.</p>
+
+<h2>API</h2>
+
+<ul>
+<li>POST statuses/update</li>
+<li>POST statuses/update_with_media</li>
+<li>POST statuses/retweet/:id</li>
+<li>POST statuses/destroy/:id</li>
+</ul>
+
+
+<blockquote><p><a href="https://dev.twitter.com/docs/api/1.1" title="REST API v1.1 Resources   Twitter Developers">REST API v1.1 Resources   Twitter Developers</a></p></blockquote>
+
+<h2>Rate Limiting</h2>
+
+<p>The rate limiting for calls to these API depends on all conditions below.</p>
+
+<h3>Duplication</h3>
+
+<p>Those that duplicated with recent posts(about 20) will be regulated.<br/>
+POST statuses/update API only.</p>
+
+<h3>127req/3hours</h3>
+
+<p>It simply is not "per three hours".<br/>
+We define "one Section" as for 3 hours.<br/>
+We post something, then the "Section" is start. (If the section has not started.)<br/>
+Between the "Section", we can request 127 APIs.</p>
+
+<p><img src="/img/2013-04-05-twitterapi_post_rate_limit.png" /></p>
+
+<h3>1000req/day</h3>
+
+<p>"Twitter Developer Official" announces this rate limiting.</p>
+
+<blockquote><p><a href="https://support.twitter.com/articles/15364-twitter-limits-api-updates-and-following" title="Twitter Help Center   Twitter limits (API, updates, and following)">Twitter Help Center   Twitter limits (API, updates, and following)</a></p></blockquote>
+
+<p>However, According to the rate limti above this (127req/3hours), the calculated rate limit is 1016req/day (127 * 8).</p>
+
+<h2>Others</h2>
+
+<p>The client "Mobile Web", "Keitai Web", "HootSuite" had a whitelist API and These could request 20000req/hour, but it was regulated on March 2012.</p>
+
+<p>GET Rate Limiting is here.</p>
+
+<blockquote><p><a href="https://dev.twitter.com/docs/rate-limiting/1.1/limits" title="REST API v1.1 Limits per window by resource   Twitter Developers">REST API v1.1 Limits per window by resource   Twitter Developers</a></p></blockquote>
+
+<p>cf.</p>
+
+<blockquote><p><a href="http://ltzz.info/alpha/twitter_kisei.html" title="投稿規制の仕様">http://ltzz.info/alpha/twitter_kisei.html</a></p></blockquote>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/javascript/2013-03-18/Disable-scroll-from-event" title="JavaScriptでイベントによるスクロールを無効化する">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/javascript/2013-04-20/javascript-times" title="JavaScriptでtimesっぽいことをしてみた">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'pnlybubbles'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span4">
+    <div class="tag_box-wrap">
+        <h4>Published</h4>
+        <div class="date"><span>06 April 2013</span></div>
+
+      
+        <h4>Tags</h4>
+        <ul class="tag_box">
+        
+        
+
+
+  
+     
+    	<li><a href="/tags.html#twitter-ref">twitter <span>4</span></a></li>
+     
+    	<li><a href="/tags.html#api-ref">api <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#post-ref">post <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#ratelimit-ref">ratelimit <span>1</span></a></li>
+    
+  
+
+
+
+        </ul>
+      
+    </div>
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; pnlybubbles 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

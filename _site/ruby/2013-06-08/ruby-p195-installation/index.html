@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ruby-2.0.0-p195をrbenvでインストールしたメモ</title>
+    
+    <meta name="author" content="pnlybubbles">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/js/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/js/google-code-prettify/prettify.js"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/js/default.js"></script>
+
+    <!-- Le styles -->
+    <link href="/assets/themes/awaawa/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/awaawa/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link href="/assets/themes/awaawa/css/syntax.css" rel="stylesheet">    
+    <link href="/assets/themes/awaawa/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="title">
+      </div>
+
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="brand" href="/">AwaAwa's blog</a>
+            <ul class="nav">
+              
+              
+              
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>ruby-2.0.0-p195をrbenvでインストールしたメモ</h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p>Homebrewから必要なものをインストールする。</p>
+
+<p>その前にformulaを更新する</p>
+
+<pre><code>[code]
+$ brew update
+</code></pre>
+
+<p><code>openssl</code>、<code>readline</code>、<code>ruby-build</code>をインストールする。</p>
+
+<pre><code>[code]
+$ brew install openssl
+$ brew install readline
+$ brew install ruby-build
+</code></pre>
+
+<p>リンクする。</p>
+
+<pre><code>[code]
+$ brew link readline openssl --force
+</code></pre>
+
+<p>ruby2.0ではhomebrewから入れたopensslを使ってコンパイルするとsslの証明書エラーが起きる。対策のためにhomebrewから証明書を入れる。</p>
+
+<pre><code>[code]
+$ brew install curl-ca-bundle
+$ brew list curl-ca-bundle
+/usr/local/Cellar/curl-ca-bundle/1.87/share/ca-bundle.crt
+$ cp /usr/local/Cellar/curl-ca-bundle/1.87/share/ca-bundle.crt /usr/local/etc/openssl/cert.pem
+</code></pre>
+
+<p>準備が整ったのでrubyをインストールする。</p>
+
+<pre><code>[code]
+$ RUBY_CONFIGURE_OPTS="--with-openssl-dir=`brew --prefix openssl` --with-readline-dir=`brew --prefix readline` --enable-shared" rbenv install 2.0.0-p195
+</code></pre>
+
+<p>今回は<code>--enable-shared</code>付きでインストールしているが、別に必要はない。RubyCocoaを使うときは必要。</p>
+
+<p><code>RUBY_CONFIGURE_OPTS</code>でなくて<code>CONFIGURE_OPTS</code>を使っているのをよく見るけど、私の環境ではうまくいきませんでした。</p>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/javascript/2013-04-20/javascript-times" title="JavaScriptでtimesっぽいことをしてみた">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next disabled"><a>Next &rarr;</a>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'pnlybubbles'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span4">
+    <div class="tag_box-wrap">
+        <h4>Published</h4>
+        <div class="date"><span>08 June 2013</span></div>
+
+      
+        <h4>Tags</h4>
+        <ul class="tag_box">
+        
+        
+
+
+  
+     
+    	<li><a href="/tags.html#ruby-ref">ruby <span>12</span></a></li>
+     
+    	<li><a href="/tags.html#ruby2.0-ref">ruby2.0 <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#rbenv-ref">rbenv <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#openssl-ref">openssl <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#homebrew-ref">homebrew <span>3</span></a></li>
+    
+  
+
+
+
+        </ul>
+      
+    </div>
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; pnlybubbles 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+
