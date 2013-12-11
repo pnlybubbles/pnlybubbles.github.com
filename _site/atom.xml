@@ -4,13 +4,78 @@
  <title>あわあわのブログ</title>
  <link href="http://pnlybubbles.github.com/atom.xml" rel="self"/>
  <link href="http://pnlybubbles.github.com"/>
- <updated>2013-06-11T19:36:11+09:00</updated>
+ <updated>2013-12-11T13:46:22+09:00</updated>
  <id>http://pnlybubbles.github.com</id>
  <author>
    <name>pnlybubbles</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>アリス歌うよbotを作ったよ</title>
+   <link href="http://pnlybubbles.github.com/ruby/2013-08-14/alice-utauyo-bot"/>
+   <updated>2013-08-14T09:00:00+09:00</updated>
+   <id>http://pnlybubbles.github.com/ruby/2013-08-14/alice-utauyo-bot</id>
+   <content type="html">&lt;p&gt;きんいろモザイクのアリスちゃんかわいい。&lt;/p&gt;
+
+&lt;p&gt;アリスbotを作りました。&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;&lt;a href=&quot;http://twitter.com/alice_utauyo&quot; title=&quot;アリス歌うよbot&quot;&gt;アリス歌うよbot&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;アニメ、きんいろモザイクの4話に出てくる「わたし、何もあげられるもの無いから歌を歌うよ！」というセリフをネタにして作りました。&lt;/p&gt;
+
+&lt;p&gt;きんいろモザイクをしらない方へ、こちらが公式サイトです。&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;&lt;a href=&quot;http://www.kinmosa.com/&quot; title=&quot;ＴＶアニメ「きんいろモザイク」公式サイト&quot;&gt;ＴＶアニメ「きんいろモザイク」公式サイト&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;仕組みとしては、タイムラインからツイートを拾ってきて「名詞...動詞」の部分を抜き出して動詞を基本形に直してから「わたし、何もあげられるもの無いから○○よ！」にはめ込んでいます。&lt;/p&gt;
+
+&lt;p&gt;ちなみにリフォローは手動です。&lt;/p&gt;
+
+&lt;p&gt;純粋にこれだけしかしないbotというのもつまらないのでお遊びに変な機能突っ込もうかと考えています。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4&gt;追記（2013/12/06）&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;採用したツイートをお気に入り登録します。（つまり元ネタはfavoriteを見ることで確認できます）&lt;/li&gt;
+&lt;li&gt;採用されたけれどもお気に入り登録ができない（削除されている）ツイートは無視され、他のツイートを採用します。&lt;/li&gt;
+&lt;li&gt;プライベートアカウントの場合は採用されません。&lt;/li&gt;
+&lt;li&gt;リプライは採用されません。（リプライはmentionとなる@を含んだすべてのツイート）&lt;/li&gt;
+&lt;li&gt;urlを含んで採用されることはありません。（urlの含むツイートのurl以外の部分を採用することはあります）&lt;/li&gt;
+&lt;li&gt;ブラックリストに設定されている特定のviaによるツイートは採用されません。&lt;/li&gt;
+&lt;li&gt;フォロー内/外かかわらず、リツイートを採用することはありません。&lt;/li&gt;
+&lt;li&gt;係助詞の&quot;は&quot;、格助詞の&quot;が&quot;、記号、は採用されないはず。&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;BLACK_LIST = [&quot;アリス・カータレット&quot;, &quot;gohantabeyo.com&quot;, &quot;なるほどさるきちじゃねーの&quot;, &quot;占ぃったー&quot;, &quot;うんこはにがくてうまい&quot;, &quot;twittbot.net&quot;, &quot;JustUnfollow&quot;, &quot;SeesaaBlog&quot;, &quot;TweetMag1c for Android Pro&quot;, &quot;ツイ廃あらーと&quot;, &quot;BotMaker&quot;, &quot;makebot.sh&quot;, &quot;嫁コレiphone&quot;, &quot;ツイート数カウントくん&quot;, &quot;ホモォいじり&quot;, &quot;Intel Tweet City&quot;, &quot;The_AutoTweet&quot;, &quot;劣化コピー&quot;, &quot;Pochitter!（ぽちったー！）&quot;, &quot;EasyBotter&quot;, &quot;なるほどロリじゃねーの&quot;, &quot;twibow&quot;, &quot;twiroboJP&quot;, &quot;twimaker&quot;, &quot;チェンジワイパー☆∠(ﾟωﾟ)／&quot;, &quot;このまま眠りつづけて死ぬ&quot;, &quot;Quitter | 禁煙ったー&quot;, &quot;Dashbotv&quot;, &quot;今日のスタンド&quot;, &quot;ShootingStar&quot;, &quot;ホモォいじり on iOS&quot;, &quot;3hikime_hitsuji&quot;, &quot;午前3時の茨城県&quot;, &quot;リプライ数チェッカ&quot;, &quot;すごいbotを作るサービス&quot;, &quot;いろつく結果画像投稿&quot;, &quot;このまま眠り続けて死ぬ&quot;]&lt;/p&gt;
+
+&lt;h2&gt;mecab-rubyが気持ち悪い&lt;/h2&gt;
+
+&lt;p&gt;形態素解析は面白いですね。&lt;code&gt;MeCab&lt;/code&gt;を利用して行っています。&lt;/p&gt;
+
+&lt;p&gt;わりと砕けた文章でも意外にうまく解析できたりして結構遊べます。&lt;/p&gt;
+
+&lt;p&gt;このbotではRubyから扱う為に&lt;code&gt;mecab-ruby&lt;/code&gt;というgemを利用しているのですが、&lt;code&gt;parseToNode&lt;/code&gt;メソッドの戻り値の使い勝手が悪過ぎる気がしました。&lt;/p&gt;
+
+&lt;p&gt;格納されているのはnodeオブジェクトで、解析した文章が単語ごとで区切られて入っています。&lt;code&gt;next&lt;/code&gt;メソッドで次の語を参照することができます。&lt;/p&gt;
+
+&lt;p&gt;なぜイテレータが使えないのですか。&lt;/p&gt;
+
+&lt;p&gt;Rubyなのに。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;While&lt;/code&gt;文を使うのは非常に気持ち悪かったので&lt;code&gt;MeCabModel&lt;/code&gt;というクラスを書いて&lt;code&gt;node&lt;/code&gt;の中身を扱いやすくプロパティも増やし、&lt;code&gt;Array&lt;/code&gt;に格納して吐き出すようにしました。&lt;/p&gt;
+
+&lt;p&gt;それでも、まだ納得のいった拡張にはなっていませんが…。&lt;/p&gt;
+
+&lt;p&gt;そんなこんなでアリス歌うよbotは生まれました。&lt;/p&gt;
+
+&lt;p&gt;私は綾の方が好きですけどね。&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>ruby-2.0.0-p195をrbenvでインストールしたメモ</title>
