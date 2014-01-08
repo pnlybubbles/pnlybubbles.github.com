@@ -4,7 +4,7 @@
  <title>あわあわのブログ</title>
  <link href="http://pnlybubbles.github.com/atom.xml" rel="self"/>
  <link href="http://pnlybubbles.github.com"/>
- <updated>2014-01-09T00:14:56+09:00</updated>
+ <updated>2014-01-09T00:30:08+09:00</updated>
  <id>http://pnlybubbles.github.com</id>
  <author>
    <name>pnlybubbles</name>
@@ -51,7 +51,7 @@
 &lt;/ul&gt;
 
 
-&lt;p&gt;BLACK_LIST = [&quot;アリス・カータレット&quot;, &quot;gohantabeyo.com&quot;, &quot;なるほどさるきちじゃねーの&quot;, &quot;占ぃったー&quot;, &quot;うんこはにがくてうまい&quot;, &quot;twittbot.net&quot;, &quot;JustUnfollow&quot;, &quot;SeesaaBlog&quot;, &quot;TweetMag1c for Android Pro&quot;, &quot;ツイ廃あらーと&quot;, &quot;BotMaker&quot;, &quot;makebot.sh&quot;, &quot;嫁コレiphone&quot;, &quot;ツイート数カウントくん&quot;, &quot;ホモォいじり&quot;, &quot;Intel Tweet City&quot;, &quot;The_AutoTweet&quot;, &quot;劣化コピー&quot;, &quot;Pochitter!（ぽちったー！）&quot;, &quot;EasyBotter&quot;, &quot;なるほどロリじゃねーの&quot;, &quot;twibow&quot;, &quot;twiroboJP&quot;, &quot;twimaker&quot;, &quot;チェンジワイパー☆∠(ﾟωﾟ)／&quot;, &quot;このまま眠りつづけて死ぬ&quot;, &quot;Quitter | 禁煙ったー&quot;, &quot;Dashbotv&quot;, &quot;今日のスタンド&quot;, &quot;ShootingStar&quot;, &quot;ホモォいじり on iOS&quot;, &quot;3hikime_hitsuji&quot;, &quot;午前3時の茨城県&quot;, &quot;リプライ数チェッカ&quot;, &quot;すごいbotを作るサービス&quot;, &quot;いろつく結果画像投稿&quot;, &quot;このまま眠り続けて死ぬ&quot;]&lt;/p&gt;
+&lt;p&gt;BLACK_LIST = [&quot;アリス・カータレット&quot;, &quot;gohantabeyo.com&quot;, &quot;なるほどさるきちじゃねーの&quot;, &quot;占ぃったー&quot;, &quot;うんこはにがくてうまい&quot;, &quot;twittbot.net&quot;, &quot;JustUnfollow&quot;, &quot;SeesaaBlog&quot;, &quot;TweetMag1c for Android Pro&quot;, &quot;ツイ廃あらーと&quot;, &quot;BotMaker&quot;, &quot;makebot.sh&quot;, &quot;嫁コレiphone&quot;, &quot;ツイート数カウントくん&quot;, &quot;ホモォいじり&quot;, &quot;Intel Tweet City&quot;, &quot;The_AutoTweet&quot;, &quot;劣化コピー&quot;, &quot;Pochitter!（ぽちったー！）&quot;, &quot;EasyBotter&quot;, &quot;なるほどロリじゃねーの&quot;, &quot;twibow&quot;, &quot;twiroboJP&quot;, &quot;twimaker&quot;, &quot;チェンジワイパー☆∠(ﾟωﾟ)／&quot;, &quot;このまま眠りつづけて死ぬ&quot;, &quot;Quitter | 禁煙ったー&quot;, &quot;Dashbotv&quot;, &quot;今日のスタンド&quot;, &quot;ホモォいじり on iOS&quot;, &quot;3hikime_hitsuji&quot;, &quot;午前3時の茨城県&quot;, &quot;リプライ数チェッカ&quot;, &quot;すごいbotを作るサービス&quot;, &quot;いろつく結果画像投稿&quot;, &quot;このまま眠り続けて死ぬ&quot;, &quot;TweetMag1c for Android&quot;, &quot;TwitCasting&quot;, &quot;魔理沙ちゃん大陸&quot;, &quot;ポッキーﾑｼｬﾑｼｬ&quot;, &quot;makebot ツイッター便利機能／ボット作成サービス&quot;, &quot;twitterfeed&quot;, &quot;えへへ(^^)&quot;, &quot;精神の乱れ&quot;, &quot;このまま眠りつづけて死ぬ&quot;, &quot;垢消せ.com&quot;, &quot;rakubo2&quot;, &quot;livedoor Blog&quot;, &quot;イクシったー&quot;, &quot;このままもじゃりつづけてしぬ&quot;, &quot;ツイ助。&quot;, &quot;なるほどえたきちじゃねーの&quot;, &quot;なるほどコカインマンじゃねーの&quot;, &quot;autotweety.net&quot;, &quot;Ask.fm&quot;, &quot;ニコニコ動画&quot;, &quot;ニコニコ生放送&quot;, &quot;rekkacopy&quot;]&lt;/p&gt;
 
 &lt;h2&gt;mecab-rubyが気持ち悪い&lt;/h2&gt;
 
