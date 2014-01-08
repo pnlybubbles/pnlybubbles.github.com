@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>アリス歌うよbotを作ったよ - あわあわのブログ</title>
+    
+    <meta name="author" content="pnlybubbles">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/js/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/js/google-code-prettify/prettify.js"></script>
+    <script type="text/javascript" src="/assets/themes/awaawa/js/default.js"></script>
+
+    <!-- Le styles -->
+    <link href="/assets/themes/awaawa/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/awaawa/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link href="/assets/themes/awaawa/css/syntax.css" rel="stylesheet">    
+    <link href="/assets/themes/awaawa/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="favicon.ico">
+  <!-- Update these with your own images
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="title">
+      </div>
+
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="brand" href="/">AwaAwa's blog</a>
+            <ul class="nav">
+              
+              
+              
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>アリス歌うよbotを作ったよ</h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p>きんいろモザイクのアリスちゃんかわいい。</p>
+
+<p>アリスbotを作りました。</p>
+
+<blockquote><p><a href="http://twitter.com/alice_utauyo" title="アリス歌うよbot">アリス歌うよbot</a></p></blockquote>
+
+<p>アニメ、きんいろモザイクの4話に出てくる「わたし、何もあげられるもの無いから歌を歌うよ！」というセリフをネタにして作りました。</p>
+
+<p>きんいろモザイクをしらない方へ、こちらが公式サイトです。</p>
+
+<blockquote><p><a href="http://www.kinmosa.com/" title="ＴＶアニメ「きんいろモザイク」公式サイト">ＴＶアニメ「きんいろモザイク」公式サイト</a></p></blockquote>
+
+<p>仕組みとしては、タイムラインからツイートを拾ってきて「名詞...動詞」の部分を抜き出して動詞を基本形に直してから「わたし、何もあげられるもの無いから○○よ！」にはめ込んでいます。</p>
+
+<p>ちなみにリフォローは手動です。</p>
+
+<p>純粋にこれだけしかしないbotというのもつまらないのでお遊びに変な機能突っ込もうかと考えています。</p>
+
+<hr />
+
+<h4>追記（2013/12/06）</h4>
+
+<ul>
+<li>採用したツイートをお気に入り登録します。（つまり元ネタはfavoriteを見ることで確認できます）</li>
+<li>採用されたけれどもお気に入り登録ができない（削除されている）ツイートは無視され、他のツイートを採用します。</li>
+<li>プライベートアカウントの場合は採用されません。</li>
+<li>リプライは採用されません。（リプライはmentionとなる@を含んだすべてのツイート）</li>
+<li>urlを含んで採用されることはありません。（urlの含むツイートのurl以外の部分を採用することはあります）</li>
+<li>ブラックリストに設定されている特定のviaによるツイートは採用されません。</li>
+<li>フォロー内/外かかわらず、リツイートを採用することはありません。</li>
+<li>係助詞の"は"、格助詞の"が"、記号、は採用されないはず。</li>
+</ul>
+
+
+<p>BLACK_LIST = ["アリス・カータレット", "gohantabeyo.com", "なるほどさるきちじゃねーの", "占ぃったー", "うんこはにがくてうまい", "twittbot.net", "JustUnfollow", "SeesaaBlog", "TweetMag1c for Android Pro", "ツイ廃あらーと", "BotMaker", "makebot.sh", "嫁コレiphone", "ツイート数カウントくん", "ホモォいじり", "Intel Tweet City", "The_AutoTweet", "劣化コピー", "Pochitter!（ぽちったー！）", "EasyBotter", "なるほどロリじゃねーの", "twibow", "twiroboJP", "twimaker", "チェンジワイパー☆∠(ﾟωﾟ)／", "このまま眠りつづけて死ぬ", "Quitter | 禁煙ったー", "Dashbotv", "今日のスタンド", "ShootingStar", "ホモォいじり on iOS", "3hikime_hitsuji", "午前3時の茨城県", "リプライ数チェッカ", "すごいbotを作るサービス", "いろつく結果画像投稿", "このまま眠り続けて死ぬ"]</p>
+
+<h2>mecab-rubyが気持ち悪い</h2>
+
+<p>形態素解析は面白いですね。<code>MeCab</code>を利用して行っています。</p>
+
+<p>わりと砕けた文章でも意外にうまく解析できたりして結構遊べます。</p>
+
+<p>このbotではRubyから扱う為に<code>mecab-ruby</code>というgemを利用しているのですが、<code>parseToNode</code>メソッドの戻り値の使い勝手が悪過ぎる気がしました。</p>
+
+<p>格納されているのはnodeオブジェクトで、解析した文章が単語ごとで区切られて入っています。<code>next</code>メソッドで次の語を参照することができます。</p>
+
+<p>なぜイテレータが使えないのですか。</p>
+
+<p>Rubyなのに。</p>
+
+<p><code>While</code>文を使うのは非常に気持ち悪かったので<code>MeCabModel</code>というクラスを書いて<code>node</code>の中身を扱いやすくプロパティも増やし、<code>Array</code>に格納して吐き出すようにしました。</p>
+
+<p>それでも、まだ納得のいった拡張にはなっていませんが…。</p>
+
+<p>そんなこんなでアリス歌うよbotは生まれました。</p>
+
+<p>私は綾の方が好きですけどね。</p>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/ruby/2013-06-08/ruby-p195-installation" title="ruby-2.0.0-p195をrbenvでインストールしたメモ">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next disabled"><a>Next &rarr;</a>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'pnlybubbles'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span4">
+    <div class="tag_box-wrap">
+        <h4>Published</h4>
+        <div class="date"><span>14 August 2013</span></div>
+
+      
+        <h4>Tags</h4>
+        <ul class="tag_box">
+        
+        
+
+
+  
+     
+    	<li><a href="/tags.html#ruby-ref">ruby <span>13</span></a></li>
+     
+    	<li><a href="/tags.html#twitter-ref">twitter <span>5</span></a></li>
+     
+    	<li><a href="/tags.html#bot-ref">bot <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#MeCab-ref">MeCab <span>1</span></a></li>
+    
+  
+
+
+
+        </ul>
+      
+    </div>
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; pnlybubbles 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

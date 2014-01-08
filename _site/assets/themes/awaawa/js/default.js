@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-	change_title();
+	// change_title();
 	add_style();
 	var nohigh_code = configure_pre_style();
 	prettyPrint();
@@ -78,9 +78,9 @@ function fix_prettyPrint(nohigh_code) {
 	});
 }
 
-function change_title () {
-	this_title = document.title;
-	if(this_title != "あわあわのブログ") {
-		document.title = this_title + "｜あわあわのブログ";
-	}
-}
+// function change_title () {
+// 	this_title = document.title;
+// 	if(this_title != "あわあわのブログ") {
+// 		document.title = this_title + "｜あわあわのブログ";
+// 	}
+// }
