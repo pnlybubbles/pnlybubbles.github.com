@@ -35,7 +35,7 @@ tags : [ruby, twitter, bot, MeCab]
 * フォロー内/外かかわらず、リツイートを採用することはありません。
 * 係助詞の"は"、格助詞の"が"、記号、は採用されないはず。
 
-BLACK_LIST = ["アリス・カータレット", "gohantabeyo.com", "なるほどさるきちじゃねーの", "占ぃったー", "うんこはにがくてうまい", "twittbot.net", "JustUnfollow", "SeesaaBlog", "TweetMag1c for Android Pro", "ツイ廃あらーと", "BotMaker", "makebot.sh", "嫁コレiphone", "ツイート数カウントくん", "ホモォいじり", "Intel Tweet City", "The_AutoTweet", "劣化コピー", "Pochitter!（ぽちったー！）", "EasyBotter", "なるほどロリじゃねーの", "twibow", "twiroboJP", "twimaker", "チェンジワイパー☆∠(ﾟωﾟ)／", "このまま眠りつづけて死ぬ", "Quitter | 禁煙ったー", "Dashbotv", "今日のスタンド", "ShootingStar", "ホモォいじり on iOS", "3hikime_hitsuji", "午前3時の茨城県", "リプライ数チェッカ", "すごいbotを作るサービス", "いろつく結果画像投稿", "このまま眠り続けて死ぬ"]
+BLACK_LIST = ["アリス・カータレット", "gohantabeyo.com", "なるほどさるきちじゃねーの", "占ぃったー", "うんこはにがくてうまい", "twittbot.net", "JustUnfollow", "SeesaaBlog", "TweetMag1c for Android Pro", "ツイ廃あらーと", "BotMaker", "makebot.sh", "嫁コレiphone", "ツイート数カウントくん", "ホモォいじり", "Intel Tweet City", "The_AutoTweet", "劣化コピー", "Pochitter!（ぽちったー！）", "EasyBotter", "なるほどロリじゃねーの", "twibow", "twiroboJP", "twimaker", "チェンジワイパー☆∠(ﾟωﾟ)／", "このまま眠りつづけて死ぬ", "Quitter | 禁煙ったー", "Dashbotv", "今日のスタンド", "ホモォいじり on iOS", "3hikime_hitsuji", "午前3時の茨城県", "リプライ数チェッカ", "すごいbotを作るサービス", "いろつく結果画像投稿", "このまま眠り続けて死ぬ", "TweetMag1c for Android", "TwitCasting", "魔理沙ちゃん大陸", "ポッキーﾑｼｬﾑｼｬ", "makebot ツイッター便利機能／ボット作成サービス", "twitterfeed", "えへへ(^^)", "精神の乱れ", "このまま眠りつづけて死ぬ", "垢消せ.com", "rakubo2", "livedoor Blog", "イクシったー", "このままもじゃりつづけてしぬ", "ツイ助。", "なるほどえたきちじゃねーの", "なるほどコカインマンじゃねーの", "autotweety.net", "Ask.fm", "ニコニコ動画", "ニコニコ生放送", "rekkacopy"]
 
 ##mecab-rubyが気持ち悪い
 
