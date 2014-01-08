@@ -1,5 +1,16 @@
+html {
+	height: 100%;
+}
+
 body {
 	background-image: url(img/background2.png);
+	-webkit-box-shadow: inset 15px 0 15px rgba(0, 0, 0, 0.2), inset -15px 0 15px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: inset 15px 0 15px rgba(0, 0, 0, 0.2), inset -15px 0 15px rgba(0, 0, 0, 0.2);
+	box-shadow: inset 15px 0 15px rgba(0, 0, 0, 0.2), inset -15px 0 15px rgba(0, 0, 0, 0.2);
+	min-width: 700px;
+	min-height: 650px;
+	height: 100%;
+	margin: 0;
 }
 
 .discription {
