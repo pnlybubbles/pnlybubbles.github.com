@@ -3,6 +3,7 @@ html {
 }
 
 body {
+	font-family:"Helvetica Neue"
 	background-image: url(img/background2.png);
 	-webkit-box-shadow: inset 15px 0 15px rgba(0, 0, 0, 0.2), inset -15px 0 15px rgba(0, 0, 0, 0.2);
 	-moz-box-shadow: inset 15px 0 15px rgba(0, 0, 0, 0.2), inset -15px 0 15px rgba(0, 0, 0, 0.2);
