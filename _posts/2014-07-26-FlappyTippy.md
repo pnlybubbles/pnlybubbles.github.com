@@ -51,6 +51,17 @@ urlの最後に`#fps30`などをつけるとその値のfpsで実行されます
 
 `#debug`をつけるとデバッグモードになります。
 
+---
+####追記 (2014/07/26)
+製作途中でのデバッグ動画の数々。順に新しくなります。
+
+* [https://www.youtube.com/watch?v=KVrnaaH5EUs](https://www.youtube.com/watch?v=KVrnaaH5EUs)
+* [https://www.youtube.com/watch?v=W3GBJ04b1nA](https://www.youtube.com/watch?v=W3GBJ04b1nA)
+* [https://www.youtube.com/watch?v=F-48Cbcyl0U](https://www.youtube.com/watch?v=F-48Cbcyl0U)
+* [https://www.youtube.com/watch?v=8ph9yq1pAF8](https://www.youtube.com/watch?v=8ph9yq1pAF8)
+* [https://www.youtube.com/watch?v=HKqNOw5muOE](https://www.youtube.com/watch?v=HKqNOw5muOE)
+* [https://www.youtube.com/watch?v=PU528xsRU50](https://www.youtube.com/watch?v=PU528xsRU50)
+
 ## で
 
 今回は元のものを完コピした形になりましたが、まだまだ難易度の調節など作ってる間に色々と思いつきました。
