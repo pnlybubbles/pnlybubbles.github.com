@@ -39,7 +39,7 @@ Githubにソースコードを公開している。
 > 
 > [https://github.com/pnlybubbles/FlappyTippy](https://github.com/pnlybubbles/FlappyTippy "FlappyTippy | Github")
 
-いちおうDropboxで一時的に公開しています。
+いちおうDropboxで一時的に公開している。
 
 [FlappyTippy](https://dl.dropboxusercontent.com/u/41790512/FlappyTippy/index.html "FlappyTippy")
 
