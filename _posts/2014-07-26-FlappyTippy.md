@@ -43,7 +43,7 @@ Githubにソースコードを公開しています。
 
 [FlappyTippy](https://dl.dropboxusercontent.com/u/41790512/FlappyTippy/index.html "FlappyTippy")
 
-画像素材は[@yaplus](https://twitter.com/yaplus "@yaplus")さんお借りしました。ありがとうございます。
+画像素材は[@yaplus](https://twitter.com/yaplus "@yaplus")さんからお借りしました。ありがとうございます。
 
 ---
 ####追記 (2014/07/26)
