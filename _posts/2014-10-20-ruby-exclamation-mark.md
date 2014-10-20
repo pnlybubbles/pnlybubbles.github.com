@@ -34,7 +34,7 @@ Ruby1.9移行において`#!`は`def @!; end`で定義されたメソッドの�
 
 ture/falseを返したいのであれば次のようにするのが賢明である。
 
-    [code.high.num]
+    [code.high.num:13]    
     p usagi ? true : false  #=> true
 
 最も、`!@`の再定義において、直感的な戻り値でない実装は避けたほうが良いかもしれない。
