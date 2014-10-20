@@ -6,6 +6,7 @@ category : ruby
 tags : [ruby]
 ---
 
+    [code.high.num]
     class Tippy
     end
     
@@ -15,6 +16,7 @@ tags : [ruby]
 
 オブジェクトが入ってるかどうかを二重否定によってtrue/falseで返すときに使われる`!!`のイディオム。Rubyだとこのやり方は思わぬ形でバグを生み出してしまうかもしれない。
 
+    [code.high.num]
     class Pyon
       def !@
         return Pyon.new
@@ -32,6 +34,7 @@ Ruby1.9移行において`#!`は`def @!; end`で定義されたメソッドの�
 
 ture/falseを返したいのであれば次のようにするのが賢明である。
 
+    [code.high.num]
     p usagi ? true : false  #=> true
 
 最も、`!@`の再定義において、直感的な戻り値でない実装は避けたほうが良いかもしれない。
