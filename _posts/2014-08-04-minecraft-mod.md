@@ -6,8 +6,6 @@ category : ruby
 tags : [ruby, minecraft, craftbukkit, mod]
 ---
 
-# MinecraftのModを作ってみた
-
 minecraftのサーバークライアントであるcraftbukkitのプラグインを作ってみました。
 
 今回は`Purugin`というcraftbukkitのプラグインを利用して製作しました。
